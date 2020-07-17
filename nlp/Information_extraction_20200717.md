@@ -32,7 +32,7 @@ print(result)
 result.draw()
 ```
 
-![image-20200717121218066](C:/Users/soohan/TIL_study/regex/markdown-images/image-20200717121218066.png)
+![image-20200717121218066](C:/Users/soohan/TIL_study/nlp/markdown-images/image-20200717121218066.png)
 
 
 
@@ -65,7 +65,7 @@ print(result)
 result.draw()
 ```
 
-![image-20200717133734736](C:/Users/soohan/TIL_study/regex/markdown-images/image-20200717133734736.png)
+![image-20200717133734736](C:/Users/soohan/TIL_study/nlp/markdown-images/image-20200717133734736.png)
 
 
 
@@ -264,7 +264,7 @@ print(cp.parse(sentence))
     (VP sit/VB (PP on/IN (NP the/DT mat/NN)))))
 ```
 
-![image-20200717145912648](C:/Users/soohan/TIL_study/regex/markdown-images/image-20200717145912648.png)
+![image-20200717145912648](C:/Users/soohan/TIL_study/nlp/markdown-images/image-20200717145912648.png)
 
 
 
@@ -295,7 +295,7 @@ print(cp.parse(sentence))
 cp.parse(sentence).draw()
 ```
 
-![image-20200717150527835](C:/Users/soohan/TIL_study/regex/markdown-images/image-20200717150527835.png)
+![image-20200717150527835](C:/Users/soohan/TIL_study/nlp/markdown-images/image-20200717150527835.png)
 
 
 
@@ -323,6 +323,6 @@ print(cp.parse(sentence))
 cd.parse(sentence).draw()
 ```
 
-![image-20200717163039905](C:/Users/soohan/TIL_study/regex/markdown-images/image-20200717163039905.png)
+![image-20200717163039905](C:/Users/soohan/TIL_study/nlp/markdown-images/image-20200717163039905.png)
 
 이와 같이 문장에 맞게 트리를 깊게 구성하는 방식을 cascaded chunking이라고 부른다.
