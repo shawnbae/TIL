@@ -326,3 +326,249 @@ cd.parse(sentence).draw()
 ![image-20200717163039905](C:/Users/soohan/TIL_study/nlp/markdown-images/image-20200717163039905.png)
 
 이와 같이 문장에 맞게 트리를 깊게 구성하는 방식을 cascaded chunking이라고 부른다.
+
+
+
+## Trees
+
+```python
+tree1= nltk.Tree('NP', ['Alice'])
+print(tree1)
+```
+
+```
+(NP Alice)
+```
+
+> 문서 tree 추출
+
+```python
+tree2= nltk.Tree('NP', ['the','rabbit'])
+print(tree2)
+```
+
+```
+(NP the rabbit)
+```
+
+
+
+```python
+tree3= nltk.Tree('VP',['chased',tree2])
+tree4= nltk.Tree('S',[tree1, tree3])
+print(tree4)
+```
+
+```
+(S (NP Alice) (VP chased (NP the rabbit)))
+```
+
+
+
+```python
+print(tree4[0])
+print(tree4[1])
+```
+
+```
+(NP Alice)
+(VP chased (NP the rabbit))
+```
+
+
+
+```python
+tree4[1].label()
+```
+
+```
+'VP'
+```
+
+
+
+```python
+tree4.leaves()
+```
+
+```
+['Alice', 'chased', 'the', 'rabbit']
+```
+
+
+
+```python
+tree4[1][1][1]
+```
+
+```
+'rabbit'
+```
+
+
+
+```python
+tree4.draw()
+```
+
+![image-20200717200444562](markdown-images/image-20200717200444562.png)
+
+
+
+## Named Entity Recognition(NER) - 개체명 인식
+
+```python
+sent= nltk.corpus.treebank.tagged_sents()[22]
+print(nltk.ne_chunk(sent, binary=True))
+```
+
+```
+(S
+  The/DT
+  (NE U.S./NNP)
+  is/VBZ
+  one/CD
+  of/IN
+  the/DT
+  few/JJ
+  industrialized/VBN
+  nations/NNS
+  that/WDT
+  *T*-7/-NONE-
+  does/VBZ
+  n't/RB
+  have/VB
+  a/DT
+  higher/JJR
+  standard/NN
+  of/IN
+  regulation/NN
+  for/IN
+  the/DT
+  smooth/JJ
+  ,/,
+  needle-like/JJ
+  fibers/NNS
+  such/JJ
+  as/IN
+  crocidolite/NN
+  that/WDT
+  *T*-1/-NONE-
+  are/VBP
+  classified/VBN
+  *-5/-NONE-
+  as/IN
+  amphobiles/NNS
+  ,/,
+  according/VBG
+  to/TO
+  (NE Brooke/NNP)
+  T./NNP
+  Mossman/NNP
+  ,/,
+  a/DT
+  professor/NN
+  of/IN
+  pathlogy/NN
+  at/IN
+  the/DT
+  (NE University/NNP)
+  of/IN
+  (NE Vermont/NNP College/NNP)
+  of/IN
+  (NE Medicine/NNP)
+  ./.)
+```
+
+
+
+```python
+print(nltk.ne_chunk(sent))
+```
+
+```
+(S
+  The/DT
+  (GPE U.S./NNP)
+  is/VBZ
+  one/CD
+  of/IN
+  the/DT
+  few/JJ
+  industrialized/VBN
+  nations/NNS
+  that/WDT
+  *T*-7/-NONE-
+  does/VBZ
+  n't/RB
+  have/VB
+  a/DT
+  higher/JJR
+  standard/NN
+  of/IN
+  regulation/NN
+  for/IN
+  the/DT
+  smooth/JJ
+  ,/,
+  needle-like/JJ
+  fibers/NNS
+  such/JJ
+  as/IN
+  crocidolite/NN
+  that/WDT
+  *T*-1/-NONE-
+  are/VBP
+  classified/VBN
+  *-5/-NONE-
+  as/IN
+  amphobiles/NNS
+  ,/,
+  according/VBG
+  to/TO
+  (PERSON Brooke/NNP T./NNP Mossman/NNP)
+  ,/,
+  a/DT
+  professor/NN
+  of/IN
+  pathlogy/NN
+  at/IN
+  the/DT
+  (ORGANIZATION University/NNP)
+  of/IN
+  (PERSON Vermont/NNP College/NNP)
+  of/IN
+  (GPE Medicine/NNP)
+  ./.)
+```
+
+## Relation Extraction - 관계 추출
+
+```python
+from nltk.corpus import ieer
+doc_ieer= ieer.parsed_docs('NYT_19980315')
+print(doc_ieer[0].text[:20])
+
+IN= re.compile(r'.*\bin\b(?!\b.+ing)')
+for doc in doc_ieer:
+    for rel in nltk.sem.extract_rels('ORG', 'LOC',doc,
+                                     corpus= 'ieer', pattern= IN):
+        print(nltk.sem.rtuple(rel))
+```
+
+```
+['For', 'almost', Tree('DURATION', ['20', 'years']), ',', 'since', 'its', 'debut', 'in', Tree('DATE', ['1979']), ',', Tree('PERSON', ['Bob', 'Edwards']), 'has', 'presided', 'over', 'the', Tree('ORGANIZATION', ['National', 'Public', 'Radio']), 'news', 'magazine', '``Morning', "Edition.''"]
+[ORG: 'WHYY'] 'in' [LOC: 'Philadelphia']
+[ORG: 'McGlashan &AMP; Sarrail'] 'firm in' [LOC: 'San Mateo']
+[ORG: 'Freedom Forum'] 'in' [LOC: 'Arlington']
+[ORG: 'Brookings Institution'] ', the research group in' [LOC: 'Washington']
+[ORG: 'Idealab'] ', a self-described business incubator based in' [LOC: 'Los Angeles']
+[ORG: 'Open Text'] ', based in' [LOC: 'Waterloo']
+[ORG: 'WGBH'] 'in' [LOC: 'Boston']
+[ORG: 'Bastille Opera'] 'in' [LOC: 'Paris']
+[ORG: 'Omnicom'] 'in' [LOC: 'New York']
+[ORG: 'DDB Needham'] 'in' [LOC: 'New York']
+[ORG: 'Kaplan Thaler Group'] 'in' [LOC: 'New York']
+[ORG: 'BBDO South'] 'in' [LOC: 'Atlanta']
+[ORG: 'Georgia-Pacific'] 'in' [LOC: 'Atlanta']
+```
