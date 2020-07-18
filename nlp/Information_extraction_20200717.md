@@ -171,6 +171,8 @@ print(cp.parse(sentence))
   (NP the/DT cat/NN))
 ```
 
+
+
 #### Chunked Sentence
 
 > 사전에 chunking된 사전
@@ -237,6 +239,8 @@ score.precision()
 score.recall()
 score.f_measure()
 ```
+
+
 
 #### Recursion in Linguistic Structure
 
