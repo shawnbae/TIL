@@ -245,5 +245,104 @@ checkTopic(0, 2)
 
 
 
+### LDA(Latent Dirichlet Allocation)
 
+> 토픽을 먼저 추정한 후 문서 별로 토픽이 얼마나 분포되어있는지, 토픽 별로 문서들이 얼마나 분포되어 있는지 베이지안 방법에 따라 사전분포를 결정한 후 디리클레 분포와 Multivariate 분포의 수학적인 사후 확률 공식을 이용하여 토픽을 모델링하는 방법. 
 
+#### 문서가 생성되는 원리
+
+사전 분포 Dir(alpha), 실제 확률분포 Multinomial을 곱하여 사후확률 분포 Dir(alpha + X)를 추정한다. 이 때 Multinomial 분포를 결정함에 있어 Gibbs' sampling을 사용한다. Multinomial 분포의 예시로 토픽 별 문서의 분포 / 문서 별 토픽의 분포 등을 사용할 수 있다. 사후확률분포가 결정되면 가장 높은 확률을 추론할 수 있으므로 문서를 생성해낼 수 있다.
+
+#### scikit-learn의 LDA 사용하기
+
+``` python
+from sklearn.decomposition import LatentDirichletAllocation as LDA
+```
+
+> 모듈 불러오기
+
+```python
+model = LDA(n_components = len(newsData.target_names), 
+            learning_method='online', 
+            evaluate_every=5, 
+            max_iter=1000, 
+            verbose=1)
+
+doc_topic = model.fit_transform(tfidf)
+```
+
+```
+In [296]: tfidf.toarray().shape
+Out[296]: (11314, 500) # (문서 개수, 단어 개수)
+```
+
+> TF-IDF로 변환된 학습 겸 입력 데이터의 shape
+
+```python
+doc_topic = model.fit_transform(tfidf)
+
+In [297]: doc_topic.shape
+Out[297]: (11314, 20) # (문서 개수, 토픽 개수)
+```
+
+TF-IDF데이터로 LDA를 학습시킨 모델에 TF-IDF 데이터를 넣어 도출해낸 결과물의 shape. model의 파라미터에 n_components를 target의 개수(Topic의 개수)와 같게 하였기 때문에 결과의 열 개수가 20개가 되었다.
+
+#### gensim의 LDA 사용하기
+
+```python
+from gensim import corpora
+from gensim.models.ldamodel import LdaModel as LDA
+```
+
+> 필요한 모듈들 불러오기
+
+```python
+model = LDA(news_bow, 
+            num_topics = len(newsData.target_names), 
+            id2word=vocab)
+```
+
+```
+문서-0 : topic = 13
+문서-1 : topic = 13
+문서-2 : topic = 13
+문서-3 : topic = 3
+문서-4 : topic = 9
+문서-5 : topic = 10
+문서-6 : topic = 6
+문서-7 : topic = 1
+문서-8 : topic = 0
+문서-9 : topic = 4
+```
+
+```
+토픽- 1 : henrik insurance would sabbath maine jesus unto said people room 
+토픽- 2 : would people know think like right time things good even 
+토픽- 3 : space also system nasa data anonymous number available contest pain 
+토픽- 4 : government encryption would security public chip system clipper keys technology 
+토픽- 5 : bike null know much widget would like engine time problem 
+토픽- 6 : ground wire pitt gordon neutral surrender banks wiring skepticism soon 
+토픽- 7 : file output drive disk system problem data program used using 
+토픽- 8 : church greek would also catholic greece time pope must well 
+토픽- 9 : windows also would like version thanks know anyone available need 
+토픽-10 : game team year games play season last first would period 
+토픽-11 : would think people jesus believe like know said could time 
+토픽-12 : list entries entry would file send program request mail news 
+토픽-13 : scsi simms vram simm burst inflammation hawks chip quadra wide 
+토픽-14 : people armenian armenians said would jews israel many turkish israeli 
+토픽-15 : sleeve rockefeller picture moon lunar orbit rockets intentional rocket erzurum 
+토픽-16 : health patients compass disease medical diseases april hicnet would dept 
+토픽-17 : would like time know well right people used back years 
+토픽-18 : window display color server available thanks information would program data 
+토픽-19 : navy naval astros recognition solaris israel aged division volvo canadiens 
+토픽-20 : motif export contrib program university information xlib allocation part classes 
+```
+
+```
+문서 2의 topic = talk.politics.mideast
+문서 5의 topic = soc.religion.christian
+문서 7의 topic = talk.politics.mideast
+문서 9의 topic = sci.electronics
+```
+
+> 최종 결과물은 위와 같다.
