@@ -209,3 +209,40 @@ x= Input(batch_size= (None, None, f= 8))
 ```
 
 위는 t의 개수에 맞춰 padding이 필요하며, 아래는 굳이 padding해주지 않아도 된다. 그러나 위는 batch_size를 지정할 수 있어 학습 속도가 빠르지만, 아래는 batch_size를 지정할 수 없어 시간이 오래 걸린다.
+
+```python
+xInput = Input(batch_shape=(None, max_length))
+xEmbed = Embedding(max_features, 60)(xInput)
+xLstm = Bidirectional(LSTM(64))(xEmbed)
+xOutput = Dense(1, activation='sigmoid')(xLstm)
+model = Model(xInput, xOutput)
+model.compile(loss='binary_crossentropy', optimizer='adam')
+
+hist = model.fit(x_train, y_train, 
+                 batch_size=32, 
+                 epochs=10,
+                 validation_data = (x_test, y_test))
+```
+
+```
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+input_1 (InputLayer)         [(None, 400)]             0         
+_________________________________________________________________
+embedding_2 (Embedding)      (None, 400, 60)           360000    
+_________________________________________________________________
+bidirectional (Bidirectional (None, 128)               64000     
+_________________________________________________________________
+dense_4 (Dense)              (None, 1)                 129       
+=================================================================
+Total params: 424,129
+Trainable params: 424,129
+Non-trainable params: 0
+_________________________________________________________________
+```
+
+> 학습의 loss history는 아래와 같다.
+
+![image-20200723165624444](markdown-images/image-20200723165624444.png)
+
