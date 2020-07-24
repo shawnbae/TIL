@@ -246,3 +246,116 @@ _________________________________________________________________
 
 ![image-20200723165624444](markdown-images/image-20200723165624444.png)
 
+
+
+## Embedding된 단어들의 유사도 측정하기
+
+단어의 의미까지 벡터화시킨 Word Embedding model에서 어떻게 의미를 알아낼 수 있을까? father, mother, daughter, son 4개의 단어들의 유사도를 알아보자.
+
+```python
+word2idx = imdb.get_word_index()
+```
+
+> 단어에 인덱스를 부여한 imdb의 단어셋을 불러온다.
+
+
+
+```python
+w_emb = np.array(model.layers[1].get_weights())       # shape = (1, 6000, 60)
+w_emb = w_emb.reshape(max_features, embedding_dims)   # shape = (6000, 60)
+```
+
+> 학습한 모델에서 Embedding layer에 해당하는 Weights를 불러온다. 6000개 단어set에 대해 vector들의 집합이라고 볼 수 있다.
+
+```
+In [12]: w_emb.shape
+Out[12]: (6000, 60)
+```
+
+```
+In [11]: w_emb
+Out[11]: 
+array([[-0.04722847, -0.08105684,  0.01712978, ...,  0.01756595,
+         0.01371389, -0.02389302],
+       [ 0.09459095,  0.00942968, -0.08750433, ..., -0.17234574,
+        -0.00505843,  0.0345106 ],
+       [-0.13005975, -0.0771263 ,  0.06728779, ...,  0.03242338,
+        -0.00790931, -0.00220713],
+       ...,
+       [ 0.11391168,  0.206054  ,  0.18929325, ...,  0.1773368 ,
+        -0.00825876, -0.28332046],
+       [-0.03991996,  0.10020144,  0.08543217, ..., -0.08001798,
+         0.0223297 ,  0.03928765],
+       [ 0.00749222, -0.16310509, -0.16402248, ...,  0.06910414,
+        -0.01253061, -0.07812501]], dtype=float32)
+```
+
+
+
+이 중 father, mother, daughter, son 각각의 위치들을 인덱싱해 단어 벡터들을 관찰하자.
+
+```python
+father = w_emb[word2idx['father']]
+mother = w_emb[word2idx['mother']]
+daughter = w_emb[word2idx['daughter']]
+son = w_emb[word2idx['son']]
+```
+
+```python
+from sklearn.metrics.pairwise import euclidean_distances
+
+euclidean_distances([father, mother, daughter, son])
+```
+
+> scikit-learn의 euclidean_distances를 불러와 distance matrix를 구해본다.
+
+
+
+```
+array([[0.        , 1.0993816 , 1.0629532 , 0.70497483],
+       [1.0993816 , 0.        , 1.0357524 , 1.1255141 ],
+       [1.0629532 , 1.0357524 , 0.        , 1.1027664 ],
+       [0.70497483, 1.1255141 , 1.1027664 , 0.        ]], dtype=float32)
+```
+
+father, mother, daughter, son 순으로 나열된 단어들의 유사도이다.
+
+
+
+## 특정 문장의 Embedding vector 알아보기
+
+```python
+embModel = Model(xInput, emb)
+m = embModel.predict(x_train[0].reshape(1, max_length))
+m.shape
+```
+
+```
+(1, 400, 60)
+```
+
+
+
+> 모델을 구현하면서 쌓았던 Embedding layer를 불러와 embModel을 구성하였다.
+
+```python
+embModel.summary()
+```
+
+```
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+input_1 (InputLayer)         [(None, 400)]             0         
+_________________________________________________________________
+embedding (Embedding)        (None, 400, 60)           360000    
+_________________________________________________________________
+dropout (Dropout)            (None, 400, 60)           0         
+=================================================================
+Total params: 360,000
+Trainable params: 360,000
+Non-trainable params: 0
+_________________________________________________________________
+```
+
+> Embedding Layer만 쌓인 층은 위와 같다.
