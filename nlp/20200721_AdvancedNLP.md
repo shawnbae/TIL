@@ -347,3 +347,141 @@ model = LDA(news_bow,
 
 > 최종 결과물은 위와 같다.
 
+
+
+## PageRank 알고리즘
+
+![image-20200801194629985](markdown-images/image-20200801194629985.png)
+
+
+
+4개의 문서 A, B, C, D가 있다. 각 링크 연결 상태가 노란 선으로 표시되어 있다. A는 3개 페이지로부터, B는 1개 페이지로부터, C는 2개 페이지로부터, D는 0개 페이지로부터 링크가 걸려 있다. A가 가장 중요해 보인다.
+
+
+
+이 아이디어를 어떻게 수치화하여 나타낼 수 있을까?
+
+
+
+1. 각 페이지의 PageRank 초기화
+
+   문서의 개수를 N이라 할 때, 각 페이지 랭크를 1/N으로 초기화한다.
+
+   
+
+2. 각 페이지의 PageRank 계산 및 반복
+
+   각 문서마다 다음과 같은 방식으로 PageRank를 계산한다.
+
+   ![image-20200801195100297](markdown-images/image-20200801195100297.png)
+
+   
+
+   A 문서를 예로 들어 확인하자. A로 유입되는 링크가 있는 문서는 B, C, D이다. B, C, D 각각의 총 링크 개수를 분모에, B, C, D 각각의 PageRank를 분자에 놓고 더한 값으로 PageRank값을 업데이트한다.
+
+
+
+3. damping-factor 적용
+
+   ![image-20200801195233959](markdown-images/image-20200801195233959.png)
+
+   - d가 0이면 해당 페이지에서 클릭하지 않음을 의미한다. 가중치를 0으로 설정한다. 예컨대 링크가 걸려 있어도 링크에 관심이 없으면 클릭을 하지 않는다. 그렇게 클릭하지 않아 d가 0이라면 1/N만 남는다.
+   - d=1이면 계속해서 클릭한다.
+
+   이러한 클릭의 빈도 등을 조절해주는 역할을 하는 파라미터가 d이다. 논문의 저자는 0.85를 적용했다.
+
+   > PageRank 알고리즘에서는 중요한 문서로부터 얼마나 많은 링크가 걸려 있는지가 중요하다. 연결의 질을 따진다.
+
+
+
+## TextRank 알고리즘
+
+Google의 PageRank 알고리즘을 차용해서 만든 문서 요약 알고리즘이다. 하나의 문서 안에 여러 문장들이 있을 때, 문장들 간의 연계 및 유사도가 있을 것이다. 중요한 문장, 유사한 문장일수록 자주 등장할 것이라는 아이디어를 기반으로 한다.
+
+
+
+1. 각 문장의 TextRank 초기화
+
+   PageRank와 동일하게, 문장 개수의 역수로 초기화한다.
+
+2.  문장 간 유사도 측정
+
+![image-20200801195842092](markdown-images/image-20200801195842092.png)
+
+​	i번째 문장과 j번째 문장 간 유사도 계산 과정을 반복한다.
+
+	- 분모: 각 문장 단어 개수의 절댓값에 로그를 취한 것을 더한 값.
+	- 분자: 두 문장 모두에 등장하는 단어의 개수의 절댓값을 취한 값.
+
+3. TextRank 계산 및 반복
+
+   ![image-20200801200012370](markdown-images/image-20200801200012370.png)
+
+   - 위 공식으로 각 문장의 TextRank 계산 및 반복
+   - in: 관련 있는 문장
+   - out: 관련 있는 문장과 관련이 있는 또 다른 문장
+
+   ![image-20200801200122619](markdown-images/image-20200801200122619.png)
+
+   TR(A) 를 계산하는 방법을 보는 것이 더 잘 이해된다.
+
+   
+
+   그림 상으로 보면 문장 A는 B, D와 관련 있다. 따라서 각 문장과의 유사도를 분자에 놓는다. B 입장에서
+   는 A와도 관련 있고, C와도 관련 있다. 따라서 A와 B, B와 C의 유사도를 더한 것을 B 부분의 분자에 놓는
+   다.
+
+   
+
+   문장 A의 경우 0.2, 0.3 문장이 주목하고, B의 경우 0.2, 0.4 문장이 주목한다. 직관적으로 B가 A보다 더
+   중요한 것처람 보이는데, 실제로 그렇다.
+
+   
+
+   위와 같은 방법에 의해 모든 문장에 대해 TR 지수를 계산한 후, 가장 높은 것들을 뽑아 내면 그 문서를
+   대표하는 문장이라고 본다.
+
+
+
+#### gensim 라이브러리로 간단히 구현
+
+```python
+from gensim.summarization.summarizer import summarize
+
+text= \
+    """Rice Pudding - Poem by Alan Alexander Milne
+    What is the matter  with Mary Jane?
+    She's crying with all her might and main,
+    And she won't eat her dinner - rice pudding again -
+    What is the matter with Mary Jane?
+    What is the matter with Mary Jane?
+    I've promised her dolls and a daisy-chain,
+    And a book about animals - all in vain -
+    What is the matter with Mary Jane?
+    What is the matter with Mary Jane?
+    She's perfectly well, and she hasn't a pain;
+    But, look at her, now she's beginning again! -
+    What is the matter with Mary Jane?
+    What is the matter with Mary Jane?
+    I've promise her sweets and a ride in the train,
+    And I've begged her to stop for a bit and explain -
+    What is the matter with Mary Jane?
+    What is the matter with Mary Jane?
+    She's perfectly well and she hasn't a pain,
+    And it's lovely rice pudding for dinner again!
+    What is the matter with Mary Jane?
+    """
+
+summary= summarize(text, ratio= 0.1)
+
+print(summarize(text))
+```
+
+```
+And she won't eat her dinner - rice pudding again -
+I've promised her dolls and a daisy-chain,
+I've promise her sweets and a ride in the train,
+And it's lovely rice pudding for dinner again!
+```
+
+> summarize함수는 TextRank 알고리즘을 기반으로 하고 있으며, 위는 그 알고리즘으로 중요한 문장들을 추출한 예시이다.
