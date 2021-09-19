@@ -16,7 +16,7 @@ padding 부분은 배경색 또는 배경 이미지가 적용되는 박스 내�
 
 border는 아무런 속성도 부여하지 않으면 기본적으로 어떤 스타일도 적용되지 않습니다. border-style, border-width, border-color 을 지정하면 각각 solid, dashed, dotted 등의 스타일, 두께, 색상 등을 지정할 수 있습니다. 단축표기법을 사용해서 세 가지 속성을 한번에 적을 수도 있습니다. 위/오/아/왼 각각 또한 지정하는 것도 가능합니다.
 
-한 요소의 크기는 어떻게 결정 될까요? 개발자 도구를 다시 보겠습니다. 앞서 width와 height 속성으로 콘텐트의 크기를 정할 수 있다고 말씀 드렸습니다. 이렇게 콘텐트의 너비와 높이만으로 width와 height 값을 산정하는 것은 box-sizing 속성이 content-box 값일 때입니다. 이게 브라우저 기본 설정입니다. 그런데 이렇게 되면 레이아웃을 그릴 때 padding 값과 border 두께를 매번 계산하고 고려해야 한다는 문제가 있습니다. 번거롭죠. 그래서 padding과 border 두께까지 포함한 것을 요소의 width와 height로 적용하려면 box-sizing 속성을 border-box로 바꾸면 됩니다. 저는 주로 예측하기 쉽도록, box-sizing을 border-box로 지정하고 있습니다.
+한 요소의 크기는 어떻게 결정 될까요? 개발자 도구를 다시 보겠습니다. 앞서 width와 height 속성으로 콘텐트의 크기를 정할 수 있다고 말씀 드렸습니다. 이렇게 콘텐트의 너비와 높이만으로 width와 height 값을 산정하는 것은 box-sizing 속성이 content-box 값일 때입니다. 이게 브라우저 기본 설정입니다. 그런데 이렇게 되면 레이아웃을 그릴 때 padding 값과 border 두께를 매번 계산하고 고려해야 한다는 문제가 있습니다. 번거롭죠. 그래서 padding과 border 두께까지 포함한 것을 요소의 width와 height로 적용하려면 box-sizing 속성을 **border-box**로 바꾸면 됩니다. 저는 주로 예측하기 쉽도록, box-sizing을 border-box로 지정하고 있습니다.
 
 마지막으로 margin의 특별한 속성에 대해 말씀 드리겠습니다. margin은 요소 바깥 여백 경계라고 말씀을 드렸는데요. 묘한 성질이 있습니다. 바로 요소 두 개가 서로 맞닿아 마진끼리 닿을 때인데요. 세로 방향으로 지정한 두 개의 서로 다른 요소가 수직으로 접해있는 경우, 그러니까 margin-bottom과 margin-top이 만나는 경우, 두 요소 사이의 마진 간격은 각각의 margin 크기를 합친 것이 아니고, 두 요소 가운데 큰 margin 수치값을 선택합니다. 이를 마진통합/마진상쇄 혹은 margin-collapsing이라고 부릅니다. 그래서 마진으로 간격을 조절할 때는 유의해야 합니다.
 
