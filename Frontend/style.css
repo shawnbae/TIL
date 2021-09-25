@@ -1,3 +1,4 @@
+/* 공통 속성 */
 *,
 *::before,
 *::after {
@@ -9,10 +10,15 @@ html {
 body {
   min-width: 1060px;
   font-size: 1.8rem;
+  line-height: 1.6;
+  font-family: Roboto, Avenir, sans-serif;
 }
+
+/* HEADER */
 .header {
   background: aqua;
   height: 72px;
+  padding: 15px 0 4px;
 }
 .container {
   max-width: 1400px;
