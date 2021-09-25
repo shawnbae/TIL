@@ -76,4 +76,5 @@ a {
 /* FOOTER */
 .footer {
   background: green;
+  clear: both;
 }
