@@ -106,13 +106,12 @@ a {
   font-weight: 400;
   margin: 40px 0 20px 0;
   font-size: 3.2rem;
-  letter-spacing: -1px;
 }
 .main-desc {
-  margin: 0 0 20px 0;
+  margin: 0;
 }
 .mailing-layout {
-  padding-top: 20px;
+  padding-top: 10px;
 }
 .mailing-layout::after {
   content: "";
