@@ -48,8 +48,3 @@ def current_datetime(request):
 
 - html 문법을 사용할 수 있는 코드
 - 내가 원하는 데이터를 html형태로 만들 수 있음.
-
-
-
-
-
