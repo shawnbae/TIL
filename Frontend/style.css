@@ -20,8 +20,11 @@ a {
 /* CALL TO ACTION */
 .cta {
   color: white;
+  width: 300px;
   font-weight: 400;
+  margin: 0 auto 60px;
   display: block;
+  padding: 20px 50px;
   border-radius: 8px;
   background: #44b78b;
 }
