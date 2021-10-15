@@ -5,5 +5,7 @@ from django.shortcuts import render
 #def test(request):
 #    pass
 #    pass
-
 #    return httpresponse
+
+def register(request):
+    return render(request, 'register.html') # templates폴더의 register.html을 렌더링함.
