@@ -20,4 +20,6 @@ class Fcuser(models.Model):
 
     # django Framework에 table 이름을 전달하는 역할
     class Meta:
-        db_table = 'fastcampus_fcuser'                            
+        db_table = 'fastcampus_fcuser'
+        verbose_name = '패스트캠퍼스 사용자' # FCuser와 같은 이름이 아닌 친숙한 이름으로 사용
+        verbose_name_plural = '패스트캠퍼스 사용자' # django는 기본적으로 복수형으로 보여주는데, 그 이름을 따로 설정해야 함.
