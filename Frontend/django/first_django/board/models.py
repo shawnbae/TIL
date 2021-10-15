@@ -13,6 +13,11 @@ class Fcuser(models.Model):
     registered_dttm = models.DateTimeField(auto_now_add=True,
                                 verbose_name="등록시간")
 
+    # 내가 가지고 있는 user네임을 반환함. 
+    def __str__(self):
+        return self.username
+
+
     # django Framework에 table 이름을 전달하는 역할
     class Meta:
         db_table = 'fastcampus_fcuser'                            
