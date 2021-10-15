@@ -48,3 +48,42 @@ def current_datetime(request):
 
 - html 문법을 사용할 수 있는 코드
 - 내가 원하는 데이터를 html형태로 만들 수 있음.
+
+
+
+# **django 구동하기**
+
+> manage.py가 존재하는 경로에서 DataBase를 생성함
+
+```bash
+$python manage.py makemigrations
+```
+
+> migrate하기 --> settings의 app들이 사용하는 table들을 자동으로 생성해줌.
+
+```bash
+$python manage.py migrate
+```
+
+- https://www.sqlite.org/download.html 페이지에서 sqlite3.exe를 다운로드 받아 해당 경로에 넣으면 shell에서 아래 명령어 실행 가능.
+
+> sqlite3 구동하기
+
+```shell
+$.\sqlite3 db.sqlite3
+sqlite> .table
+auth_group                  django_admin_log
+auth_group_permissions      django_content_type
+auth_permission             django_migrations
+auth_user                   django_session
+auth_user_groups            fastcampus_fcuser
+auth_user_user_permissions
+
+```
+
+
+
+
+
+
+

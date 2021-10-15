@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'board' # 새로 만들어 등록한 app
+    'board', # 새로 만들어 등록한 app
+    'first_django'
 ]
 
 MIDDLEWARE = [
