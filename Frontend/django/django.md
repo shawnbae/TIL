@@ -1,11 +1,63 @@
 # 기본적으로 참조할 사이트
 https://docs.djangoproject.com/ko/3.2/topics/
 
-# 계층 구조
+계층 구조
+
 ## 모델 계층
 - Model은 DataBase를 담당함.
 - 기본적으로 SQL이라는 문법을 통해 DataBase의 설계가 이루어져야 하지만, django는 프레임워크로서 DB를 설계할 수 있는 기능들을 별도로 제공함.
 - https://docs.djangoproject.com/ko/3.2/topics/db/models/
+
+
+
+### 데이터베이스에 반영 및 관리하기 (makemigrations, migrate)
+
+> manage.py가 존재하는 경로에서 DataBase를 생성함
+
+```bash
+$python manage.py makemigrations
+```
+
+> migrate하기 --> settings의 app들이 사용하는 table들을 자동으로 생성해줌.
+
+```bash
+$python manage.py migrate
+```
+
+- https://www.sqlite.org/download.html 페이지에서 sqlite3.exe를 다운로드 받아 해당 경로에 넣으면 shell에서 아래 명령어 실행 가능.
+
+> sqlite3 구동하기
+
+```shell
+$.\sqlite3 db.sqlite3
+
+sqlite> .table
+auth_group                  django_admin_log
+auth_group_permissions      django_content_type
+auth_permission             django_migrations
+auth_user                   django_session
+auth_user_groups            fastcampus_fcuser
+auth_user_user_permissions
+
+sqlite> .schema fastcampus_fcuser
+CREATE TABLE IF NOT EXISTS "fastcampus_fcuser" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "username" varchar(64) NOT NULL, "password" varchar(64) NOT NULL, "registered_dttm" datetime NOT NULL);
+
+sqlite> .q
+```
+
+
+
+### 계정 관련 (admin)
+
+- admin의 경우 기본적으로 urls.py에 설정되어 있다.
+
+- 주소창/admin으로 접속하면 관리자 페이지로 접속이 가능하다.
+
+  > 계정 생성하기 --> ID, PW, email을 입력하면 계정이 생성된다.
+
+```shell
+$python manage.py createsuperuser
+```
 
 
 
@@ -44,6 +96,20 @@ def current_datetime(request):
 
 
 
+### 회원가입
+
+> https://getbootstrap.com/docs/5.0/getting-started/introduction/ 페이지에서 css, js head 복사
+>
+> -> templates/register.html에 head link에 삽입
+
+- templates/에 작성된 html문서는 views.py에서 렌더링하고, urls.py에서 path를 연결하여 html문서를 보여준다.
+
+
+
+
+
+
+
 ## 템플릿 계층
 
 - html 문법을 사용할 수 있는 코드
@@ -51,34 +117,10 @@ def current_datetime(request):
 
 
 
-# **django 구동하기**
-
-> manage.py가 존재하는 경로에서 DataBase를 생성함
-
-```bash
-$python manage.py makemigrations
-```
-
-> migrate하기 --> settings의 app들이 사용하는 table들을 자동으로 생성해줌.
-
-```bash
-$python manage.py migrate
-```
-
-- https://www.sqlite.org/download.html 페이지에서 sqlite3.exe를 다운로드 받아 해당 경로에 넣으면 shell에서 아래 명령어 실행 가능.
-
-> sqlite3 구동하기
+## django 구동하기
 
 ```shell
-$.\sqlite3 db.sqlite3
-sqlite> .table
-auth_group                  django_admin_log
-auth_group_permissions      django_content_type
-auth_permission             django_migrations
-auth_user                   django_session
-auth_user_groups            fastcampus_fcuser
-auth_user_user_permissions
-
+$python manage.py runserver
 ```
 
 
