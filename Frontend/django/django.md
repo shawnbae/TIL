@@ -113,7 +113,26 @@ def current_datetime(request):
 ## 템플릿 계층
 
 - html 문법을 사용할 수 있는 코드
+
 - 내가 원하는 데이터를 html형태로 만들 수 있음.
+
+- template의 경우 많은 문서들이 반복되므로, 상속 개념을 활용하는 것이 좋다.
+
+  > base.html이라는 문서를 상속받을 때 첫 문장에 해당 스크립트 사용
+
+  ```html
+  {% extends "base.html" %}
+  ```
+
+  > 반복되는 내용을 해당 내용으로 대체함.
+
+  ```html
+  {% block contents %}
+  (~any contents~)
+  {% endblock %}
+  ```
+
+  
 
 
 

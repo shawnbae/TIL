@@ -55,7 +55,7 @@ del student_numbers_list[1]
 del student_grades_list[1]
 del student_details_list[1]
 
-
+print("현재 단계")
 print(student_names_list)
 print(student_numbers_list)
 print(student_grades_list)
