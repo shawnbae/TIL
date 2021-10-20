@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from django.contrib.auth.hashers import make_password, check_password
+from django.contrib.auth.hashers import make_password, check_password # 자동으로 비밀번호를 암호화해서 저장할 수 있게 함.
 from .models import Fcuser
 from .forms import LoginForm
 
