@@ -23,7 +23,7 @@ def login(request):
         form = LoginForm(request.POST)
         if form.is_valid():
             request.session['user'] = form.user_id
-            return redirect('/')
+            return redirect('/') # 현재 경로로 redirect할 때엔 redirect('/')와 같이 사용.
     else:
         form = LoginForm()
 
@@ -33,6 +33,7 @@ def login(request):
 def register(request):
     if request.method == 'GET':
         return render(request, 'register.html')
+    
     elif request.method == 'POST':
         username = request.POST.get('username', None) # request.POST['username']
         useremail = request.POST.get('useremail', None)
@@ -40,7 +41,7 @@ def register(request):
         re_password = request.POST.get('re-password', None)
 
         res_data = {}
-
+        # 입력받지 않은 값을 입력받았을 때의 예외 처리
         if not (username and useremail and password and re_password):
             res_data['error'] = '모든 값을 입력해야합니다.'
         # 비밀번호 입력, 비밀번호 재입력이 다른 경우
