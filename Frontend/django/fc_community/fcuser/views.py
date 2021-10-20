@@ -8,6 +8,11 @@ from .forms import LoginForm
 
 
 def home(request):
+    user_id = request.session.get('user')
+
+    if user_id:
+        fuser = Fcuser.objects.get(pk=user_id)
+
     return render(request, 'home.html')
 
 
@@ -22,7 +27,7 @@ def login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
-            request.session['user'] = form.user_id
+            request.session['user'] = form.user_id # dictionary를 사용하듯이 사용하면 되며, cookie를 관리한다.
             return redirect('/') # 현재 경로로 redirect할 때엔 redirect('/')와 같이 사용.
     else:
         form = LoginForm()
