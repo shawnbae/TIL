@@ -29,12 +29,12 @@ def login(request):
 
     return render(request, 'login.html', {'form': form})
 
-
+# GET방식과 POST방식 두 가지 존재.
 def register(request):
     if request.method == 'GET':
         return render(request, 'register.html')
     elif request.method == 'POST':
-        username = request.POST.get('username', None)
+        username = request.POST.get('username', None) # request.POST['username']
         useremail = request.POST.get('useremail', None)
         password = request.POST.get('password', None)
         re_password = request.POST.get('re-password', None)
@@ -43,8 +43,10 @@ def register(request):
 
         if not (username and useremail and password and re_password):
             res_data['error'] = '모든 값을 입력해야합니다.'
+        # 비밀번호 입력, 비밀번호 재입력이 다른 경우
         elif password != re_password:
-            res_data['error'] = '비밀번호가 다릅니다.'
+            res_data['error'] = '비밀번호가 다릅니다.' # 렌더 메시지를 저장하여 return의 render함수로 던짐.
+            #return HttpResponse('비밀번호가 다릅니다!') --> 페이지가 바뀌어야만 에러 메시지가 보임. 불편.
         else:
             fcuser = Fcuser(
                 username=username,
