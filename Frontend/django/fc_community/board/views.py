@@ -51,7 +51,7 @@ def board_write(request):
 
 
 def board_list(request):
-    all_boards = Board.objects.all().order_by('-id')
+    all_boards = Board.objects.all().order_by('-id') # -의 의미는 가장 최신 것을 역순으로 가져오겠다는 의미.
     page = int(request.GET.get('p', 1))
     paginator = Paginator(all_boards, 3)
 
