@@ -5,6 +5,7 @@ from django.contrib.auth.hashers import check_password
 
 class LoginForm(forms.Form):
     username = forms.CharField(
+        # Error 시 입력해주어야 하는 메시지를 직접 dictionary로 할당함.
         error_messages={
             'required': '아이디를 입력해주세요.'
         },
