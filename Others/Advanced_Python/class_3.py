@@ -67,4 +67,16 @@ studt2 = Student('Chang', 4, 1, {'gender': 'Female', 'score1': 85, 'score2': 74}
 
 # 인스턴스 변수
 # 직접 접근하는 방식은 Python과 맞지 않는다.
+#print(studt1._name, studt2._name)
+#print(studt1._email, studt2._email)
+#print(Student.student_count) # 클래스 변수 접근
 
+# 공유 확인
+# 인스턴스 네임스페이스에 존재하지 않을 때엔 상위에서 검색함.
+# 즉, 동일한 이름으로 변수를 생성할 수 있음 (인스턴스 검색 -> 상위 (클래스 변수, 부모 클래스 변수 등))
+#print(Student.__dict__)
+#print(studt1.__dict__)
+
+#del studt2 # 학생 정보 지우기
+#print(studt1.student_count)
+#print(Student.student_count)
