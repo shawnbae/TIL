@@ -26,5 +26,15 @@ line_leng_2 = sqrt((pt2.x - pt1.x) ** 2 + (pt2.y - pt1.y) ** 2)
 
 print(line_leng_2)
 
+# 네임드 튜플 선언 방식들
+Point1 = namedtuple('Point', ['x', 'y'])
+Point2 = namedtuple('Point', 'x, y')
+Point3 = namedtuple('Point', 'x y')
+Point4 = namedtuple('Point', 'x y x class', rename=True) # Default = False, 중복된 이름이 있을 때 알아서 바꿔 key값을 넣어줌.
 
+p1 = Point1(x=10, y=35)
+p2 = Point2(20, 40)
+p3 = Point3(45, y=20)
+p4 = Point4(10, 20, 30, 40)
 
+print("Point들 출력해보기: ", p1, p2, p3, p4)
