@@ -89,6 +89,9 @@ student_2 = Student(2, 'Lee', 'Myungho', 'Student2@daum.net', '2', 500, 4.3)
 # 학비 인상을 Class Method를 사용하여 실행
 Student.raise_fee(1.5)
 
+# 클래스 메소드 인스턴스 생성하기
+student_3 = Student.student_const(3, 'Park', 'Minji', 'Student3@gmail.com', '3', 550, 4.5)
+student_4 = Student.student_const(4, 'Cho', 'Sunghan', 'Student4@naver.com', '4', 600, 4.1)
 
 
 
