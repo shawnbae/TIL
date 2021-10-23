@@ -93,8 +93,15 @@ Student.raise_fee(1.5)
 student_3 = Student.student_const(3, 'Park', 'Minji', 'Student3@gmail.com', '3', 550, 4.5)
 student_4 = Student.student_const(4, 'Cho', 'Sunghan', 'Student4@naver.com', '4', 600, 4.1)
 
+# 전체 정보
+print(student_3.detail_info())
+print(student_4.detail_info())
+print()
 
-
+# 학생 학비 변경 확인
+print(student_3._tuition)
+print(student_4._tuition)
+print()
 
 
 
