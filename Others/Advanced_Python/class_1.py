@@ -19,3 +19,14 @@ student3 = Student('Park', 3, 4, {'gender': 'Male', 'score1': 99, 'score2': 100}
 print(student1.__dict__)
 print(student2.__dict__)
 print(student3.__dict__)
+
+# 리스트 선언
+students_list = []
+
+students_list.append(student1)
+students_list.append(student2)
+students_list.append(student3)
+
+for x in students_list:
+    print(repr(x))
+    print(x)
