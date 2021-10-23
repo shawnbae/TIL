@@ -12,8 +12,9 @@ class Student():
     
     # str메서드가 없을 때에는 print에서 repr메서드가 호출됨
     def __repr__(self):
+        return 'repr {}'.format(self._name)
 
-        
+# 객체 지정하기
 studt1 = Student('Cho', 2, 3, {'gender': 'Male', 'score1': 65, 'score2': 44})
 studt2 = Student('Chang', 4, 1, {'gender': 'Female', 'score1': 85, 'score2': 74}, 'stu2@naver.com')
 
@@ -21,4 +22,6 @@ studt2 = Student('Chang', 4, 1, {'gender': 'Female', 'score1': 85, 'score2': 74}
 #print(studt1.__dict__)
 
 # __str__에서 지정한 객체를 print해줌.
-print(studt1) 
+# __str__이 존재하지 않는다면 __repr__을 print함
+# print(repr(studt1))과 같이 repr을 지정하여 print할 수도 있음.
+#print(studt1)
