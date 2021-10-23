@@ -1,27 +1,98 @@
-class Student():
-    def __init__(self, name, number, grade, details, email=None):
-        self._name = name
-        self._number = number
-        self._grade = grade
-        self._details = details
+class Student(object):
+    """
+    Student Class 정보
+    Author : Me
+    Date : 2021.10.23
+    Description : Class, Static, Instance Method
+    """
 
-    # 객체 이름을 지정해주기 위한 메서드
-    # 만약 __str__을 지정해주지 않았다면 print(객체) 출력 시 복잡한 형태로 도출.
-    def __str__(self):
-        return 'str {}'.format(self._name)
+    # Class Variable
+    tuition_per = 1.0
     
-    # str메서드가 없을 때에는 print에서 repr메서드가 호출됨
-    def __repr__(self):
-        return 'repr {}'.format(self._name)
+    def __init__(self, id, first_name, last_name, email, grade, tuition, gpa):
+        self._id = id
+        self._first_name = first_name
+        self._last_name = last_name
+        self._email = email
+        self._grade = grade
+        self._tuition = tuition
+        self._gpa = gpa
+    
+    # Instance Method
+    # self : 객체의 고유한 속성 값을 사용
+    def full_name(self):
+        return '{} {}'.format(self._first_name, self._last_name)
 
-# 객체 지정하기
-studt1 = Student('Cho', 2, 3, {'gender': 'Male', 'score1': 65, 'score2': 44})
-studt2 = Student('Chang', 4, 1, {'gender': 'Female', 'score1': 85, 'score2': 74}, 'stu2@naver.com')
+    # Instance Method
+    def detail_info(self):
+        return 'Student Detail Info : {}, {}, {}, {}, {}, {}'.format(self._id, self.full_name(), self._email, self._grade, self._tuition, self._gpa)
+    
+    # Instance Method
+    def get_fee(self):
+        return 'Before Tuition -> id : {}, fee : {}'.format(self._id, self._tuition)
 
-# 따로 __dict__를 지정하지 않더라도 모든 클래스 객체들은 __dict__를 자동 생성함.
-#print(studt1.__dict__)
+    # Instance Method
+    def get_fee_culc(self):
+        return 'After Tuition -> id : {}, fee : {}'.format(self._id, self._tuition * Student.tuition_per)
 
-# __str__에서 지정한 객체를 print해줌.
-# __str__이 존재하지 않는다면 __repr__을 print함
-# print(repr(studt1))과 같이 repr을 지정하여 print할 수도 있음.
-#print(studt1)
+    # Class Method
+    # self변수가 한 객체에 대한 변수라면, cls는 클래스 변수로 공용 변수이다.
+    @classmethod
+    def raise_fee(cls, per):
+        if per <= 1:
+            print("Please Enter 1 or more")
+            return
+        cls.tuition_per = per
+        print("Suceed! tuition increased!")
+
+
+
+
+
+
+
+
+
+
+
+# 학생 인스턴스    
+student_1 = Student(1, 'Kim', 'Sarang', 'Student1@naver.com', '1', 400, 3.5)
+student_2 = Student(2, 'Lee', 'Myungho', 'Student2@daum.net', '2', 500, 4.3)
+
+# 기본 정보
+#print(student_1)
+#print(student_2)
+#print()
+
+# 전체 정보
+#print(student_1.detail_info())
+#print(student_2.detail_info())
+#print()
+
+# 학비 정보 (학비 인상 전)
+#print(student_1.get_fee())
+#print(student_2.get_fee())
+#print()
+
+# 학비 인상 (클래스 메소드 미사용, 직접 접근 방식)
+#Student.tuition_per = 1.2
+
+# 학비 정보 (인상 후)
+#print(student_1.get_fee_culc())
+#print(student_2.get_fee_culc())
+#print()
+
+# 학비 인상을 Class Method를 사용하여 실행
+Student.raise_fee(1.5)
+
+
+
+
+
+
+
+
+
+
+
+
