@@ -13,6 +13,7 @@ class Student():
         self._number = number
         self._grade = grade
         self._details = details
+        self._email = email
 
         Student.student_count += 1
 
@@ -56,4 +57,14 @@ studt2 = Student('Chang', 4, 1, {'gender': 'Female', 'score1': 85, 'score2': 74}
 
 # Doctring: Class의 주석 보기
 #print(Student.__doc__)
+
+# detail_info 메서드
+#print(studt1.detail_info()) 
+#print(Student.detail_info(studt1)) # 클래스 그 자체로 출력하기
+
+# 클래스 출력하기
+#print(studt1.__class__)
+
+# 인스턴스 변수
+# 직접 접근하는 방식은 Python과 맞지 않는다.
 
