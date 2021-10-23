@@ -45,7 +45,11 @@ class Student(object):
         cls.tuition_per = per
         print("Suceed! tuition increased!")
 
-
+    # Class Method
+    # cls는 Student라는 class 그 자체이기 때문에, cls에 객체들을 넣어도 된다.
+    @classmethod
+    def student_const(cls, id, first_name, last_name, email, grade, tuition, gpa):
+        return cls(id, first_name, last_name, email, grade, tuition * cls.tuition_per, gpa)
 
 
 
