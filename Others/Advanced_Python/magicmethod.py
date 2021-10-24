@@ -46,5 +46,34 @@ s1 = Student('James', 181)
 s2 = Student('Mie', 165)
 
 # 매직메소드 출력
-print("키 비교하기: ", s1 >= s2)
-print("키의 차이: ", s1-s2)
+#print("키 비교하기: ", s1 >= s2)
+#print("키의 차이: ", s1-s2)
+
+# Vector 클래스 정의
+class Vector(object):
+    def __init__(self, *args):
+        '''Create a vector, example : v = Vector(1,2)'''
+        if len(args) == 0:
+            self._x, self._y = 0, 0
+        else:
+            self._x, self._y = args
+
+    # 출력 메시지용 매직 메서드 정의하기
+    def __repr__(self):
+        '''Returns the vector informations'''
+        return 'Vector(%r, %r)' % (self._x, self._y)
+
+    # 덧셈 매직 메서드 정의하기
+    def __add__(self, other):
+        '''Returns the vector addition of self and other'''
+        return Vector(self._x + other._x, self._y + other._y)
+
+
+# Vector 인스턴스 생성
+v1 = Vector(3,5)
+v2 = Vector(15, 20)
+v3 = Vector()
+
+# 매직 메소드 출력하기
+print('EX3-1 -', Vector.__init__.__doc__)
+print('EX3-2 -', Vector.__repr__.__doc__)
