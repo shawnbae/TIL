@@ -2,7 +2,6 @@
 # 가변(list, bytearray, array.array, memoryview, deque) vs 불변(tuple, str, bytes)
 
 # 지능형 리스트, List Comprehension
-
 chars = '!@#$%^&*()_+'
 codes1 = []
 
@@ -19,3 +18,7 @@ print(codes3)
 
 codes4 = list(filter(lambda x : x > 40, map(ord, chars))) # filter와 map을 활용한 방식
 print(codes4)
+
+# Generator : 한 번에 한 개의 항목을 생성 (메모리 유지X --> 성능 압도적)
+
+
