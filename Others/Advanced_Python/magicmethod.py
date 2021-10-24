@@ -92,3 +92,7 @@ print(v1 * 4)
 print(v2 * 10)
 print(bool(v1), bool(v2))
 print(bool(v3))
+
+# 참고 : 파이썬 바이트 코드 실행
+import dis
+dis.dis(v2.__add__)
