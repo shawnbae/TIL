@@ -61,6 +61,11 @@ p4 = Point1._make(temp)
 #print(p1._asdict(), p4._asdict())
 #print(dict(p1._asdict()))
 
+# _replace() : 수정된 '새로운' 객체 반환
+# 새로운 객체를 반환한다는 것은, id값이 달라졌음을 의미한다.
+#print(p2._replace(y=100))
 
+# 네임드 튜플 선언
+Classes = namedtuple('Classes', ['rank', 'number'])
 
-
+# 
