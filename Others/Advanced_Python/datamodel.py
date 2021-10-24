@@ -37,6 +37,8 @@ p2 = Point2(20, 40)
 p3 = Point3(45, y=20)
 p4 = Point4(10, 20, 30, 40)
 
+#print(Point1,Point2,Point3,Point4)
+#print((30,50))
 #print("Point들 출력해보기: ", p1, p2, p3, p4)
 
 # Dict to Unpacking
@@ -45,6 +47,8 @@ temp_dict = {'x':75, 'y':30}
 
 # Unpacking
 x, y= p3 # 각각을 알아서 대응하여 값을 할당해줌.
+#print(p3)
+#print(x, y)
 
 # 네임드 튜플 리스트
 temp = [52, 38]
@@ -63,9 +67,18 @@ p4 = Point1._make(temp)
 
 # _replace() : 수정된 '새로운' 객체 반환
 # 새로운 객체를 반환한다는 것은, id값이 달라졌음을 의미한다.
-#print(p2._replace(y=100))
+print(p2._replace(y=100))
 
 # 네임드 튜플 선언
 Classes = namedtuple('Classes', ['rank', 'number'])
 
-# 
+# 그룹 리스트 선언
+numbers = [str(n) for n in range(1,21)]
+ranks = 'A B C D'.split()
+
+students2 = [Classes(rank, number) 
+                    for rank in 'A B C D'.split() 
+                        for number in [str(n) 
+                            for n in range(1,21)]]
+
+#print(students2)
