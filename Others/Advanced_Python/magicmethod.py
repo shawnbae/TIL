@@ -68,6 +68,14 @@ class Vector(object):
         '''Returns the vector addition of self and other'''
         return Vector(self._x + other._x, self._y + other._y)
 
+    # 곱셈 매직 메서드 정의하기
+    def __mul__(self, y):
+        return Vector(self._x * y, self._y * y)
+
+    # True/False를 반환하는 Boolean 매직 메서드 정의하기
+    def __bool__(self):
+        return bool(max(self._x, self._y))
+
 
 # Vector 인스턴스 생성
 v1 = Vector(3,5)
@@ -75,5 +83,12 @@ v2 = Vector(15, 20)
 v3 = Vector()
 
 # 매직 메소드 출력하기
-print('EX3-1 -', Vector.__init__.__doc__)
-print('EX3-2 -', Vector.__repr__.__doc__)
+print(Vector.__init__.__doc__)
+print(Vector.__repr__.__doc__)
+print(Vector.__add__.__doc__)
+print(v1, v2, v3)
+print(v1 + v2)
+print(v1 * 4)
+print(v2 * 10)
+print(bool(v1), bool(v2))
+print(bool(v3))
