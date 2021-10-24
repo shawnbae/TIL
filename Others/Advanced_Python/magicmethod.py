@@ -20,13 +20,26 @@ class Student:
     def __str__(self):
         return 'Student Class Info : {} , {}'.format(self._name, self._height)
 
-    # 학생의 키를 비교하기 위한 매직 메서드 정의
+    # 학생의 키를 비교하기 위한 greater equal 매직 메서드 정의
     def __ge__(self, x):
         print('Called >> __le__ Method.')
         if self._height <= x._height:
             return True
         else:
             return False
+
+    # 학생의 키를 비교하기 위한 less equal 매직 메서드 정의
+    def __le__(self, x):
+        print('Called >> __le__ Method.')
+        if self._height <= x._height:
+            return True
+        else:
+            return False
+
+    # 학생의 키의 차이를 반환하는 매직 메서드 정의
+    def __sub__(self, x):
+        print('Called >> __sub__ Method.')
+        return self._height - x._height
         
 # 인스턴스 생성
 s1 = Student('James', 181)
@@ -34,3 +47,4 @@ s2 = Student('Mie', 165)
 
 # 매직메소드 출력
 print("키 비교하기: ", s1 >= s2)
+print("키의 차이: ", s1-s2)
