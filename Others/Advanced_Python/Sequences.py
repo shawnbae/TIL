@@ -48,11 +48,29 @@ for s in ('%s' % c + str(n) for c in ['A', 'B', 'C', 'D'] for n in range(1,11)):
 
 # Unpacking 방식
 x, y, *rest = range(10) # x, y에 값 대응하고 나머지 묶어서 반환
-print(x, y, rest)
+#print(x, y, rest)
 
 x, y, *rest = range(2)
-print(x, y, rest)
+#print(x, y, rest)
 
 x, y, *rest = 1, 2, 3, 4, 5
-print(x, y, rest)
+#print(x, y, rest)
 
+# Mutable(가변) vs Immutable(불변)
+l = (10, 15, 20)
+m = [10, 15, 20]
+
+print(l, id(l))
+print(m, id(m))
+
+l = l * 2
+m = m * 2
+
+print(l, id(l))
+print(m, id(m))
+
+l *= 2
+m *= 2
+
+print(l, id(l)) # id값이 변함. 다른 객체로 재할당이 이루어졌음을 알 수 있음.
+print(m, id(m)) # id값이 변하지 않음. 덮어쓰기가 이루어짐.
