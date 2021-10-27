@@ -83,3 +83,5 @@ f_list = ['orange', 'apple', 'mango', 'papaya', 'lemon', 'strawberry', 'coconut'
 print(sorted(f_list))
 print(sorted(f_list, reverse=True))
 print(sorted(f_list, key=len)) # funtion으로 key를 받아 해당 기준으로 정렬함. (함수를 받음)
+print(sorted(f_list, key = lambda x: x[-1])) # 마지막 끝 글자를 기준으로 정렬하기.
+print(sorted(f_list, key = lambda x: x[-1], reverse=True))
