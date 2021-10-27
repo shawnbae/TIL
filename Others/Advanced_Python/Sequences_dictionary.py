@@ -55,4 +55,12 @@ for k, v in source:
 for k, v in source:
     new_dict2.setdefault(k, []).append(v)
 
-print(new_dict2)
+#print(new_dict2)
+
+# 사용자 정의 dictionary 상속하기 (사용자 정의 Class)
+class UserDict(dict):
+    def __missing__(self, key):
+        print('Called: __missing__')
+        if isinstance(key, str):
+            raise KeyError(key)
+        return self
