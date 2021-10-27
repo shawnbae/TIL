@@ -60,17 +60,26 @@ x, y, *rest = 1, 2, 3, 4, 5
 l = (10, 15, 20)
 m = [10, 15, 20]
 
-print(l, id(l))
-print(m, id(m))
+#print(l, id(l))
+#print(m, id(m))
 
 l = l * 2
 m = m * 2
 
-print(l, id(l))
-print(m, id(m))
+#print(l, id(l))
+#print(m, id(m))
 
 l *= 2
 m *= 2
 
-print(l, id(l)) # id값이 변함. 다른 객체로 재할당이 이루어졌음을 알 수 있음.
-print(m, id(m)) # id값이 변하지 않음. 덮어쓰기가 이루어짐.
+#print(l, id(l)) # id값이 변함. 다른 객체로 재할당이 이루어졌음을 알 수 있음.
+#print(m, id(m)) # id값이 변하지 않음. 덮어쓰기가 이루어짐.
+
+# sorting(정렬하기)
+
+f_list = ['orange', 'apple', 'mango', 'papaya', 'lemon', 'strawberry', 'coconut']
+
+# sorted : 정렬 후 새로운 객체로 반환함
+print(sorted(f_list))
+print(sorted(f_list, reverse=True))
+print(sorted(f_list, key=len)) # funtion으로 key를 받아 해당 기준으로 정렬함. (함수를 받음)
