@@ -25,4 +25,7 @@ with open('./Others/Advanced_Python/resources/test1.csv', 'r', encoding='UTF-8')
 #print(NA_CODES)
 
 n_code1 = {country: code for country, code in NA_CODES} # 각각을 key, value로 맵핑해줌
-print(n_code1)
+n_code2 = {country.upper(): code for country, code in NA_CODES}
+#print(n_code1)
+#print(n_code2)
+
