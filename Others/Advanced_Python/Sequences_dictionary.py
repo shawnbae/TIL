@@ -29,3 +29,30 @@ n_code2 = {country.upper(): code for country, code in NA_CODES}
 #print(n_code1)
 #print(n_code2)
 
+ # Dict Setdefault : 성능 향상의 좋은 방법
+# Key값이 중복되므로 이를 dictionary로 변환할 경우 문제가 생긴다.
+source = (('k1', 'val1'),
+            ('k1', 'val2'),
+            ('k2', 'val3'),
+            ('k2', 'val4'),
+            ('k2', 'val5'))
+
+new_dict1 = {}
+new_dict2 = {}
+
+# setdefault 함수를 사용하지 않는 경우
+# --> 중복되는 경우, 아닌 경우 나누어 알고리즘을 짜줘야 함.
+for k, v in source:
+    if k in new_dict1:
+        new_dict1[k].append(v)
+    else:
+        new_dict1[k] = [v]
+
+#print(new_dict1)
+
+# setdefault 함수를 사용하는 경우
+# key, value list를 할당한 뒤 value를 append하면 됨.
+for k, v in source:
+    new_dict2.setdefault(k, []).append(v)
+
+print(new_dict2)
