@@ -7,16 +7,14 @@ using System.Threading.Tasks;
 // Project명
 namespace Giraffe
 {
-   class Program
-   {
+    class Program
+    {
         static void Main(string[] args) // Main is function!
         {
-            string characterName = "John";
-            int characterAge;
-            characterAge = 35;
-            Console.WriteLine("There once was a man naemd " + characterName);
-            Console.WriteLine("He was " + characterAge + " years old");
-
+            Console.Write("Enter a number: ");
+            int num1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(num1);
+            Console.ReadLine();
         }
-   }
+    }
 }
