@@ -1,0 +1,5 @@
+C:\Users\2021090\TIL\MyWebApp\obj\Debug\net6.0-windows\MyWebApp.csproj.AssemblyReference.cache
+C:\Users\2021090\TIL\MyWebApp\obj\Debug\net6.0-windows\MyWebApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\2021090\TIL\MyWebApp\obj\Debug\net6.0-windows\MyWebApp.AssemblyInfoInputs.cache
+C:\Users\2021090\TIL\MyWebApp\obj\Debug\net6.0-windows\MyWebApp.AssemblyInfo.cs
+C:\Users\2021090\TIL\MyWebApp\obj\Debug\net6.0-windows\MyWebApp.csproj.CoreCompileInputs.cache
