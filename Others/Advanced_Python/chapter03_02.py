@@ -24,16 +24,15 @@ print()
 
 # 지능형 딕셔너리(Comprehending Dict)
 import csv
-
 # 외부 CSV TO List of tuple
 
-with open('./resources/test1.csv', 'r', encoding='UTF-8') as f:
+with open('./resources/test1.csv', 'r') as f:
     temp = csv.reader(f)
     # Header Skip
     next(temp)
     # 변환
     NA_CODES = [tuple(x) for x in temp]
-
+    
 print('EX2-1 -',)
 print(NA_CODES)
 
@@ -79,7 +78,6 @@ print('EX3-2 -', new_dict2)
 
 print()
 print()
-
 
 # 사용자 정의 dict 상속(UserDict 가능)
 

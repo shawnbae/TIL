@@ -1,4 +1,6 @@
 # 해시 테이블, Dictionary, Set
+# 중복을 처리한다는 것은, 자동으로 중복을 제거하고 있다는 뜻이다.
+# 이를 해시 테이블이라고 하며,Python의 해시 테이블은 그에 해당한다.
 
 # Dict 구조
 #print(__builtins__.__dict__) # 기본적인 builtin 함수를 dictionary 형태로 조회하기
