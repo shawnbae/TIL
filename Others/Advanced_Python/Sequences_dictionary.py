@@ -23,7 +23,7 @@ with open('./Others/Advanced_Python/resources/test1.csv', 'r', encoding='UTF-8')
     # 변환하기
     NA_CODES = [tuple(x) for x in temp]
 
-print(NA_CODES)
+# print(NA_CODES)
 
 n_code1 = {country: code for country, code in NA_CODES} # 각각을 key, value로 맵핑해줌
 n_code2 = {country.upper(): code for country, code in NA_CODES}
@@ -41,18 +41,19 @@ source = (('k1', 'val1'),
 new_dict1 = {}
 new_dict2 = {}
 
-
 # setdefault 함수를 사용하지 않는 경우
 # --> 중복되는 경우, 아닌 경우 나누어 알고리즘을 짜줘야 함.
 for k, v in source:
     if k in new_dict1:
         new_dict1[k].append(v)
+    
     else:
         new_dict1[k] = [v]
 
-#print(new_dict1)
+print(new_dict1)
 
 # setdefault 함수를 사용하는 경우
+# --> 데이터의 개수가 많은 경우 효과적
 # key, value list를 할당한 뒤 value를 append하면 됨.
 for k, v in source:
     new_dict2.setdefault(k, []).append(v)
@@ -63,6 +64,30 @@ for k, v in source:
 class UserDict(dict):
     def __missing__(self, key):
         print('Called: __missing__')
+        # string인 경우 의도적으로 Error를 발생시킴
         if isinstance(key, str):
             raise KeyError(key)
-        return self
+        return self[str(key)]
+    
+    def get(self, key, default=None):
+        print('Called: __getitem__')
+        try:
+            return self[key]
+        except KeyError:
+            return default
+        
+    def __contain__(self, key):
+        print('Called: __contains__')
+        return key in self.keys() or str(key) in self.keys()
+    
+user_dict1 = UserDict(one=1, two=2)
+user_dict2 = UserDict({'one':1, 'two':2})
+user_dict3 = UserDict([('one',1), ('two',2)])
+
+# 출력
+print(user_dict1, user_dict2, user_dict3) # __getitem__ 호출됨
+print(user_dict2.get('two'))
+print('one' in user_dict3)
+# print(user_dict3['three'])
+print(user_dict3.get('three'))
+print('three' in user_dict3)
