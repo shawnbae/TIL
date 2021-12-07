@@ -23,7 +23,7 @@ with open('./Others/Advanced_Python/resources/test1.csv', 'r', encoding='UTF-8')
     # 변환하기
     NA_CODES = [tuple(x) for x in temp]
 
-#print(NA_CODES)
+print(NA_CODES)
 
 n_code1 = {country: code for country, code in NA_CODES} # 각각을 key, value로 맵핑해줌
 n_code2 = {country.upper(): code for country, code in NA_CODES}
@@ -33,13 +33,14 @@ n_code2 = {country.upper(): code for country, code in NA_CODES}
 # Dict Setdefault : 성능 향상의 좋은 방법
 # Key값이 중복되므로 이를 dictionary로 변환할 경우 문제가 생긴다.
 source = (('k1', 'val1'),
-            ('k1', 'val2'),
-            ('k2', 'val3'),
-            ('k2', 'val4'),
-            ('k2', 'val5'))
+          ('k1', 'val2'),
+          ('k2', 'val3'),
+          ('k2', 'val4'),
+          ('k2', 'val5'))
 
 new_dict1 = {}
 new_dict2 = {}
+
 
 # setdefault 함수를 사용하지 않는 경우
 # --> 중복되는 경우, 아닌 경우 나누어 알고리즘을 짜줘야 함.
