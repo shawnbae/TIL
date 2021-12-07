@@ -12,11 +12,10 @@ t2 = (10, 20, [30, 40, 50])
 #print(hash(t1)) # 할당된 t1의 hash값 조회하기
 #print(hash(t2)) # 에러 발생 --> list는 가변적인 type이므로 hash값이 존재할 수 없음.
 
-# 지능형 딕셔너리 (Comprehending Dict)
+# 지능형 딕셔너리 (Comprehending Dictionary)
 import csv
 
 # 외부 csv파일을 List of tuple형태로 만들기
-
 with open('./Others/Advanced_Python/resources/test1.csv', 'r', encoding='UTF-8') as f:
     temp = csv.reader(f) # Generator
     # header Skip
@@ -31,7 +30,7 @@ n_code2 = {country.upper(): code for country, code in NA_CODES}
 #print(n_code1)
 #print(n_code2)
 
- # Dict Setdefault : 성능 향상의 좋은 방법
+# Dict Setdefault : 성능 향상의 좋은 방법
 # Key값이 중복되므로 이를 dictionary로 변환할 경우 문제가 생긴다.
 source = (('k1', 'val1'),
             ('k1', 'val2'),

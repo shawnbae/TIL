@@ -26,7 +26,7 @@ print()
 import csv
 # 외부 CSV TO List of tuple
 
-with open('./resources/test1.csv', 'r') as f:
+with open('./resources/test1.csv', 'r', encoding="UTF-8") as f:
     temp = csv.reader(f)
     # Header Skip
     next(temp)
