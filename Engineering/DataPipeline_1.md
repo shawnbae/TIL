@@ -43,4 +43,30 @@
 - 쉬운 분석데이터 Format
     - 수집할 때 변경이 다수 발생하므로 초기에 설정해야 하는데, json이 가장 좋음.
 
+# Data Lambda Architecture
+> Raw Data Store -> Batch-Processing Engine / Real-Time Processing Engine -> Serving Data Store
+- AWS S3 Data Lake는 위 Process를 모두 지원한다.
 
+- Raw Data Store
+    - Amazon API Gateway
+    - Amazon Kinesis Streams
+    - Amazon Kinesis Firehose
+    - Amazon Pinpoint: CRM 서비스, Real-Real-Time 마케팅 Toolkit
+
+- Batch-Processing Engine
+    - Spark: AWS EMR이 지원
+    - AWS DMS: 운영계에 부담을 적게 주면서 마스터 데이터를 가져올 수 있다.
+
+- Real-Time Processing Engine
+    - Spark Streaming
+    - Amazon Kinesis Analytics
+
+- Serving Data Store
+    - Amazon ES: 엘라스틱서치, 데이터량이 지속적으로 많아지는 서비스에는 적합하지 않음
+    - Amazon DynamoDB: NoSQL
+    - Amazon RDS: MySQL 등의 DBMS
+    - Amazon Redshift: Column Base 분석 툴
+    - presto: EMR서비스 안에 존재.
+
+- Analytical Sandboxes
+    - Amazon SageMaker: Data Discovery, Predictive Modeling
