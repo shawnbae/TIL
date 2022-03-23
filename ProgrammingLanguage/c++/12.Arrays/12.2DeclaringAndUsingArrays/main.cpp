@@ -3,7 +3,6 @@
 
 
 int main(){
-
     //Declare an array of ints
    // int scores [10]; // Junk data
 
