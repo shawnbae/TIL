@@ -1,0 +1,4 @@
+[debug] [programminglanguage-build] Classpath dependencies List()
+[debug] [programminglanguage-build] Dependencies from configurations List()
+[debug] Bloop wrote the configuration of project 'programminglanguage-build' to '/Users/soohan/TIL/ProgrammingLanguage/project/.bloop/programminglanguage-build.json'
+[success] Generated .bloop/programminglanguage-build.json

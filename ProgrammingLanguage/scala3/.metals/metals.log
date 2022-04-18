@@ -1,0 +1,205 @@
+2022.04.18 22:48:23 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/soohan/TIL/ProgrammingLanguage/scala3/.metals/lsp.trace.json or /Users/soohan/Library/Caches/org.scalameta.metals/lsp.trace.json
+2022.04.18 22:48:23 INFO  logging to file /Users/soohan/TIL/ProgrammingLanguage/scala3/.metals/metals.log
+2022.04.18 22:48:23 INFO  Started: Metals version 0.11.2 in workspace '/Users/soohan/TIL/ProgrammingLanguage/scala3' for client Visual Studio Code 1.62.3.
+2022.04.18 22:48:23 INFO  Parse release: 17.0.2
+2022.04.18 22:48:24 INFO  time: initialize in 0.98s
+2022.04.18 22:48:24 WARN  Build server is not auto-connectable.
+2022.04.18 22:48:25 WARN  no build target for: /Users/soohan/TIL/ProgrammingLanguage/scala3/build.sbt
+2022.04.18 22:48:26 INFO  no build target found for /Users/soohan/TIL/ProgrammingLanguage/scala3/build.sbt. Using presentation compiler with project's scala-library version: 3.1.1
+2022.04.18 22:48:27 INFO  time: code lens generation in 1.67s
+4월 18, 2022 10:48:34 오후 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 9
+2022.04.18 22:48:34 WARN  no build target for: /Users/soohan/TIL/ProgrammingLanguage/scala3/src/test/scala/MySuite.scala
+2022.04.18 22:48:38 WARN  no build target for: /Users/soohan/TIL/ProgrammingLanguage/scala3/src/test/scala/MySuite.scala
+4월 18, 2022 10:48:38 오후 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: scala.meta.internal.metals.debug.BuildTargetNotFoundForPathException: No build target could be found for the path: /Users/soohan/TIL/ProgrammingLanguage/scala3/src/test/scala/MySuite.scala
+java.util.concurrent.CompletionException: scala.meta.internal.metals.debug.BuildTargetNotFoundForPathException: No build target could be found for the path: /Users/soohan/TIL/ProgrammingLanguage/scala3/src/test/scala/MySuite.scala
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:332)
+	at java.base/java.util.concurrent.CompletableFuture.uniAcceptNow(CompletableFuture.java:747)
+	at java.base/java.util.concurrent.CompletableFuture.uniAcceptStage(CompletableFuture.java:735)
+	at java.base/java.util.concurrent.CompletableFuture.thenAcceptAsync(CompletableFuture.java:2186)
+	at scala.concurrent.java8.FuturesConvertersImpl$CF.thenAccept(FutureConvertersImpl.scala:37)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:279)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: scala.meta.internal.metals.debug.BuildTargetNotFoundForPathException: No build target could be found for the path: /Users/soohan/TIL/ProgrammingLanguage/scala3/src/test/scala/MySuite.scala
+	at scala.meta.internal.metals.debug.DebugProvider.debugDiscovery(DebugProvider.scala:372)
+	at scala.meta.internal.metals.MetalsLanguageServer.executeCommand(MetalsLanguageServer.scala:1828)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	... 9 more
+
+2022.04.18 22:48:43 WARN  no build target for: /Users/soohan/TIL/ProgrammingLanguage/scala3/src/main/scala/Main.scala
+2022.04.18 22:48:45 WARN  no build target for: /Users/soohan/TIL/ProgrammingLanguage/scala3/src/main/scala/Main.scala
+4월 18, 2022 10:48:45 오후 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: scala.meta.internal.metals.debug.BuildTargetNotFoundForPathException: No build target could be found for the path: /Users/soohan/TIL/ProgrammingLanguage/scala3/src/main/scala/Main.scala
+java.util.concurrent.CompletionException: scala.meta.internal.metals.debug.BuildTargetNotFoundForPathException: No build target could be found for the path: /Users/soohan/TIL/ProgrammingLanguage/scala3/src/main/scala/Main.scala
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:332)
+	at java.base/java.util.concurrent.CompletableFuture.uniAcceptNow(CompletableFuture.java:747)
+	at java.base/java.util.concurrent.CompletableFuture.uniAcceptStage(CompletableFuture.java:735)
+	at java.base/java.util.concurrent.CompletableFuture.thenAcceptAsync(CompletableFuture.java:2186)
+	at scala.concurrent.java8.FuturesConvertersImpl$CF.thenAccept(FutureConvertersImpl.scala:37)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:279)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: scala.meta.internal.metals.debug.BuildTargetNotFoundForPathException: No build target could be found for the path: /Users/soohan/TIL/ProgrammingLanguage/scala3/src/main/scala/Main.scala
+	at scala.meta.internal.metals.debug.DebugProvider.debugDiscovery(DebugProvider.scala:372)
+	at scala.meta.internal.metals.MetalsLanguageServer.executeCommand(MetalsLanguageServer.scala:1828)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	... 9 more
+
+2022.04.18 22:48:47 WARN  no build target for: /Users/soohan/TIL/ProgrammingLanguage/scala3/src/main/scala/Main.scala
+4월 18, 2022 10:48:47 오후 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: scala.meta.internal.metals.debug.BuildTargetNotFoundForPathException: No build target could be found for the path: /Users/soohan/TIL/ProgrammingLanguage/scala3/src/main/scala/Main.scala
+java.util.concurrent.CompletionException: scala.meta.internal.metals.debug.BuildTargetNotFoundForPathException: No build target could be found for the path: /Users/soohan/TIL/ProgrammingLanguage/scala3/src/main/scala/Main.scala
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:332)
+	at java.base/java.util.concurrent.CompletableFuture.uniAcceptNow(CompletableFuture.java:747)
+	at java.base/java.util.concurrent.CompletableFuture.uniAcceptStage(CompletableFuture.java:735)
+	at java.base/java.util.concurrent.CompletableFuture.thenAcceptAsync(CompletableFuture.java:2186)
+	at scala.concurrent.java8.FuturesConvertersImpl$CF.thenAccept(FutureConvertersImpl.scala:37)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:279)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: scala.meta.internal.metals.debug.BuildTargetNotFoundForPathException: No build target could be found for the path: /Users/soohan/TIL/ProgrammingLanguage/scala3/src/main/scala/Main.scala
+	at scala.meta.internal.metals.debug.DebugProvider.debugDiscovery(DebugProvider.scala:372)
+	at scala.meta.internal.metals.MetalsLanguageServer.executeCommand(MetalsLanguageServer.scala:1828)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	... 9 more
+
+2022.04.18 22:49:05 WARN  no build target for: /Users/soohan/TIL/ProgrammingLanguage/scala3/build.sbt
+2022.04.18 22:49:16 INFO  running '/Library/Java/JavaVirtualMachines/jdk-17.0.2.jdk/Contents/Home/bin/java -Djline.terminal=jline.UnsupportedTerminal -Dsbt.log.noformat=true -Dfile.encoding=UTF-8 -jar /var/folders/1v/w0jzgpxn137dk67lmj_z4rm00000gn/T/metals2806703948370235963/sbt-launch.jar -Dbloop.export-jar-classifiers=sources bloopInstall'
+2022.04.18 22:49:17 WARN  no build target for: /Users/soohan/TIL/ProgrammingLanguage/scala3/project/metals.sbt
+2022.04.18 22:49:17 WARN  no build target for: /Users/soohan/TIL/ProgrammingLanguage/scala3/project/project/metals.sbt
+2022.04.18 22:49:17 INFO  skipping build import with status 'Started'
+2022.04.18 22:49:17 INFO  [info] welcome to sbt 1.6.2 (Oracle Corporation Java 17.0.2)
+2022.04.18 22:49:17 INFO  [info] loading settings for project scala3-build-build from metals.sbt ...
+2022.04.18 22:49:19 INFO  [info] loading project definition from /Users/soohan/TIL/ProgrammingLanguage/scala3/project/project
+2022.04.18 22:49:19 INFO  [info] loading settings for project scala3-build from metals.sbt ...
+2022.04.18 22:49:19 INFO  [info] loading project definition from /Users/soohan/TIL/ProgrammingLanguage/scala3/project
+2022.04.18 22:49:21 INFO  [success] Generated .bloop/scala3-build.json
+2022.04.18 22:49:21 INFO  [success] Total time: 1 s, completed 2022. 4. 18. 오후 10:49:21
+2022.04.18 22:49:21 INFO  [info] loading settings for project root from build.sbt ...
+2022.04.18 22:49:21 INFO  [info] set current project to scala3 (in build file:/Users/soohan/TIL/ProgrammingLanguage/scala3/)
+2022.04.18 22:49:39 INFO  [success] Generated .bloop/root.json
+2022.04.18 22:49:39 INFO  [success] Generated .bloop/root-test.json
+2022.04.18 22:49:39 INFO  [success] Total time: 17 s, completed 2022. 4. 18. 오후 10:49:39
+2022.04.18 22:49:39 INFO  time: ran 'sbt bloopInstall' in 22s
+2022.04.18 22:49:39 INFO  Attempting to connect to the build server...
+2022.04.18 22:49:39 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/soohan/TIL/ProgrammingLanguage/scala3/.metals/bsp.trace.json or /Users/soohan/Library/Caches/org.scalameta.metals/bsp.trace.json
+2022.04.18 22:49:39 INFO  Attempting to connect to the build server...
+2022.04.18 22:49:39 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/soohan/TIL/ProgrammingLanguage/scala3/project/.metals/bsp.trace.json or /Users/soohan/Library/Caches/org.scalameta.metals/bsp.trace.json
+2022.04.18 22:49:39 INFO  time: Connected to build server in 0.26s
+2022.04.18 22:49:39 INFO  Connected to Build server: Bloop v1.4.13
+2022.04.18 22:49:43 INFO  time: indexed workspace in 3.75s
+2022.04.18 22:49:43 INFO  compiling root (1 scala source)
+2022.04.18 22:49:45 INFO  compiling root-test (1 scala source)
+2022.04.18 22:49:45 INFO  time: code lens generation in 1.7s
+2022.04.18 22:49:45 INFO  time: compiled root in 1.99s
+2022.04.18 22:49:45 INFO  time: compiled root-test in 0.45s
+4월 18, 2022 10:49:52 오후 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 44
+scala.MatchError: scala.meta.internal.metals.debug.DebugProvider$NoRunOptionException$: There is nothing to run or test in the current file. (of class scala.meta.internal.metals.debug.DebugProvider$NoRunOptionException$)
+	at scala.PartialFunction$$anon$1.apply(PartialFunction.scala:259)
+	at scala.PartialFunction$$anon$1.apply(PartialFunction.scala:257)
+	at scala.meta.internal.metals.debug.DebugProvider$$anonfun$1.applyOrElse(DebugProvider.scala:549)
+	at scala.meta.internal.metals.debug.DebugProvider$$anonfun$1.applyOrElse(DebugProvider.scala:549)
+	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:38)
+	at scala.util.Success.foreach(Try.scala:253)
+	at scala.concurrent.Future.$anonfun$foreach$1$adapted(Future.scala:229)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+4월 18, 2022 10:50:22 오후 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: scala.meta.internal.metals.debug.DebugProvider$NoRunOptionException$: There is nothing to run or test in the current file.
+java.util.concurrent.CompletionException: scala.meta.internal.metals.debug.DebugProvider$NoRunOptionException$: There is nothing to run or test in the current file.
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:332)
+	at java.base/java.util.concurrent.CompletableFuture.uniAcceptNow(CompletableFuture.java:747)
+	at java.base/java.util.concurrent.CompletableFuture.uniAcceptStage(CompletableFuture.java:735)
+	at java.base/java.util.concurrent.CompletableFuture.thenAcceptAsync(CompletableFuture.java:2186)
+	at scala.concurrent.java8.FuturesConvertersImpl$CF.thenAccept(FutureConvertersImpl.scala:37)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:279)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: scala.meta.internal.metals.debug.DebugProvider$NoRunOptionException$: There is nothing to run or test in the current file.
+	at scala.meta.internal.metals.debug.DebugProvider$NoRunOptionException$.<clinit>(DebugProvider.scala)
+	at scala.meta.internal.metals.debug.DebugProvider.$anonfun$resolveInFile$2(DebugProvider.scala:345)
+	at scala.Option.fold(Option.scala:251)
+	at scala.meta.internal.metals.debug.DebugProvider.resolveInFile(DebugProvider.scala:316)
+	at scala.meta.internal.metals.debug.DebugProvider.debugDiscovery(DebugProvider.scala:378)
+	at scala.meta.internal.metals.MetalsLanguageServer.executeCommand(MetalsLanguageServer.scala:1828)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	... 9 more
+
+2022.04.18 22:50:29 INFO  time: evaluated worksheet 'chapter0.worksheet.sc' in 18s
+2022.04.18 22:50:29 INFO  time: evaluated worksheet 'chapter0.worksheet.sc' in 0.29s
+2022.04.18 22:50:29 INFO  time: evaluated worksheet 'chapter0.worksheet.sc' in 0.2s
+4월 18, 2022 10:51:03 오후 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 79
+4월 18, 2022 10:51:05 오후 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 84
+2022.04.18 22:51:05 INFO  time: evaluated worksheet 'chapter0.worksheet.sc' in 0.17s
+2022.04.18 22:51:14 WARN  Error downloading ch.epfl.scala:scala-expression-compiler_3.1.2:2.0.13
+  not found: /Users/soohan/.ivy2/local/ch.epfl.scala/scala-expression-compiler_3.1.2/2.0.13/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/ch/epfl/scala/scala-expression-compiler_3.1.2/2.0.13/scala-expression-compiler_3.1.2-2.0.13.pom
+2022.04.18 22:51:14 WARN  Expression evaluation will not work.
+2022.04.18 22:51:14 INFO  tracing is disabled for protocol dap-server, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/soohan/TIL/ProgrammingLanguage/scala3/.metals/dap-server.trace.json or /Users/soohan/Library/Caches/org.scalameta.metals/dap-server.trace.json
+2022.04.18 22:51:14 INFO  tracing is disabled for protocol dap-client, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/soohan/TIL/ProgrammingLanguage/scala3/.metals/dap-client.trace.json or /Users/soohan/Library/Caches/org.scalameta.metals/dap-client.trace.json
+2022.04.18 22:51:14 INFO  Starting debug proxy for [hello]
+2022.04.18 22:51:15 INFO  Trying to attach to remote debuggee VM localhost:51399 .
+2022.04.18 22:51:15 INFO  Attaching to debuggee VM succeeded.
+2022.04.18 22:51:15 INFO  Canceling debug proxy for [hello]
+2022.04.18 22:51:15 INFO  Closing debug server tcp://0.0.0.0:51396
+4월 18, 2022 10:51:36 오후 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
