@@ -203,3 +203,177 @@ WARNING: Unmatched cancel notification for request id 84
 2022.04.18 22:51:15 INFO  Closing debug server tcp://0.0.0.0:51396
 4월 18, 2022 10:51:36 오후 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
 INFO: Unsupported notification method: $/setTrace
+2022.04.18 23:30:49 INFO  Deduplicating compilation of root from bsp client 'Metals 0.11.2' (since 41m 10.369s)
+2022.04.18 23:30:49 WARN  Error downloading ch.epfl.scala:scala-expression-compiler_3.1.2:2.0.13
+  not found: /Users/soohan/.ivy2/local/ch.epfl.scala/scala-expression-compiler_3.1.2/2.0.13/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/ch/epfl/scala/scala-expression-compiler_3.1.2/2.0.13/scala-expression-compiler_3.1.2-2.0.13.pom
+2022.04.18 23:30:49 WARN  Expression evaluation will not work.
+2022.04.18 23:30:50 INFO  tracing is disabled for protocol dap-server, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/soohan/TIL/ProgrammingLanguage/scala3/.metals/dap-server.trace.json or /Users/soohan/Library/Caches/org.scalameta.metals/dap-server.trace.json
+2022.04.18 23:30:50 INFO  tracing is disabled for protocol dap-client, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/soohan/TIL/ProgrammingLanguage/scala3/.metals/dap-client.trace.json or /Users/soohan/Library/Caches/org.scalameta.metals/dap-client.trace.json
+2022.04.18 23:30:50 INFO  Starting debug proxy for [hello]
+2022.04.18 23:30:51 INFO  Trying to attach to remote debuggee VM localhost:52078 .
+2022.04.18 23:30:51 INFO  Attaching to debuggee VM succeeded.
+2022.04.18 23:30:50 INFO  Canceling debug proxy for [hello]
+2022.04.18 23:30:51 INFO  Closing debug server tcp://0.0.0.0:52075
+4월 18, 2022 11:30:51 오후 org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer fireError
+SEVERE: java.net.SocketException: Socket closed
+org.eclipse.lsp4j.jsonrpc.JsonRpcException: java.net.SocketException: Socket closed
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:72)
+	at scala.meta.internal.metals.debug.SocketEndpoint.consume(SocketEndpoint.scala:22)
+	at scala.meta.internal.metals.debug.MessageIdAdapter.consume(MessageIdAdapter.scala:43)
+	at scala.meta.internal.metals.debug.ServerAdapter.send(ServerAdapter.scala:30)
+	at scala.meta.internal.metals.debug.DebugProxy.$anonfun$handleClientMessage$1(DebugProxy.scala:138)
+	at scala.meta.internal.metals.debug.MessageIdAdapter.$anonfun$listen$1(MessageIdAdapter.scala:57)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at scala.meta.internal.metals.debug.SocketEndpoint.listen(SocketEndpoint.scala:26)
+	at scala.meta.internal.metals.debug.MessageIdAdapter.listen(MessageIdAdapter.scala:47)
+	at scala.meta.internal.metals.debug.DebugProxy.$anonfun$listenToClient$1(DebugProxy.scala:63)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.net.SocketException: Socket closed
+	at java.base/sun.nio.ch.NioSocketImpl.ensureOpenAndConnected(NioSocketImpl.java:165)
+	at java.base/sun.nio.ch.NioSocketImpl.beginWrite(NioSocketImpl.java:366)
+	at java.base/sun.nio.ch.NioSocketImpl.implWrite(NioSocketImpl.java:411)
+	at java.base/sun.nio.ch.NioSocketImpl.write(NioSocketImpl.java:440)
+	at java.base/sun.nio.ch.NioSocketImpl$2.write(NioSocketImpl.java:826)
+	at java.base/java.net.Socket$SocketOutputStream.write(Socket.java:1035)
+	at java.base/java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:81)
+	at java.base/java.io.BufferedOutputStream.flush(BufferedOutputStream.java:142)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageConsumer.consume(StreamMessageConsumer.java:69)
+	... 21 more
+
+4월 18, 2022 11:30:55 오후 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 120
+scala.MatchError: scala.meta.internal.metals.debug.DebugProvider$NoRunOptionException$: There is nothing to run or test in the current file. (of class scala.meta.internal.metals.debug.DebugProvider$NoRunOptionException$)
+	at scala.PartialFunction$$anon$1.apply(PartialFunction.scala:259)
+	at scala.PartialFunction$$anon$1.apply(PartialFunction.scala:257)
+	at scala.meta.internal.metals.debug.DebugProvider$$anonfun$1.applyOrElse(DebugProvider.scala:549)
+	at scala.meta.internal.metals.debug.DebugProvider$$anonfun$1.applyOrElse(DebugProvider.scala:549)
+	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:38)
+	at scala.util.Success.foreach(Try.scala:253)
+	at scala.concurrent.Future.$anonfun$foreach$1$adapted(Future.scala:229)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+4월 18, 2022 11:30:57 오후 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: scala.meta.internal.metals.debug.DebugProvider$NoRunOptionException$: There is nothing to run or test in the current file.
+java.util.concurrent.CompletionException: scala.meta.internal.metals.debug.DebugProvider$NoRunOptionException$: There is nothing to run or test in the current file.
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:332)
+	at java.base/java.util.concurrent.CompletableFuture.uniAcceptNow(CompletableFuture.java:747)
+	at java.base/java.util.concurrent.CompletableFuture.uniAcceptStage(CompletableFuture.java:735)
+	at java.base/java.util.concurrent.CompletableFuture.thenAcceptAsync(CompletableFuture.java:2186)
+	at scala.concurrent.java8.FuturesConvertersImpl$CF.thenAccept(FutureConvertersImpl.scala:37)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:279)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: scala.meta.internal.metals.debug.DebugProvider$NoRunOptionException$: There is nothing to run or test in the current file.
+	at scala.meta.internal.metals.debug.DebugProvider$NoRunOptionException$.<clinit>(DebugProvider.scala)
+	at scala.meta.internal.metals.debug.DebugProvider.$anonfun$resolveInFile$2(DebugProvider.scala:345)
+	at scala.Option.fold(Option.scala:251)
+	at scala.meta.internal.metals.debug.DebugProvider.resolveInFile(DebugProvider.scala:316)
+	at scala.meta.internal.metals.debug.DebugProvider.debugDiscovery(DebugProvider.scala:378)
+	at scala.meta.internal.metals.MetalsLanguageServer.executeCommand(MetalsLanguageServer.scala:1828)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	... 9 more
+
+2022.04.18 23:30:57 INFO  skipping build import with status 'Installed'
+4월 18, 2022 11:31:02 오후 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 127
+2022.04.18 23:31:04 INFO  Deduplicating compilation of root from bsp client 'Metals 0.11.2' (since 41m 25.144s)
+2022.04.18 23:31:04 WARN  Error downloading ch.epfl.scala:scala-expression-compiler_3.1.2:2.0.13
+  not found: /Users/soohan/.ivy2/local/ch.epfl.scala/scala-expression-compiler_3.1.2/2.0.13/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/ch/epfl/scala/scala-expression-compiler_3.1.2/2.0.13/scala-expression-compiler_3.1.2-2.0.13.pom
+2022.04.18 23:31:04 WARN  Expression evaluation will not work.
+2022.04.18 23:31:05 INFO  tracing is disabled for protocol dap-server, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/soohan/TIL/ProgrammingLanguage/scala3/.metals/dap-server.trace.json or /Users/soohan/Library/Caches/org.scalameta.metals/dap-server.trace.json
+2022.04.18 23:31:05 INFO  tracing is disabled for protocol dap-client, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/soohan/TIL/ProgrammingLanguage/scala3/.metals/dap-client.trace.json or /Users/soohan/Library/Caches/org.scalameta.metals/dap-client.trace.json
+2022.04.18 23:31:05 INFO  Starting debug proxy for [hello]
+2022.04.18 23:31:05 INFO  Trying to attach to remote debuggee VM localhost:52092 .
+2022.04.18 23:31:05 INFO  Attaching to debuggee VM succeeded.
+2022.04.18 23:31:05 INFO  Canceling debug proxy for [hello]
+2022.04.18 23:31:05 INFO  Closing debug server tcp://0.0.0.0:52088
+2022.04.18 23:31:12 INFO  compiling root (1 scala source)
+2022.04.18 23:31:12 INFO  Deduplicating compilation of root from bsp client 'Metals 0.11.2' (since 41m 33.481s)
+2022.04.18 23:31:12 INFO  compiling root (1 scala source)
+2022.04.18 23:31:12 INFO  time: compiled root in 68ms
+2022.04.18 23:31:12 WARN  Error downloading ch.epfl.scala:scala-expression-compiler_3.1.2:2.0.13
+  not found: /Users/soohan/.ivy2/local/ch.epfl.scala/scala-expression-compiler_3.1.2/2.0.13/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/ch/epfl/scala/scala-expression-compiler_3.1.2/2.0.13/scala-expression-compiler_3.1.2-2.0.13.pom
+2022.04.18 23:31:12 WARN  Expression evaluation will not work.
+2022.04.18 23:31:13 INFO  tracing is disabled for protocol dap-server, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/soohan/TIL/ProgrammingLanguage/scala3/.metals/dap-server.trace.json or /Users/soohan/Library/Caches/org.scalameta.metals/dap-server.trace.json
+2022.04.18 23:31:13 INFO  tracing is disabled for protocol dap-client, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/soohan/TIL/ProgrammingLanguage/scala3/.metals/dap-client.trace.json or /Users/soohan/Library/Caches/org.scalameta.metals/dap-client.trace.json
+2022.04.18 23:31:13 INFO  Starting debug proxy for [hello]
+2022.04.18 23:31:14 INFO  Trying to attach to remote debuggee VM localhost:52106 .
+2022.04.18 23:31:14 INFO  Attaching to debuggee VM succeeded.
+2022.04.18 23:31:13 INFO  Canceling debug proxy for [hello]
+2022.04.18 23:31:14 INFO  Closing debug server tcp://0.0.0.0:52103
+2022.04.19 00:00:23 INFO  Deduplicating compilation of root from bsp client 'Metals 0.11.2' (since 1h 10m 43.787s)
+2022.04.19 00:00:23 WARN  Error downloading ch.epfl.scala:scala-expression-compiler_3.1.2:2.0.13
+  not found: /Users/soohan/.ivy2/local/ch.epfl.scala/scala-expression-compiler_3.1.2/2.0.13/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/ch/epfl/scala/scala-expression-compiler_3.1.2/2.0.13/scala-expression-compiler_3.1.2-2.0.13.pom
+2022.04.19 00:00:23 WARN  Expression evaluation will not work.
+2022.04.19 00:00:23 INFO  tracing is disabled for protocol dap-server, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/soohan/TIL/ProgrammingLanguage/scala3/.metals/dap-server.trace.json or /Users/soohan/Library/Caches/org.scalameta.metals/dap-server.trace.json
+2022.04.19 00:00:23 INFO  tracing is disabled for protocol dap-client, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/soohan/TIL/ProgrammingLanguage/scala3/.metals/dap-client.trace.json or /Users/soohan/Library/Caches/org.scalameta.metals/dap-client.trace.json
+2022.04.19 00:00:23 INFO  Starting debug proxy for [hello]
+2022.04.19 00:00:24 INFO  Trying to attach to remote debuggee VM localhost:52503 .
+2022.04.19 00:00:24 INFO  Attaching to debuggee VM succeeded.
+2022.04.19 00:00:23 INFO  Canceling debug proxy for [hello]
+2022.04.19 00:00:24 INFO  Closing debug server tcp://0.0.0.0:52500
+2022.04.19 00:00:29 INFO  compiling root (1 scala source)
+2022.04.19 00:00:29 INFO  Deduplicating compilation of root from bsp client 'Metals 0.11.2' (since 1h 10m 49.762s)
+2022.04.19 00:00:29 INFO  compiling root (1 scala source)
+2022.04.19 00:00:29 INFO  time: compiled root in 63ms
+2022.04.19 00:00:29 INFO  Deduplicating compilation of root from bsp client 'Metals 0.11.2' (since 1h 10m 49.832s)
+2022.04.19 00:00:29 WARN  Error downloading ch.epfl.scala:scala-expression-compiler_3.1.2:2.0.13
+  not found: /Users/soohan/.ivy2/local/ch.epfl.scala/scala-expression-compiler_3.1.2/2.0.13/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/ch/epfl/scala/scala-expression-compiler_3.1.2/2.0.13/scala-expression-compiler_3.1.2-2.0.13.pom
+2022.04.19 00:00:29 WARN  Expression evaluation will not work.
+2022.04.19 00:00:29 INFO  tracing is disabled for protocol dap-server, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/soohan/TIL/ProgrammingLanguage/scala3/.metals/dap-server.trace.json or /Users/soohan/Library/Caches/org.scalameta.metals/dap-server.trace.json
+2022.04.19 00:00:29 INFO  tracing is disabled for protocol dap-client, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/soohan/TIL/ProgrammingLanguage/scala3/.metals/dap-client.trace.json or /Users/soohan/Library/Caches/org.scalameta.metals/dap-client.trace.json
+2022.04.19 00:00:29 INFO  Starting debug proxy for [hello]
+2022.04.19 00:00:30 INFO  Trying to attach to remote debuggee VM localhost:52516 .
+2022.04.19 00:00:30 INFO  Attaching to debuggee VM succeeded.
+2022.04.19 00:00:29 INFO  Canceling debug proxy for [hello]
+2022.04.19 00:00:30 INFO  Closing debug server tcp://0.0.0.0:52513
+4월 19, 2022 12:00:40 오전 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 169
+2022.04.19 00:00:43 INFO  Deduplicating compilation of root from bsp client 'Metals 0.11.2' (since 1h 11m 4.636s)
+2022.04.19 00:00:43 INFO  Deduplicating compilation of root-test from bsp client 'Metals 0.11.2' (since 1h 11m 4.639s)
+2022.04.19 00:00:43 WARN  Error downloading ch.epfl.scala:scala-expression-compiler_3.1.2:2.0.13
+  not found: /Users/soohan/.ivy2/local/ch.epfl.scala/scala-expression-compiler_3.1.2/2.0.13/ivys/ivy.xml
+  not found: https://repo1.maven.org/maven2/ch/epfl/scala/scala-expression-compiler_3.1.2/2.0.13/scala-expression-compiler_3.1.2-2.0.13.pom
+2022.04.19 00:00:43 WARN  Expression evaluation will not work.
+2022.04.19 00:00:44 INFO  tracing is disabled for protocol dap-server, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/soohan/TIL/ProgrammingLanguage/scala3/.metals/dap-server.trace.json or /Users/soohan/Library/Caches/org.scalameta.metals/dap-server.trace.json
+2022.04.19 00:00:44 INFO  tracing is disabled for protocol dap-client, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/soohan/TIL/ProgrammingLanguage/scala3/.metals/dap-client.trace.json or /Users/soohan/Library/Caches/org.scalameta.metals/dap-client.trace.json
+2022.04.19 00:00:44 INFO  Starting debug proxy for [MySuite]
+2022.04.19 00:00:45 INFO  Trying to attach to remote debuggee VM localhost:52533 .
+2022.04.19 00:00:45 INFO  Attaching to debuggee VM succeeded.
+2022.04.19 00:00:45 INFO  Canceling debug proxy for [MySuite]
+2022.04.19 00:00:45 INFO  Closing debug server tcp://0.0.0.0:52529
+4월 19, 2022 12:00:53 오전 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 185
+4월 19, 2022 12:01:17 오전 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 202
