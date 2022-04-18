@@ -536,3 +536,6 @@ WARNING: Unmatched cancel notification for request id 123
 2022.04.18 22:48:16 INFO  Template applied in /Users/soohan/TIL/ProgrammingLanguage/./scala3
 2022.04.18 22:48:16 INFO  
 2022.04.18 22:48:16 INFO  time: ran 'giter8.Giter8' in 4.45s
+2022.04.18 22:52:57 INFO  shutting down Metals
+2022.04.18 22:52:57 INFO  Shut down connection with build server.
+2022.04.18 22:52:57 INFO  Shut down connection with build server.

@@ -526,3 +526,6 @@ Caused by: scala.meta.internal.metals.debug.DebugProvider$NoRunOptionException$:
 2022.04.19 00:09:39 INFO  Attaching to debuggee VM succeeded.
 2022.04.19 00:09:39 INFO  Canceling debug proxy for [hello]
 2022.04.19 00:09:39 INFO  Closing debug server tcp://0.0.0.0:52663
+2022.04.19 00:11:28 INFO  shutting down Metals
+2022.04.19 00:11:28 INFO  Shut down connection with build server.
+2022.04.19 00:11:28 INFO  Shut down connection with build server.

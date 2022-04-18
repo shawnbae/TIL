@@ -21,3 +21,7 @@ __pycache__/
 
 ## .DS_Store
 *.DS_Store
+
+## metal
+/.metals/*
+/.bloop/*
