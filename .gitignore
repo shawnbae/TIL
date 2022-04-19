@@ -23,5 +23,13 @@ __pycache__/
 *.DS_Store
 
 ## metal
-/.metals/*
-/.bloop/*
+.vscode/**
+.bsp/**
+.metals/**
+.bloop/**
+
+# scala build tool
+*.sbt
+
+# cpp
+*.cpp
