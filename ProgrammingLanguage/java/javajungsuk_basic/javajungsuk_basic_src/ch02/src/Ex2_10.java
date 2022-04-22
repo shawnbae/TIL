@@ -1,14 +1,14 @@
-import java.util.Scanner;    // Scanner¸¦ »ç¿ëÇÏ±â À§ÇØ Ãß°¡
+import java.util.Scanner; // Scannerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
-class Ex2_10 { 
-	public static void main(String[] args) { 
+class Ex2_10 {
+	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 
-		System.out.print("µÎÀÚ¸® Á¤¼ö¸¦ ÇÏ³ª ÀÔ·ÂÇØÁÖ¼¼¿ä.>");
+		System.out.print("ë‘ìë¦¬ ì •ìˆ˜ë¥¼ í•˜ë‚˜ ì…ë ¥í•´ì£¼ì„¸ìš”.>");
 		String input = scanner.nextLine();
-		int num = Integer.parseInt(input); // ÀÔ·Â¹ŞÀº ¹®ÀÚ¿­À» ¼ıÀÚ·Î º¯È¯
+		int num = Integer.parseInt(input);
 
-		System.out.println("ÀÔ·Â³»¿ë :"+input);
+		System.out.println("ì…ë ¥ë‚´ìš© :" + input);
 		System.out.printf("num=%d%n", num);
-	} 
+	}
 }

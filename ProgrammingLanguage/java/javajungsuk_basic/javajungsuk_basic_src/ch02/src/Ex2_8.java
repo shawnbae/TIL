@@ -1,13 +1,13 @@
 class Ex2_8 {
 	public static void main(String args[]) {
-		int x = 10, y = 5;   // int x = 10; int y = 5;¸¦ ÇÑ ÁÙ·Î
-		System.out.println("x="+x); 
-		System.out.println("y="+y); 
+		int x = 10, y = 5; // int x = 10; int y = 5;ï¿½ï¿½ ï¿½ï¿½ ï¿½Ù·ï¿½
+		System.out.println("x=" + x);
+		System.out.println("y=" + y);
 
-		int tmp = x;    // 1. xÀÇ °ªÀ» tmp¿¡ ÀúÀå
-		x = y;          // 2. yÀÇ °ªÀ» x¿¡ ÀúÀå
- 		y = tmp;        // 3. tmp¿¡ ÀúÀåµÈ °ªÀ» y¿¡ ÀúÀå
-		System.out.println("x="+x); 
-		System.out.println("y="+y); 
+		int tmp = x;
+		x = y;
+		y = tmp;
+		System.out.println("x=" + x);
+		System.out.println("y=" + y);
 	}
 }
