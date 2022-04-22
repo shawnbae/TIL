@@ -4,7 +4,4 @@ class Ex2_1 {
 		System.out.println("Hello");
 		System.out.println("World");
 		System.out.print("Test");
-		System.out.print("Test");
-		System.out.print("Test");
 	}
-}
