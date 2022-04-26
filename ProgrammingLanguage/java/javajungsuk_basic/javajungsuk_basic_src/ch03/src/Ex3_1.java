@@ -2,7 +2,7 @@ class Ex3_1 {
 	public static void main(String[] args) {
 		int x, y;
 
-		x = y = 3; // y¿¡ 3ÀÌ ÀúÀåµÈ ÈÄ¿¡, x¿¡ 3ÀÌ ÀúÀåµÈ´Ù.
+		x = y = 3; // yï¿½ï¿½ 3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¿ï¿½, xï¿½ï¿½ 3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È´ï¿½.
 		System.out.println("x=" + x);
 		System.out.println("y=" + y);
 	}
