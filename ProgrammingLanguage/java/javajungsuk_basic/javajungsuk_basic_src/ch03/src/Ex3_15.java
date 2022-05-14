@@ -1,21 +1,21 @@
-import java.util.*;  // ScannerÅ¬·¡½º¸¦ »ç¿ëÇÏ±â À§ÇØ Ãß°¡
+import java.util.*; // Scannerí´ëž˜ìŠ¤ë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•´ ì¶”ê°€
 
 class Ex3_15 {
-	public static void main(String args[]) { 
+	public static void main(String args[]) {
 		Scanner scanner = new Scanner(System.in);
 		char ch = ' ';
 
-		System.out.printf("¹®ÀÚ¸¦ ÇÏ³ª ÀÔ·ÂÇÏ¼¼¿ä.>");
+		System.out.printf("ë¬¸ìžë¥¼ í•˜ë‚˜ ìž…ë ¥í•˜ì„¸ìš”.>");
 
 		String input = scanner.nextLine();
 		ch = input.charAt(0);
 
-		if('0' <= ch && ch <= '9') {
-			System.out.printf("ÀÔ·ÂÇÏ½Å ¹®ÀÚ´Â ¼ýÀÚÀÔ´Ï´Ù.%n");
+		if ('0' <= ch && ch <= '9') {
+			System.out.printf("ìž…ë ¥í•˜ì‹  ë¬¸ìžëŠ” ìˆ«ìžìž…ë‹ˆë‹¤.%n");
 		}
 
-		if(('a' <= ch && ch <= 'z') || ('A'<= ch && ch <= 'Z')) {
-			System.out.printf("ÀÔ·ÂÇÏ½Å ¹®ÀÚ´Â ¿µ¹®ÀÚÀÔ´Ï´Ù.%n");
+		if (('a' <= ch && ch <= 'z') || ('A' <= ch && ch <= 'Z')) {
+			System.out.printf("ìž…ë ¥í•˜ì‹  ë¬¸ìžëŠ” ì˜ë¬¸ìžìž…ë‹ˆë‹¤.%n");
 		}
 	} // main
 }
