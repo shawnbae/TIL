@@ -1,6 +1,6 @@
 class Ex4_8 {
 	public static void main(String args[]) {
-		for (int i = 1; i <= 3; i++) { // °ýÈ£{}¾ÈÀÇ ¹®ÀåÀ» 3¹ø ¹Ýº¹
+		for (int i = 1; i <= 3; i++) { // ê´„í˜¸{}ì•ˆì˜ ë¬¸ìž¥ì„ 3ë²ˆ ë°˜ë³µ
 			System.out.println("Hello");
 		}
 	}
