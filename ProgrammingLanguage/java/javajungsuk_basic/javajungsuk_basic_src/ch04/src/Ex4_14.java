@@ -1,22 +1,22 @@
 import java.util.*;
 
 class Ex4_14 {
-	public static void main(String[] args) { 
+	public static void main(String[] args) {
 		int num = 0, sum = 0;
-		System.out.print("¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.(¿¹:12345)>");
+		System.out.print("ìˆ«ìë¥¼ ì…ë ¥í•˜ì„¸ìš”.(ì˜ˆ:12345)>");
 
 		Scanner scanner = new Scanner(System.in);
-		String tmp = scanner.nextLine();  // È­¸éÀ» ÅëÇØ ÀÔ·Â¹ŞÀº ³»¿ëÀ» tmp¿¡ ÀúÀå
-		num = Integer.parseInt(tmp);      // ÀÔ·Â¹ŞÀº ¹®ÀÚ¿­(tmp)À» ¼ıÀÚ·Î º¯È¯
+		String tmp = scanner.nextLine(); // í™”ë©´ì„ í†µí•´ ì…ë ¥ë°›ì€ ë‚´ìš©ì„ tmpì— ì €ì¥
+		num = Integer.parseInt(tmp); // ì…ë ¥ë°›ì€ ë¬¸ìì—´(tmp)ì„ ìˆ«ìë¡œ ë³€í™˜
 
-		while(num!=0) {    
-			// numÀ» 10À¸·Î ³ª´« ³ª¸ÓÁö¸¦ sum¿¡ ´õÇÔ
-			sum += num%10; 	// sum = sum + num%10;
+		while (num != 0) {
+			// numì„ 10ìœ¼ë¡œ ë‚˜ëˆˆ ë‚˜ë¨¸ì§€ë¥¼ sumì— ë”í•¨
+			sum += num % 10; // sum = sum + num%10;
 			System.out.printf("sum=%3d num=%d%n", sum, num);
 
-			num /= 10;   // num = num / 10;  numÀ» 10À¸·Î ³ª´« °ªÀ» ´Ù½Ã num¿¡ ÀúÀå
+			num /= 10; // num = num / 10; numì„ 10ìœ¼ë¡œ ë‚˜ëˆˆ ê°’ì„ ë‹¤ì‹œ numì— ì €ì¥
 		}
 
-		System.out.println("°¢ ÀÚ¸®¼öÀÇ ÇÕ:"+sum);
+		System.out.println("ê° ìë¦¬ìˆ˜ì˜ í•©:" + sum);
 	}
 }

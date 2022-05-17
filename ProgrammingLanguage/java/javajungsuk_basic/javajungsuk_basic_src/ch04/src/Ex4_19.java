@@ -1,18 +1,16 @@
-class Ex4_19
-{
-	public static void main(String[] args)
-	{
-      // for¹®¿¡ Loop1ÀÌ¶ó´Â ÀÌ¸§À» ºÙ¿´´Ù.
-		Loop1 : for(int i=2;i <=9;i++) {	
-				for(int j=1;j <=9;j++) {
-					if(j==5)
-						break Loop1;
-//						break;
-//						continue Loop1;
-//						continue;
-					System.out.println(i+"*"+ j +"="+ i*j);
-				} // end of for i
-				System.out.println();
+class Ex4_19 {
+	public static void main(String[] args) {
+		// forë¬¸ì— Loop1ì´ë¼ëŠ” ì´ë¦„ì„ ë¶™ì˜€ë‹¤.
+		Loop1: for (int i = 2; i <= 9; i++) {
+			for (int j = 1; j <= 9; j++) {
+				if (j == 5)
+					break Loop1;
+				// break;
+				// continue Loop1;
+				// continue;
+				System.out.println(i + "*" + j + "=" + i * j);
+			} // end of for i
+			System.out.println();
 		} // end of Loop1
 
 	}

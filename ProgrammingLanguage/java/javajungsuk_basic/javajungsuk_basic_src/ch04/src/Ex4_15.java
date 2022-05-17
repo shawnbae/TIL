@@ -1,23 +1,23 @@
 import java.util.*;
 
 class Ex4_15 {
-	public static void main(String[] args) { 
-		int input  = 0, answer = 0;
+	public static void main(String[] args) {
+		int input = 0, answer = 0;
 
-		answer = (int)(Math.random() * 100) + 1; // 1~100 »çÀÌÀÇ ÀÓÀÇÀÇ ¼ö¸¦ ÀúÀå
+		answer = (int) (Math.random() * 100) + 1; // 1~100 ì‚¬ì´ì˜ ì„ì˜ì˜ ìˆ˜ë¥¼ ì €ì¥
 		Scanner scanner = new Scanner(System.in);
 
 		do {
-			System.out.print("1°ú 100»çÀÌÀÇ Á¤¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä.>");
+			System.out.print("1ê³¼ 100ì‚¬ì´ì˜ ì •ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”.>");
 			input = scanner.nextInt();
 
-			if(input > answer) {
-				System.out.println("´õ ÀÛÀº ¼ö·Î ´Ù½Ã ½ÃµµÇØº¸¼¼¿ä.");	
-			} else if(input < answer) {
-				System.out.println("´õ Å« ¼ö·Î ´Ù½Ã ½ÃµµÇØº¸¼¼¿ä.");			
+			if (input > answer) {
+				System.out.println("ë” ì‘ì€ ìˆ˜ë¡œ ë‹¤ì‹œ ì‹œë„í•´ë³´ì„¸ìš”.");
+			} else if (input < answer) {
+				System.out.println("ë” í° ìˆ˜ë¡œ ë‹¤ì‹œ ì‹œë„í•´ë³´ì„¸ìš”.");
 			}
-		} while(input!=answer);
+		} while (input != answer);
 
-		System.out.println("Á¤´äÀÔ´Ï´Ù.");
+		System.out.println("ì •ë‹µì…ë‹ˆë‹¤.");
 	}
 }
