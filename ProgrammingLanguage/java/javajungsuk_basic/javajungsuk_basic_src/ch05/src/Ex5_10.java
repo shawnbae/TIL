@@ -1,25 +1,25 @@
 import java.util.Scanner;
 
-class Ex5_10{
+class Ex5_10 {
 	public static void main(String[] args) {
 		String[][] words = {
-			{"chair","ÀÇÀÚ"},      	// words[0][0], words[0][1]
-			{"computer","ÄÄÇ»ÅÍ"}, 	// words[1][0], words[1][1]
-			{"integer","Á¤¼ö"}     	// words[2][0], words[2][1]
+				{ "chair", "ì˜ì" }, // words[0][0], words[0][1]
+				{ "computer", "ì»´í“¨í„°" }, // words[1][0], words[1][1]
+				{ "integer", "ì •ìˆ˜" } // words[2][0], words[2][1]
 		};
 
 		Scanner scanner = new Scanner(System.in);
 
-		for(int i=0;i<words.length;i++) {
-			System.out.printf("Q%d. %sÀÇ ¶æÀº?", i+1, words[i][0]);
+		for (int i = 0; i < words.length; i++) {
+			System.out.printf("Q%d. %sì˜ ëœ»ì€?", i + 1, words[i][0]);
 
 			String tmp = scanner.nextLine();
 
-			if(tmp.equals(words[i][1])) {
-				System.out.printf("Á¤´äÀÔ´Ï´Ù.%n%n");
+			if (tmp.equals(words[i][1])) {
+				System.out.printf("ì •ë‹µì…ë‹ˆë‹¤.%n%n");
 			} else {
-			   System.out.printf("Æ²·È½À´Ï´Ù. Á¤´äÀº %sÀÔ´Ï´Ù.%n%n",words[i][1]);
+				System.out.printf("í‹€ë ¸ìŠµë‹ˆë‹¤. ì •ë‹µì€ %sì…ë‹ˆë‹¤.%n%n", words[i][1]);
 			}
 		} // for
-	} // mainÀÇ ³¡
+	} // mainì˜ ë
 }
