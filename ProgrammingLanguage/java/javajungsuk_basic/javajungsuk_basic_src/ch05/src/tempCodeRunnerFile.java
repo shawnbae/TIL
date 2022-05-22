@@ -1,31 +1,25 @@
-import java.util.Arrays; // Arrays.toString()을 사용하기 위해 추가
+class Ex5_5 { 
+	public static void main(String[] args) { 
+		int[] ball = new int[45];  // 45개의 정수값을 저장하기 위한 배열 생성.      
 
-class Ex5_1 {
-	public static void main(String[] args) {
-		int[] iArr1 = new int[10];
-		int[] iArr2 = new int[10];
-		// int[] iArr3 = new int[]{100, 95, 80, 70, 60};
-		int[] iArr3 = { 100, 95, 80, 70, 60 };
-		char[] chArr = { 'a', 'b', 'c', 'd' };
+		// 배열의 각 요소에 1~45의 값을 저장한다. 
+		for(int i=0; i < ball.length; i++)       
+			ball[i] = i+1;    // ball[0]에 1이 저장된다.
 
-		for (int i = 0; i < iArr1.length; i++) {
-			iArr1[i] = i + 1; // 1~10의 숫자를 순서대로 배열에 넣는다.
-		}
+		int tmp = 0;   // 두 값을 바꾸는데 사용할 임시변수 
+		int j = 0;     // 임의의 값을 얻어서 저장할 변수 
 
-		for (int i = 0; i < iArr2.length; i++) {
-			iArr2[i] = (int) (Math.random() * 10) + 1; // 1~10의 값을 배열에 저장
-		}
+		// 배열의 i번째 요소와 임의의 요소에 저장된 값을 서로 바꿔서 값을 섞는다. 
+		// 0번째 부터 5번째 요소까지 모두 6개만 바꾼다.
+		for(int i=0; i < 6; i++) {       
+			j = (int)(Math.random() * 45); // 0~44범위의 임의의 값을 얻는다. 
+			tmp     = ball[i]; 
+			ball[i] = ball[j]; 
+			ball[j] = tmp; 
+		} 
 
-		// 배열에 저장된 값들을 출력한다.
-		for (int i = 0; i < iArr1.length; i++) {
-			System.out.print(iArr1[i] + ",");
-		}
-		System.out.println();
-
-		System.out.println(Arrays.toString(iArr2));
-		System.out.println(Arrays.toString(iArr3));
-		System.out.println(Arrays.toString(chArr));
-		System.out.println(iArr3);
-		System.out.println(chArr);
-	}
+		// 배열 ball의 앞에서 부터 6개의 요소를 출력한다.
+		for(int i=0; i < 6; i++) 
+			System.out.printf("ball[%d]=%d%n", i, ball[i]); 
+	} 
 }
