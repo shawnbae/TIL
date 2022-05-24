@@ -1,21 +1,29 @@
-class Ex6_1 { 
-	public static void main(String args[]) { 
-		Tv t;                 // TvÀÎ½ºÅÏ½º¸¦ ÂüÁ¶ÇÏ±â À§ÇÑ º¯¼ö t¸¦ ¼±¾ğ       
-		t = new Tv();         // TvÀÎ½ºÅÏ½º¸¦ »ı¼ºÇÑ´Ù. 
-		t.channel = 7;        // TvÀÎ½ºÅÏ½ºÀÇ ¸â¹öº¯¼ö channelÀÇ °ªÀ» 7·Î ÇÑ´Ù. 
-		t.channelDown();      // TvÀÎ½ºÅÏ½ºÀÇ ¸Ş¼­µå channelDown()À» È£ÃâÇÑ´Ù. 
-		System.out.println("ÇöÀç Ã¤³ÎÀº " + t.channel + " ÀÔ´Ï´Ù."); 
-	} 
+class Ex6_1 {
+	public static void main(String args[]) {
+		Tv t;
+		t = new Tv();
+		t.channel = 7;
+		t.channelDown();
+		System.out.println("í˜„ì¬ ì±„ë„ì€ " + t.channel + " ì…ë‹ˆë‹¤.");
+	}
 }
 
-class Tv { 
-	// TvÀÇ ¼Ó¼º(¸â¹öº¯¼ö)   
-	String color;           // »ö»ó 
-	boolean power;         	// Àü¿ø»óÅÂ(on/off) 
-	int channel;           	// Ã¤³Î 
+class Tv {
+	// Tvì˜ ì†ì„±(ë©¤ë²„ë³€ìˆ˜)
+	String color; // ìƒ‰ìƒ
+	boolean power; // ì „ì›ìƒíƒœ(on/off)
+	int channel; // ì±„ë„
 
-	// TvÀÇ ±â´É(¸Ş¼­µå) 
-	void power()   { power = !power; }  // TV¸¦ ÄÑ°Å³ª ²ô´Â ±â´ÉÀ» ÇÏ´Â ¸Ş¼­µå  
-	void channelUp()   {  ++channel; }  // TVÀÇ Ã¤³ÎÀ» ³ôÀÌ´Â ±â´ÉÀ» ÇÏ´Â ¸Ş¼­µå 
-	void channelDown() { --channel; }   // TVÀÇ Ã¤³ÎÀ» ³·Ãß´Â ±â´ÉÀ» ÇÏ´Â ¸Ş¼­µå  
+	// Tvì˜ ê¸°ëŠ¥(ë©”ì„œë“œ)
+	void power() {
+		power = !power;
+	} // TVë¥¼ ì¼œê±°ë‚˜ ë„ëŠ” ê¸°ëŠ¥ì„ í•˜ëŠ” ë©”ì„œë“œ
+
+	void channelUp() {
+		++channel;
+	} // TVì˜ ì±„ë„ì„ ë†’ì´ëŠ” ê¸°ëŠ¥ì„ í•˜ëŠ” ë©”ì„œë“œ
+
+	void channelDown() {
+		--channel;
+	} // TVì˜ ì±„ë„ì„ ë‚®ì¶”ëŠ” ê¸°ëŠ¥ì„ í•˜ëŠ” ë©”ì„œë“œ
 }
