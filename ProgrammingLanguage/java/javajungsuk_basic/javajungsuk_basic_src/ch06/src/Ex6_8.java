@@ -1,20 +1,22 @@
-class Data3 { int x; }
+class Data3 {
+	int x;
+}
 
 class Ex6_8 {
 	public static void main(String[] args) {
 		Data3 d = new Data3();
 		d.x = 10;
 
-		Data3 d2 = copy(d); 
-		System.out.println("d.x ="+d.x);
-		System.out.println("d2.x="+d2.x);
+		Data3 d2 = copy(d);
+		System.out.println("d.x =" + d.x);
+		System.out.println("d2.x=" + d2.x);
 	}
 
 	static Data3 copy(Data3 d) {
-		Data3 tmp = new Data3();    // »õ·Î¿î °´Ã¼ tmp¸¦ »ı¼ºÇÑ´Ù.
+		Data3 tmp = new Data3(); // ìƒˆë¡œìš´ ê°ì²´ tmpë¥¼ ìƒì„±í•œë‹¤.
 
-		tmp.x = d.x;  // d.xÀÇ °ªÀ» tmp.x¿¡ º¹»çÇÑ´Ù.
+		tmp.x = d.x; // d.xì˜ ê°’ì„ tmp.xì— ë³µì‚¬í•œë‹¤.
 
-		return tmp;   // º¹»çÇÑ °´Ã¼ÀÇ ÁÖ¼Ò¸¦ ¹İÈ¯ÇÑ´Ù.
+		return tmp; // ë³µì‚¬í•œ ê°ì²´ì˜ ì£¼ì†Œë¥¼ ë°˜í™˜í•œë‹¤.
 	}
 }
