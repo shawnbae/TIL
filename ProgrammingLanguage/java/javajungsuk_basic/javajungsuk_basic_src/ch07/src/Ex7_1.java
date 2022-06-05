@@ -1,16 +1,25 @@
 class Tv {
-	boolean power; // Àü¿ø»óÅÂ(on/off)
-	int channel;	// Ã¤³Î
+	boolean power; // ì „ì›ìƒíƒœ(on/off)
+	int channel; // ì±„ë„
 
-	void power()       {   power = !power; }
-	void channelUp()   {   ++channel;      }
-	void channelDown() {   --channel;      }
+	void power() {
+		power = !power;
+	}
+
+	void channelUp() {
+		++channel;
+	}
+
+	void channelDown() {
+		--channel;
+	}
 }
 
-class SmartTv extends Tv {  // CaptionTv´Â Tv¿¡ Ä¸¼Ç(ÀÚ¸·)À» º¸¿©ÁÖ´Â ±â´ÉÀ» Ãß°¡
-	boolean caption;     // Ä¸¼Ç»óÅÂ(on/off)
+class SmartTv extends Tv { // CaptionTvëŠ” Tvì— ìº¡ì…˜(ìë§‰)ì„ ë³´ì—¬ì£¼ëŠ” ê¸°ëŠ¥ì„ ì¶”ê°€
+	boolean caption; // ìº¡ì…˜ìƒíƒœ(on/off)
+
 	void displayCaption(String text) {
-		if (caption) {   // Ä¸¼Ç »óÅÂ°¡ on(true)ÀÏ ¶§¸¸ text¸¦ º¸¿© ÁØ´Ù.
+		if (caption) { // ìº¡ì…˜ ìƒíƒœê°€ on(true)ì¼ ë•Œë§Œ textë¥¼ ë³´ì—¬ ì¤€ë‹¤.
 			System.out.println(text);
 		}
 	}
@@ -19,11 +28,11 @@ class SmartTv extends Tv {  // CaptionTv´Â Tv¿¡ Ä¸¼Ç(ÀÚ¸·)À» º¸¿©ÁÖ´Â ±â´ÉÀ» Ãß°
 class Ex7_1 {
 	public static void main(String args[]) {
 		SmartTv stv = new SmartTv();
-		stv.channel = 10;			// Á¶»ó Å¬·¡½º·ÎºÎÅÍ »ó¼Ó¹ŞÀº ¸â¹ö
-		stv.channelUp();			// Á¶»ó Å¬·¡½º·ÎºÎÅÍ »ó¼Ó¹ŞÀº ¸â¹ö
+		stv.channel = 10; // ì¡°ìƒ í´ë˜ìŠ¤ë¡œë¶€í„° ìƒì†ë°›ì€ ë©¤ë²„
+		stv.channelUp(); // ì¡°ìƒ í´ë˜ìŠ¤ë¡œë¶€í„° ìƒì†ë°›ì€ ë©¤ë²„
 		System.out.println(stv.channel);
 		stv.displayCaption("Hello, World");
-		stv.caption = true;	// Ä¸¼Ç(ÀÚ¸·) ±â´ÉÀ» ÄÒ´Ù.	       
+		stv.caption = true; // ìº¡ì…˜(ìë§‰) ê¸°ëŠ¥ì„ ì¼ ë‹¤.
 		stv.displayCaption("Hello, World");
 	}
 }
