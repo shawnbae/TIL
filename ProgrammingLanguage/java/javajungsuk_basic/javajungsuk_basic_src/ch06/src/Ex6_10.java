@@ -11,6 +11,7 @@ class Ex6_10 {
 	}
 }
 
+// 메소드 오버로딩
 class MyMath3 {
 	int add(int a, int b) {
 		System.out.print("int add(int a, int b) - ");
