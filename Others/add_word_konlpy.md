@@ -9,6 +9,3 @@
 - dir
 
 - jar cvf open-korean-text-2.1.0.jar *
-
-  
-
