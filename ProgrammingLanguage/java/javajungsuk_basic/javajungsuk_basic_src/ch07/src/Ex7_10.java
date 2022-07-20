@@ -9,28 +9,39 @@ public class Ex7_10 {
 
 abstract class Unit {
 	int x, y;
+
 	abstract void move(int x, int y);
-	void stop() { /* ÇöÀç À§Ä¡¿¡ Á¤Áö */ }
+
+	void stop() {
+		/* í˜„ì¬ ìœ„ì¹˜ì— ì •ì§€ */ }
 }
 
-class Marine extends Unit { // º¸º´
+class Marine extends Unit { // ë³´ë³‘
 	void move(int x, int y) {
 		System.out.println("Marine[x=" + x + ",y=" + y + "]");
 	}
-	void stimPack() { /* ½ºÆÀÆÑÀ» »ç¿ëÇÑ´Ù. */ }
+
+	void stimPack() {
+		/* ìŠ¤íŒ€íŒ©ì„ ì‚¬ìš©í•œë‹¤. */ }
 }
 
-class Tank extends Unit { // ÅÊÅ©
+class Tank extends Unit { // íƒ±í¬
 	void move(int x, int y) {
 		System.out.println("Tank[x=" + x + ",y=" + y + "]");
 	}
-	void changeMode() { /* °ø°İ¸ğµå¸¦ º¯È¯ÇÑ´Ù. */ }
+
+	void changeMode() {
+		/* ê³µê²©ëª¨ë“œë¥¼ ë³€í™˜í•œë‹¤. */ }
 }
 
-class Dropship extends Unit { // ¼ö¼Û¼±
+class Dropship extends Unit { // ìˆ˜ì†¡ì„ 
 	void move(int x, int y) {
 		System.out.println("Dropship[x=" + x + ",y=" + y + "]");
 	}
-	void load()   { /* ¼±ÅÃµÈ ´ë»óÀ» ÅÂ¿î´Ù. */ }
-	void unload() { /* ¼±ÅÃµÈ ´ë»óÀ» ³»¸°´Ù. */ }
+
+	void load() {
+		/* ì„ íƒëœ ëŒ€ìƒì„ íƒœìš´ë‹¤. */ }
+
+	void unload() {
+		/* ì„ íƒëœ ëŒ€ìƒì„ ë‚´ë¦°ë‹¤. */ }
 }
