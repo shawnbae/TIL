@@ -6,40 +6,42 @@ import java.text.SimpleDateFormat;
 public class TcpIpServer {
 	public static void main(String args[]) {
 		ServerSocket serverSocket = null;
-		
-		try {
-			// ¼­¹ö¼ÒÄÏÀ» »ı¼ºÇÏ¿© 7777¹ø Æ÷Æ®¿Í °áÇÕ(bind)½ÃÅ²´Ù.
-			serverSocket = new ServerSocket(7777);
-			System.out.println(getTime()+"¼­¹ö°¡ ÁØºñµÇ¾ú½À´Ï´Ù.");
-		} catch(IOException e) { e.printStackTrace(); }
 
-		while(true) {
+		try {
+			// ì„œë²„ì†Œì¼“ì„ ìƒì„±í•˜ì—¬ 7777ë²ˆ í¬íŠ¸ì™€ ê²°í•©(bind)ì‹œí‚¨ë‹¤.
+			serverSocket = new ServerSocket(7777);
+			System.out.println(getTime() + "ì„œë²„ê°€ ì¤€ë¹„ë˜ì—ˆìŠµë‹ˆë‹¤.");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		while (true) {
 			try {
-				System.out.println(getTime()+"¿¬°á¿äÃ»À» ±â´Ù¸³´Ï´Ù.");
-				// ¼­¹ö¼ÒÄÏÀº Å¬¶óÀÌ¾ğÆ®ÀÇ ¿¬°á¿äÃ»ÀÌ ¿Ã ¶§±îÁö ½ÇÇàÀ» ¸ØÃß°í °è¼Ó ±â´Ù¸°´Ù.
-				// Å¬¶óÀÌ¾ğÆ®ÀÇ ¿¬°á¿äÃ»ÀÌ ¿À¸é Å¬¶óÀÌ¾ğÆ® ¼ÒÄÏ°ú Åë½ÅÇÒ »õ·Î¿î ¼ÒÄÏÀ» »ı¼ºÇÑ´Ù.
+				System.out.println(getTime() + "ì—°ê²°ìš”ì²­ì„ ê¸°ë‹¤ë¦½ë‹ˆë‹¤.");
+				// ì„œë²„ì†Œì¼“ì€ í´ë¼ì´ì–¸íŠ¸ì˜ ì—°ê²°ìš”ì²­ì´ ì˜¬ ë•Œê¹Œì§€ ì‹¤í–‰ì„ ë©ˆì¶”ê³  ê³„ì† ê¸°ë‹¤ë¦°ë‹¤.
+				// í´ë¼ì´ì–¸íŠ¸ì˜ ì—°ê²°ìš”ì²­ì´ ì˜¤ë©´ í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ê³¼ í†µì‹ í•  ìƒˆë¡œìš´ ì†Œì¼“ì„ ìƒì„±í•œë‹¤.
 				Socket socket = serverSocket.accept();
-				System.out.println(getTime()+ socket.getInetAddress() 
-                                            + "·ÎºÎÅÍ ¿¬°á¿äÃ»ÀÌ µé¾î¿Ô½À´Ï´Ù.");
-				// ¼ÒÄÏÀÇ Ãâ·Â½ºÆ®¸²À» ¾ò´Â´Ù.
+				System.out.println(getTime() + socket.getInetAddress()
+						+ "ë¡œë¶€í„° ì—°ê²°ìš”ì²­ì´ ë“¤ì–´ì™”ìŠµë‹ˆë‹¤.");
+				// ì†Œì¼“ì˜ ì¶œë ¥ìŠ¤íŠ¸ë¦¼ì„ ì–»ëŠ”ë‹¤.
 				OutputStream out = socket.getOutputStream();
 				DataOutputStream dos = new DataOutputStream(out);
 
-				// ¿ø°İ ¼ÒÄÏ(remote socket)¿¡ µ¥ÀÌÅÍ¸¦ º¸³½´Ù.
+				// ì›ê²© ì†Œì¼“(remote socket)ì— ë°ì´í„°ë¥¼ ë³´ë‚¸ë‹¤.
 				dos.writeUTF("[Notice] Test Message1 from Server.");
-				System.out.println(getTime()+"µ¥ÀÌÅÍ¸¦ Àü¼ÛÇß½À´Ï´Ù.");
+				System.out.println(getTime() + "ë°ì´í„°ë¥¼ ì „ì†¡í–ˆìŠµë‹ˆë‹¤.");
 
-				// ½ºÆ®¸²°ú ¼ÒÄÏÀ» ´İ¾ÆÁØ´Ù.
+				// ìŠ¤íŠ¸ë¦¼ê³¼ ì†Œì¼“ì„ ë‹«ì•„ì¤€ë‹¤.
 				dos.close();
 				socket.close();
-			} catch (IOException e) { 
-				e.printStackTrace(); 
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
 		} // while
 	} // main
 
-	// ÇöÀç½Ã°£À» ¹®ÀÚ¿­·Î ¹İÈ¯ÇÏ´Â ÇÔ¼ö
-	static String getTime() {  
+	// í˜„ì¬ì‹œê°„ì„ ë¬¸ìì—´ë¡œ ë°˜í™˜í•˜ëŠ” í•¨ìˆ˜
+	static String getTime() {
 		SimpleDateFormat f = new SimpleDateFormat("[hh:mm:ss]");
 		return f.format(new Date());
 	}
