@@ -1,4 +1,4 @@
-# minikube 설치 및 쿠버네티스 클러스터 구성하기
+# minikube 설치 및 쿠버네티스 클러스터 구성
 ## minikube 구동하기
 ```bash
 $minikube start --driver docker
@@ -7,7 +7,7 @@ $minikube status # 상태 보기
 $kubectl cluster-info # 클러스터 확인
 ```
 
-## docker 구성요소
+# docker 구성요소
     - Client
       - docker build, docker pull, docker run을 시행하는 주체
     - DOCKER_HOST
@@ -81,3 +81,36 @@ $kubectl cluster-info # 클러스터 확인
       $docker pause [container]
     - 컨테이너 재개
       $docker unpause [container]
+
+### 컨테이너 종료
+    - 컨테이너 안전 종료(SIGTERM 시그널 전달)
+      $docker stop [container]
+    - 컨테이너 강제 종료(SIGKILL 시그널 전달)
+      $docker kill [container]
+    - 모든 컨테이너 종료
+      $docker stop $(docker ps -a -q) # docker ps -a -q는 모든 컨테이너 지칭, 이를 변수화하여 삭제
+
+### 컨테이너 삭제
+    - 컨테이너 삭제 (실행중인 컨테이너 불가)
+      $docker rm [container]
+    - 컨테이너 강제 종료 후 삭제 (SIGKILL 시그널 전달)
+      $docker rm -f [container]
+    - 컨테이너 실행 종료 후 자동 삭제
+      $docker run --rm
+    - 중지된 모든 컨테이너 삭제
+      $docker container prune
+
+# 도커를 이용한 컨테이너 관리
+## 엔트리포인트 및 커맨드
+    - 엔트리포인트
+      - 도커 컨테이너가 실행할 때 고정적으로 실행되는 스크립트 혹은 명령어
+      - 생락할 수 있으며, 생략될 경우 커맨드에 지정된 명령어로 수행
+    - 커맨드
+      - 도커 컨테이너가 실행할 때 수행할 명령어 혹은 엔트리포인트에 지정된 명령어에 대한 인자 값
+
+## 환경변수 다루기
+    - docker 실행 시 -e에 환경변수를 옵션으로 지정할 수 있음
+      $docker run -i -t -e MY_HOST=test.com ubuntu:focal bash
+    - docker 실행 시 --env-file에 환경변수 파일을 옵션으로 지정할 수 있음
+      $docker run -i -t --env-file ./sample.env ubuntu:focal env
+    - 
