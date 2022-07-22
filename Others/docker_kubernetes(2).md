@@ -113,4 +113,10 @@ $kubectl cluster-info # 클러스터 확인
       $docker run -i -t -e MY_HOST=test.com ubuntu:focal bash
     - docker 실행 시 --env-file에 환경변수 파일을 옵션으로 지정할 수 있음
       $docker run -i -t --env-file ./sample.env ubuntu:focal env
-    - 
+
+## 명령어 실행
+    - docker exec [container] [command]
+    - issue 발생 시 실행 중인 컨테이너의 이슈를 해결하기 위한 용도로 사용
+      $docker exec -i -t my-nginx bash # my-nginx 컨테이너에 Bash 셸로 접속하기
+      $docker exec my-nginx env # my-nginx 컨테이너에 환경변수 확인하기
+      
