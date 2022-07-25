@@ -120,11 +120,24 @@ $kubectl cluster-info # 클러스터 확인
       $docker exec -i -t my-nginx bash # my-nginx 컨테이너에 Bash 셸로 접속하기
       $docker exec my-nginx env # my-nginx 컨테이너에 환경변수 확인하기
 
-
-## 도커의 네트워크 구조
+## 도커의 네트워크
+    - 도커 엔진에 의해 기본 생성되는 docker0를 통해 네트워크를 브릿징한다.
     - 컨테이너 포트를 호스트의 IP:PORT와 연결하여 서비스를 노출하는 방법
     $docker run -p [HOST IP:PORT] : [CONTAINER PORT] [container]
     $docker run -d -p 80:80 nginx # nginx컨테이너의 80번 포트를 호스트 모든 IP의 80번 포트와 연결하여 실행
     $docker run -d -p 127.0.0.1:80:80 nginx # nginx 컨테이너의 80번 포트를 호스트 127.0.0.1 IP의 80번 포트와 연결하여 실행
     $docker run -d -p 80 nginx # nginx 컨테이너의 80번 포트를 호스트의 사용 가능한 포트와 연결하여 실행
-    
+    - expose: 실제로 연결하지 않고 별다른 기능 없이 문서화만 함 (주석)
+    - publish: 살재 포트를 바인딩
+    $docker run -d --expose 80 nginx # nginx # expose 옵션은 그저 문서화 용도로 사용
+    $docker run -d -p 80 nginx # publish 옵션은 실제 포트를 바인딩
+
+    - Native하게 지원되는 네트워크 드라이버: Bridge, Host, None, Overlay 등
+    - Remote Driver: 다양한 Plugin들을 설치해서 사용하는 방법
+
+    - Single Host Networking: bridge, host, none
+      - 단일 호스트로 네트워크를 호스팅할 때 사용함
+    - Multi Host Networking: overlay
+      - 여러 서버들이 존재할 때 그 서버들을 연결시키는 가상의 네트워크
+      - 멀티호스트로 작동하므로 orchestration 시스템에 많이 쓰임 (docker swarm 많이 사용)
+    $docker network ls # 연결된 네트워크들의 목록을 보여줌
