@@ -119,4 +119,12 @@ $kubectl cluster-info # 클러스터 확인
     - issue 발생 시 실행 중인 컨테이너의 이슈를 해결하기 위한 용도로 사용
       $docker exec -i -t my-nginx bash # my-nginx 컨테이너에 Bash 셸로 접속하기
       $docker exec my-nginx env # my-nginx 컨테이너에 환경변수 확인하기
-      
+
+
+## 도커의 네트워크 구조
+    - 컨테이너 포트를 호스트의 IP:PORT와 연결하여 서비스를 노출하는 방법
+    $docker run -p [HOST IP:PORT] : [CONTAINER PORT] [container]
+    $docker run -d -p 80:80 nginx # nginx컨테이너의 80번 포트를 호스트 모든 IP의 80번 포트와 연결하여 실행
+    $docker run -d -p 127.0.0.1:80:80 nginx # nginx 컨테이너의 80번 포트를 호스트 127.0.0.1 IP의 80번 포트와 연결하여 실행
+    $docker run -d -p 80 nginx # nginx 컨테이너의 80번 포트를 호스트의 사용 가능한 포트와 연결하여 실행
+    
