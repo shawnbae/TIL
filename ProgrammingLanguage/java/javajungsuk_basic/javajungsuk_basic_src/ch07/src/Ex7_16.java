@@ -1,8 +1,8 @@
 class Outer3 {
-	int value = 10;	// Outer3.this.value
+	int value = 10; // Outer3.this.value
 
 	class Inner {
-		int value = 20;   // this.value
+		int value = 20; // this.value
 
 		void method1() {
 			int value = 30;
@@ -10,8 +10,8 @@ class Outer3 {
 			System.out.println("       this.value :" + this.value);
 			System.out.println("Outer3.this.value :" + Outer3.this.value);
 		}
-	} // InnerÅ¬·¡½ºÀÇ ³¡
-} // Outer3Å¬·¡½ºÀÇ ³¡
+	} // Innerí´ë˜ìŠ¤ì˜ ë
+} // Outer3í´ë˜ìŠ¤ì˜ ë
 
 class Ex7_16 {
 	public static void main(String args[]) {

@@ -1,33 +1,37 @@
 class Ex7_13 {
-	class InstanceInner {}
-	static class StaticInner {}
+	class InstanceInner {
+	}
 
-	// ÀÎ½ºÅÏ½º¸â¹ö °£¿¡´Â ¼­·Î Á÷Á¢ Á¢±ÙÀÌ °¡´ÉÇÏ´Ù.
+	static class StaticInner {
+	}
+
+	// ì¸ìŠ¤í„´ìŠ¤ë©¤ë²„ ê°„ì—ëŠ” ì„œë¡œ ì§ì ‘ ì ‘ê·¼ì´ ê°€ëŠ¥í•˜ë‹¤.
 	InstanceInner iv = new InstanceInner();
-	// static ¸â¹ö °£¿¡´Â ¼­·Î Á÷Á¢ Á¢±ÙÀÌ °¡´ÉÇÏ´Ù.
+	// static ë©¤ë²„ ê°„ì—ëŠ” ì„œë¡œ ì§ì ‘ ì ‘ê·¼ì´ ê°€ëŠ¥í•˜ë‹¤.
 	static StaticInner cv = new StaticInner();
 
 	static void staticMethod() {
-      // static¸â¹ö´Â ÀÎ½ºÅÏ½º¸â¹ö¿¡ Á÷Á¢ Á¢±ÙÇÒ ¼ö ¾ø´Ù.
-//		InstanceInner obj1 = new InstanceInner();	
+		// staticë©¤ë²„ëŠ” ì¸ìŠ¤í„´ìŠ¤ë©¤ë²„ì— ì§ì ‘ ì ‘ê·¼í•  ìˆ˜ ì—†ë‹¤.
+		// InstanceInner obj1 = new InstanceInner();
 		StaticInner obj2 = new StaticInner();
 
-      // ±»ÀÌ Á¢±ÙÇÏ·Á¸é ¾Æ·¡¿Í °°ÀÌ °´Ã¼¸¦ »ı¼ºÇØ¾ß ÇÑ´Ù.
-      // ÀÎ½ºÅÏ½ºÅ¬·¡½º´Â ¿ÜºÎ Å¬·¡½º¸¦ ¸ÕÀú »ı¼ºÇØ¾ß¸¸ »ı¼ºÇÒ ¼ö ÀÖ´Ù.
+		// êµ³ì´ ì ‘ê·¼í•˜ë ¤ë©´ ì•„ë˜ì™€ ê°™ì´ ê°ì²´ë¥¼ ìƒì„±í•´ì•¼ í•œë‹¤.
+		// ì¸ìŠ¤í„´ìŠ¤í´ë˜ìŠ¤ëŠ” ì™¸ë¶€ í´ë˜ìŠ¤ë¥¼ ë¨¼ì € ìƒì„±í•´ì•¼ë§Œ ìƒì„±í•  ìˆ˜ ìˆë‹¤.
 		Ex7_13 outer = new Ex7_13();
 		InstanceInner obj1 = outer.new InstanceInner();
 	}
 
 	void instanceMethod() {
-      // ÀÎ½ºÅÏ½º¸Ş¼­µå¿¡¼­´Â ÀÎ½ºÅÏ½º¸â¹ö¿Í static¸â¹ö ¸ğµÎ Á¢±Ù °¡´ÉÇÏ´Ù.
+		// ì¸ìŠ¤í„´ìŠ¤ë©”ì„œë“œì—ì„œëŠ” ì¸ìŠ¤í„´ìŠ¤ë©¤ë²„ì™€ staticë©¤ë²„ ëª¨ë‘ ì ‘ê·¼ ê°€ëŠ¥í•˜ë‹¤.
 		InstanceInner obj1 = new InstanceInner();
 		StaticInner obj2 = new StaticInner();
-		// ¸Ş¼­µå ³»¿¡ Áö¿ªÀûÀ¸·Î ¼±¾ğµÈ ³»ºÎ Å¬·¡½º´Â ¿ÜºÎ¿¡¼­ Á¢±ÙÇÒ ¼ö ¾ø´Ù.
-//		LocalInner lv = new LocalInner();
+		// ë©”ì„œë“œ ë‚´ì— ì§€ì—­ì ìœ¼ë¡œ ì„ ì–¸ëœ ë‚´ë¶€ í´ë˜ìŠ¤ëŠ” ì™¸ë¶€ì—ì„œ ì ‘ê·¼í•  ìˆ˜ ì—†ë‹¤.
+		// LocalInner lv = new LocalInner();
 	}
 
 	void myMethod() {
-		class LocalInner {}
+		class LocalInner {
+		}
 		LocalInner lv = new LocalInner();
 	}
 }
