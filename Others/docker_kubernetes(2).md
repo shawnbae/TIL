@@ -1,10 +1,10 @@
 # minikube 설치 및 쿠버네티스 클러스터 구성
 ## minikube 구동하기
 ```bash
-$minikube start --driver docker
-$cat ~/.kube/config # minikube cluster 보기
-$minikube status # 상태 보기
-$kubectl cluster-info # 클러스터 확인
+$ minikube start --driver docker
+$ cat ~/.kube/config # minikube cluster 보기
+$ minikube status # 상태 보기
+$ kubectl cluster-info # 클러스터 확인
 ```
 
 # docker 구성요소
@@ -51,13 +51,16 @@ $kubectl cluster-info # 클러스터 확인
 ## docker 명령어
 ### 컨테이너 시작
     - 컨테이너 생성
-      $docker create [image]
+      $ docker create [image]
+
     - 컨테이너 시작
-      $docker start [container]
+      $ docker start [container]
+
     - 컨테이너 생성 및 시작
-      $docker run [image]
+      $ docker run [image]
+
     - 주요 옵션
-      $ docker run \
+      $  docker run \
       -i # 호스트의 표준 입력을 컨테이너와 연결
       -t # TTY 할당
       --rm # 컨테이너 실행 종료 후 자동 삭제
@@ -70,35 +73,43 @@ $kubectl cluster-info # 클러스터 확인
 
 ### docker 컨테이너 상태 확인
     - 실행 중인 컨테이너 상태 확인
-      $docker ps
+      $ docker ps
+
     - 전체 컨테이너 상태 확인
-      $docker ps -a
+      $ docker ps -a
+    
     - 컨테이너 상세 정보 확인
-      $docker inspect [container]
+      $ docker inspect [container]
 
 ### 컨테이너 일시중지 및 재개
     - 컨테이너 일시중지
-      $docker pause [container]
+      $ docker pause [container]
+
     - 컨테이너 재개
-      $docker unpause [container]
+      $ docker unpause [container]
 
 ### 컨테이너 종료
     - 컨테이너 안전 종료(SIGTERM 시그널 전달)
-      $docker stop [container]
+      $ docker stop [container]
+
     - 컨테이너 강제 종료(SIGKILL 시그널 전달)
-      $docker kill [container]
+      $ docker kill [container]
+
     - 모든 컨테이너 종료
-      $docker stop $(docker ps -a -q) # docker ps -a -q는 모든 컨테이너 지칭, 이를 변수화하여 삭제
+      $ docker stop $ (docker ps -a -q) # docker ps -a -q는 모든 컨테이너 지칭, 이를 변수화하여 삭제
 
 ### 컨테이너 삭제
     - 컨테이너 삭제 (실행중인 컨테이너 불가)
-      $docker rm [container]
+      $ docker rm [container]
+
     - 컨테이너 강제 종료 후 삭제 (SIGKILL 시그널 전달)
-      $docker rm -f [container]
+      $ docker rm -f [container]
+
     - 컨테이너 실행 종료 후 자동 삭제
-      $docker run --rm
+      $ docker run --rm
+
     - 중지된 모든 컨테이너 삭제
-      $docker container prune
+      $ docker container prune
 
 # 도커를 이용한 컨테이너 관리
 ## 엔트리포인트 및 커맨드
@@ -110,27 +121,26 @@ $kubectl cluster-info # 클러스터 확인
 
 ## 환경변수 다루기
     - docker 실행 시 -e에 환경변수를 옵션으로 지정할 수 있음
-      $docker run -i -t -e MY_HOST=test.com ubuntu:focal bash
+      $ docker run -i -t -e MY_HOST=test.com ubuntu:focal bash
+      
     - docker 실행 시 --env-file에 환경변수 파일을 옵션으로 지정할 수 있음
-      $docker run -i -t --env-file ./sample.env ubuntu:focal env
+      $ docker run -i -t --env-file ./sample.env ubuntu:focal env
 
 ## 명령어 실행
     - docker exec [container] [command]
     - issue 발생 시 실행 중인 컨테이너의 이슈를 해결하기 위한 용도로 사용
-      $docker exec -i -t my-nginx bash # my-nginx 컨테이너에 Bash 셸로 접속하기
-      $docker exec my-nginx env # my-nginx 컨테이너에 환경변수 확인하기
+      $ docker exec -i -t my-nginx bash # my-nginx 컨테이너에 Bash 셸로 접속하기
+      $ docker exec my-nginx env # my-nginx 컨테이너에 환경변수 확인하기
 
 ## 도커의 네트워크
     - 도커 엔진에 의해 기본 생성되는 docker0를 통해 네트워크를 브릿징한다.
     - 컨테이너 포트를 호스트의 IP:PORT와 연결하여 서비스를 노출하는 방법
-    $docker run -p [HOST IP:PORT] : [CONTAINER PORT] [container]
-    $docker run -d -p 80:80 nginx # nginx컨테이너의 80번 포트를 호스트 모든 IP의 80번 포트와 연결하여 실행
-    $docker run -d -p 127.0.0.1:80:80 nginx # nginx 컨테이너의 80번 포트를 호스트 127.0.0.1 IP의 80번 포트와 연결하여 실행
-    $docker run -d -p 80 nginx # nginx 컨테이너의 80번 포트를 호스트의 사용 가능한 포트와 연결하여 실행
+    $ docker run -d -p 127.0.0.1:80:80 nginx # nginx 컨테이너의 80번 포트를 호스트 127.0.0.1 IP의 80번 포트와 연결하여 실행
+    $ docker run -d -p 80 nginx # nginx 컨테이너의 80번 포트를 호스트의 사용 가능한 포트와 연결하여 실행
     - expose: 실제로 연결하지 않고 별다른 기능 없이 문서화만 함 (주석)
     - publish: 살재 포트를 바인딩
-    $docker run -d --expose 80 nginx # nginx # expose 옵션은 그저 문서화 용도로 사용
-    $docker run -d -p 80 nginx # publish 옵션은 실제 포트를 바인딩
+    $ docker run -d --expose 80 nginx # nginx # expose 옵션은 그저 문서화 용도로 사용
+    $ docker run -d -p 80 nginx # publish 옵션은 실제 포트를 바인딩
 
     - Native하게 지원되는 네트워크 드라이버: Bridge, Host, None, Overlay 등
     - Remote Driver: 다양한 Plugin들을 설치해서 사용하는 방법
@@ -140,6 +150,20 @@ $kubectl cluster-info # 클러스터 확인
     - Multi Host Networking: overlay
       - 여러 서버들이 존재할 때 그 서버들을 연결시키는 가상의 네트워크
       - 멀티호스트로 작동하므로 orchestration 시스템에 많이 쓰임 (docker swarm 많이 사용)
-    $docker network ls # 연결된 네트워크들의 목록을 보여줌
+    $ docker network ls # 연결된 네트워크들의 목록을 보여줌
 
 ## 도커의 볼륨
+    - docker의 Image Layer(Read Only)는 Dockerfile의 명세에 따라 작성된 운영체제, 패키지를 기본으로 소스 코드와 엔트리포인트를 업데이트하는 형식이다.
+    - Container Layer(Write Only)는 컨테이너를 담당하며 컨테이너 종료 시 삭제된다.
+    $ docker run -d --name nginx -v /opt/html:/usr/share/nginx/html nginx
+
+    - run에서 호스트의 볼륨을 바인딩할 때에는 -v옵션을 사용
+    $ docker run -d -v $(pwd)/html:/usr/share/nginx/html -p 80:80 nginx
+
+    - 특정 컨테이너의 볼륨 마운트를 공유
+    $ docker run -d --name my-volume -it -v /opt/html:/usr/share/nginx/html ubuntu:focal
+    $ docker run -d --name nginx --volumes-from my-volume nginx
+
+    - 웹사이트와 같이 읽기 전용으로 볼륨을 연결해야 하는 경우 :ro 옵션 추가
+    $ docker run -d --name nginx -v web-volume:/usr/share/nginx/html:ro nginx
+    
