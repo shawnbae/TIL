@@ -141,3 +141,5 @@ $kubectl cluster-info # 클러스터 확인
       - 여러 서버들이 존재할 때 그 서버들을 연결시키는 가상의 네트워크
       - 멀티호스트로 작동하므로 orchestration 시스템에 많이 쓰임 (docker swarm 많이 사용)
     $docker network ls # 연결된 네트워크들의 목록을 보여줌
+
+## 도커의 볼륨
