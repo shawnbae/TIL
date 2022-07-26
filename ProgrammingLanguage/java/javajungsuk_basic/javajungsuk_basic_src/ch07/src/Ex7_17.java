@@ -1,8 +1,17 @@
 class Ex7_17 {
-	Object iv = new Object(){ void method(){} };         // ΐΝΈν Ε¬·΅½Ί
-	static Object cv = new Object(){ void method(){} };  // ΐΝΈν Ε¬·΅½Ί
+	Object iv = new Object() {
+		void method() {
+		}
+	}; // μµλª… ν΄λμ¤
+	static Object cv = new Object() {
+		void method() {
+		}
+	}; // μµλª… ν΄λμ¤
 
 	void myMethod() {
-		Object lv = new Object(){ void method(){} };      // ΐΝΈν Ε¬·΅½Ί
+		Object lv = new Object() {
+			void method() {
+			}
+		}; // μµλª… ν΄λμ¤
 	}
 }

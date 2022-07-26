@@ -5,10 +5,10 @@ class Ex7_19 {
 	public static void main(String[] args) {
 		Button b = new Button("Start");
 		b.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					System.out.println("ActionEvent occurred!!!");
-				}
-			} // ÀÍ¸í Å¬·¡½ºÀÇ ³¡
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("ActionEvent occurred!!!");
+			}
+		} // ìµëª… í´ë˜ìŠ¤ì˜ ë
 		);
-	} // mainÀÇ ³¡
-} 
+	} // mainì˜ ë
+}
