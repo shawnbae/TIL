@@ -1,13 +1,31 @@
-class Time {
-    int hour;
-    int minute;
-    int second;
+class practice {
+    public static void main(String[] args) {
+        Car car = new Car();
+        FireEngine fe = new FireEngine();
+        FireEngine fe2 = null;
+
+        System.out.println(car instanceof FireEngine);
+        // fe.water();
+        // fe2 = (FireEngine) car;
+        // fe2.water();
+    }
 }
 
-public class TimeTest {
-    public static void main(String[] args) {
-        Time t = new Time();
-        t.hour = 100;
-        System.out.println(t.hour);
+class Car {
+    String color;
+    int door;
+
+    void driver() {
+        System.out.println(("driver"));
+    }
+
+    void stop() {
+        System.out.println("stop");
+    }
+}
+
+class FireEngine extends Car {
+    void water() {
+        System.out.println("water");
     }
 }
