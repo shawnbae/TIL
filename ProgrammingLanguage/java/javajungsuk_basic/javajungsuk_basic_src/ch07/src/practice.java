@@ -1,31 +1,37 @@
-class practice {
-    public static void main(String[] args) {
-        Car car = new Car();
-        FireEngine fe = new FireEngine();
-        FireEngine fe2 = null;
+abstract class Unit {
+    int x, y;
 
-        System.out.println(car instanceof FireEngine);
-        // fe.water();
-        // fe2 = (FireEngine) car;
-        // fe2.water();
-    }
-}
-
-class Car {
-    String color;
-    int door;
-
-    void driver() {
-        System.out.println(("driver"));
-    }
+    abstract void move(int x, int y);
 
     void stop() {
-        System.out.println("stop");
+        System.out.println("추상클래스의 stop method");
     }
 }
 
-class FireEngine extends Car {
-    void water() {
-        System.out.println("water");
+interface Fightable {
+    void move(int x, int y);
+
+    void attack(Fightable f);
+}
+
+class Fighter extends Unit implements Fightable {
+    public void move(int x, int y) {
+        System.out.println("move");
+    }
+
+    public void attack(Fightable f) {
+        System.out.println("attack");
+    }
+}
+
+public class practice {
+    public static void main(String[] args) {
+        Fightable f = new Fighter();
+
+        f.move(100, 200);
+        f.attack(f);
+
+        Fighter f2 = new Fighter();
+        f2.stop();
     }
 }
