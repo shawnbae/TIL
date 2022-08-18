@@ -1,12 +1,12 @@
 class Ex8_2 {
 	public static void main(String args[]) {
-			System.out.println(1);
-			try {
-				System.out.println(0/0);
-				System.out.println(2); 	// ½ÇÇàµÇÁö ¾Ê´Â´Ù.
-			} catch (ArithmeticException ae)	{
-				System.out.println(3);
-			}	// try-catchÀÇ ³¡
-			System.out.println(4);
-	}	// main¸Ş¼­µåÀÇ ³¡
+		System.out.println(1);
+		try {
+			System.out.println(0 / 0);
+			System.out.println(2); // ì‹¤í–‰ë˜ì§€ ì•ŠëŠ”ë‹¤.
+		} catch (ArithmeticException ae) {
+			System.out.println(3);
+		} // try-catchì˜ ë
+		System.out.println(4);
+	} // mainë©”ì„œë“œì˜ ë
 }
