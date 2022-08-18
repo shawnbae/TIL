@@ -2,8 +2,8 @@ class Person {
 	long id;
 
 	public boolean equals(Object obj) {
-		if(obj instanceof Person)
-			return id ==((Person)obj).id;
+		if (obj instanceof Person)
+			return id == ((Person) obj).id;
 		else
 			return false;
 	}
@@ -18,9 +18,9 @@ class Ex9_2 {
 		Person p1 = new Person(8011081111222L);
 		Person p2 = new Person(8011081111222L);
 
-		if(p1.equals(p2))
-			System.out.println("p1°ú p2´Â °°Àº »ç¶÷ÀÔ´Ï´Ù.");
+		if (p1.equals(p2))
+			System.out.println("p1ê³¼ p2ëŠ” ê°™ì€ ì‚¬ëŒì…ë‹ˆë‹¤.");
 		else
-			System.out.println("p1°ú p2´Â ´Ù¸¥ »ç¶÷ÀÔ´Ï´Ù.");
+			System.out.println("p1ê³¼ p2ëŠ” ë‹¤ë¥¸ ì‚¬ëŒì…ë‹ˆë‹¤.");
 	}
 }
