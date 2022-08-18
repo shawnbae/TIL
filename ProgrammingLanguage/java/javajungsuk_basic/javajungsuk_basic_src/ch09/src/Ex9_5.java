@@ -3,7 +3,7 @@ class Card2 {
 	int number;
 
 	Card2() {
-		this("SPADE", 1);  // Card(String kind, int number)¸¦ È£Ãâ
+		this("SPADE", 1); // Card(String kind, int number)ë¥¼ í˜¸ì¶œ
 	}
 
 	Card2(String kind, int number) {
