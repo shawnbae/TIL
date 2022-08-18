@@ -1,17 +1,17 @@
 class Ex8_5 {
 	public static void main(String args[]) {
-		System.out.println(1);			
+		System.out.println(1);
 		System.out.println(2);
 
 		try {
 			System.out.println(3);
-			System.out.println(0/0); // ¿¹¿Ü¹ß»ı!!!
-			System.out.println(4);   // ½ÇÇàµÇÁö ¾Ê´Â´Ù.
-		} catch (ArithmeticException ae)	{
+			System.out.println(0 / 0); // ì˜ˆì™¸ë°œìƒ!!!
+			System.out.println(4); // ì‹¤í–‰ë˜ì§€ ì•ŠëŠ”ë‹¤.
+		} catch (ArithmeticException ae) {
 			ae.printStackTrace();
-			System.out.println("¿¹¿Ü¸Ş½ÃÁö : " + ae.getMessage());
-		}	// try-catchÀÇ ³¡
+			System.out.println("ì˜ˆì™¸ë©”ì‹œì§€ : " + ae.getMessage());
+		} // try-catchì˜ ë
 
 		System.out.println(6);
-	}	// main¸Ş¼­µåÀÇ ³¡
+	} // mainë©”ì„œë“œì˜ ë
 }
