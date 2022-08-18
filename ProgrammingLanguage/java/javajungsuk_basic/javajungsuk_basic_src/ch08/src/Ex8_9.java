@@ -1,13 +1,13 @@
 class Ex8_9 {
 	public static void main(String[] args) throws Exception {
-		method1();	 // °°Àº Å¬·¡½º³»ÀÇ static¸â¹öÀÌ¹Ç·Î °´Ã¼»ı¼º¾øÀÌ Á÷Á¢ È£Ãâ°¡´É.
-  	}	// main¸Ş¼­µåÀÇ ³¡
+		method1(); // ê°™ì€ í´ë˜ìŠ¤ë‚´ì˜ staticë©¤ë²„ì´ë¯€ë¡œ ê°ì²´ìƒì„±ì—†ì´ ì§ì ‘ í˜¸ì¶œê°€ëŠ¥.
+	} // mainë©”ì„œë“œì˜ ë
 
 	static void method1() throws Exception {
 		method2();
-	}	// method1ÀÇ ³¡
+	} // method1ì˜ ë
 
 	static void method2() throws Exception {
 		throw new Exception();
-	}	// method2ÀÇ ³¡
+	} // method2ì˜ ë
 }

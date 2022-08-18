@@ -1,5 +1,5 @@
 class Ex8_7 {
 	public static void main(String[] args) {
-		throw new Exception();		// ExceptionÀ» °íÀÇ·Î ¹ß»ı½ÃÅ²´Ù.
+		throw new Exception(); // Exceptionì„ ê³ ì˜ë¡œ ë°œìƒì‹œí‚¨ë‹¤.
 	}
 }
