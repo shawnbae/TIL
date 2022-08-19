@@ -3,21 +3,21 @@ import java.text.*;
 
 class Ex10_10 {
 	public static void main(String[] args) {
-		String pattern = "yyyy/MM/dd"; 
+		String pattern = "yyyy/MM/dd";
 		DateFormat df = new SimpleDateFormat(pattern);
 		Scanner s = new Scanner(System.in);
 
 		Date inDate = null;
 
-		System.out.println("³¯Â¥¸¦ " + pattern 
-		+ "ÀÇ ÇüÅÂ·Î ÀÔ·ÂÇØÁÖ¼¼¿ä.(ÀÔ·Â¿¹:2019/12/31)");
-		while(s.hasNextLine()) {
+		System.out.println("ë‚ ì§œë¥¼ " + pattern
+				+ "ì˜ í˜•íƒœë¡œ ì…ë ¥í•´ì£¼ì„¸ìš”.(ì…ë ¥ì˜ˆ:2019/12/31)");
+		while (s.hasNextLine()) {
 			try {
 				inDate = df.parse(s.nextLine());
 				break;
-			} catch(Exception e) {
-				System.out.println("³¯Â¥¸¦ " + pattern 
-				+ "ÀÇ ÇüÅÂ·Î ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä.(ÀÔ·Â¿¹:2019/12/31)");
+			} catch (Exception e) {
+				System.out.println("ë‚ ì§œë¥¼ " + pattern
+						+ "ì˜ í˜•íƒœë¡œ ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”.(ì…ë ¥ì˜ˆ:2019/12/31)");
 			}
 		} // while
 
@@ -25,7 +25,7 @@ class Ex10_10 {
 		cal.setTime(inDate);
 		Calendar today = Calendar.getInstance();
 		long day = (cal.getTimeInMillis()
-		- today.getTimeInMillis())/(60*60*1000);
-		System.out.println("ÀÔ·ÂÇÏ½Å ³¯Â¥´Â ÇöÀç¿Í "+ day +"½Ã°£ Â÷ÀÌ°¡ ÀÖ½À´Ï´Ù.");
+				- today.getTimeInMillis()) / (60 * 60 * 1000);
+		System.out.println("ì…ë ¥í•˜ì‹  ë‚ ì§œëŠ” í˜„ì¬ì™€ " + day + "ì‹œê°„ ì°¨ì´ê°€ ìˆìŠµë‹ˆë‹¤.");
 	} // main
 }
