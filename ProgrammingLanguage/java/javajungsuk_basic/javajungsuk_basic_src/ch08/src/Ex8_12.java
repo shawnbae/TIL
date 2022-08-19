@@ -1,18 +1,18 @@
 class Ex8_12 {
 	public static void main(String[] args) {
-		try  {
-			method1();		
-		} catch (Exception e)	{
-			System.out.println("main¸Ş¼­µå¿¡¼­ ¿¹¿Ü°¡ Ã³¸®µÇ¾ú½À´Ï´Ù.");
+		try {
+			method1();
+		} catch (Exception e) {
+			System.out.println("mainë©”ì„œë“œì—ì„œ ì˜ˆì™¸ê°€ ì²˜ë¦¬ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		}
-	}	// main¸Ş¼­µåÀÇ ³¡
+	} // mainë©”ì„œë“œì˜ ë
 
 	static void method1() throws Exception {
 		try {
 			throw new Exception();
 		} catch (Exception e) {
-			System.out.println("method1¸Ş¼­µå¿¡¼­ ¿¹¿Ü°¡ Ã³¸®µÇ¾ú½À´Ï´Ù.");
-			throw e;			// ´Ù½Ã ¿¹¿Ü¸¦ ¹ß»ı½ÃÅ²´Ù.
+			System.out.println("method1ë©”ì„œë“œì—ì„œ ì˜ˆì™¸ê°€ ì²˜ë¦¬ë˜ì—ˆìŠµë‹ˆë‹¤.");
+			throw e; // ë‹¤ì‹œ ì˜ˆì™¸ë¥¼ ë°œìƒì‹œí‚¨ë‹¤.
 		}
-	}	// method1¸Ş¼­µåÀÇ ³¡
+	} // method1ë©”ì„œë“œì˜ ë
 }

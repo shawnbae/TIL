@@ -1,22 +1,17 @@
-import java.util.*;
+import java.text.*;
 
 class practice {
     public static void main(String[] args) {
-        final String[] DAY_OF_WEEK = { "", "일", "월", "화", "수", "목", "금", "토" };
+        DecimalFormat df = new DecimalFormat("#,###.##");
+        DecimalFormat df2 = new DecimalFormat("#,###E0");
 
-        Calendar date1 = Calendar.getInstance();
-        Calendar date2 = Calendar.getInstance();
+        try {
+            Number num = df.parse("1,234,567.89");
 
-        date1.set(2019, 3, 20);
-        System.out.println(toString(date1)
-                + DAY_OF_WEEK[date1.get(Calendar.DAY_OF_WEEK)]);
+            double d = num.doubleValue();
 
-        long difference = (date2.getTimeInMillis() - date1.getTimeInMillis()) / 1000;
-        System.out.println(difference / (24 * 60 * 60));
-    }
-
-    public static String toString(Calendar date) {
-        return date.get(Calendar.YEAR) + "년" + (date.get(Calendar.MONTH) + 1)
-                + "월 " + date.get(Calendar.DATE) + "일 ";
+            System.out.println(df2.format(num));
+        } catch (Exception e) {
+        }
     }
 }

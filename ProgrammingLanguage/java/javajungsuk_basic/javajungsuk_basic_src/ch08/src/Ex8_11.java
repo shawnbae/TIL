@@ -1,51 +1,54 @@
 class Ex8_11 {
 	public static void main(String args[]) {
 		try {
-			startInstall();		// ÇÁ·Î±×·¥ ¼³Ä¡¿¡ ÇÊ¿äÇÑ ÁØºñ¸¦ ÇÑ´Ù.
-			copyFiles();		// ÆÄÀÏµéÀ» º¹»çÇÑ´Ù. 
-		} catch (SpaceException e)	{
-			System.out.println("¿¡·¯ ¸Ş½ÃÁö : " + e.getMessage());
+			startInstall(); // í”„ë¡œê·¸ë¨ ì„¤ì¹˜ì— í•„ìš”í•œ ì¤€ë¹„ë¥¼ í•œë‹¤.
+			copyFiles(); // íŒŒì¼ë“¤ì„ ë³µì‚¬í•œë‹¤.
+		} catch (SpaceException e) {
+			System.out.println("ì—ëŸ¬ ë©”ì‹œì§€ : " + e.getMessage());
 			e.printStackTrace();
-			System.out.println("°ø°£À» È®º¸ÇÑ ÈÄ¿¡ ´Ù½Ã ¼³Ä¡ÇÏ½Ã±â ¹Ù¶ø´Ï´Ù.");
-		} catch (MemoryException me)	{
-			System.out.println("¿¡·¯ ¸Ş½ÃÁö : " + me.getMessage());
+			System.out.println("ê³µê°„ì„ í™•ë³´í•œ í›„ì— ë‹¤ì‹œ ì„¤ì¹˜í•˜ì‹œê¸° ë°”ëë‹ˆë‹¤.");
+		} catch (MemoryException me) {
+			System.out.println("ì—ëŸ¬ ë©”ì‹œì§€ : " + me.getMessage());
 			me.printStackTrace();
-			System.gc();         // Garbage CollectionÀ» ¼öÇàÇÏ¿© ¸Ş¸ğ¸®¸¦ ´Ã·ÁÁØ´Ù.
-			System.out.println("´Ù½Ã ¼³Ä¡¸¦ ½ÃµµÇÏ¼¼¿ä.");
+			System.gc(); // Garbage Collectionì„ ìˆ˜í–‰í•˜ì—¬ ë©”ëª¨ë¦¬ë¥¼ ëŠ˜ë ¤ì¤€ë‹¤.
+			System.out.println("ë‹¤ì‹œ ì„¤ì¹˜ë¥¼ ì‹œë„í•˜ì„¸ìš”.");
 		} finally {
-			deleteTempFiles();		// ÇÁ·Î±×·¥ ¼³Ä¡¿¡ »ç¿ëµÈ ÀÓ½ÃÆÄÀÏµéÀ» »èÁ¦ÇÑ´Ù.
-		} // tryÀÇ ³¡
-	} // mainÀÇ ³¡
+			deleteTempFiles(); // í”„ë¡œê·¸ë¨ ì„¤ì¹˜ì— ì‚¬ìš©ëœ ì„ì‹œíŒŒì¼ë“¤ì„ ì‚­ì œí•œë‹¤.
+		} // tryì˜ ë
+	} // mainì˜ ë
 
-   static void startInstall() throws SpaceException, MemoryException { 
-		if(!enoughSpace()) 		// ÃæºĞÇÑ ¼³Ä¡ °ø°£ÀÌ ¾øÀ¸¸é...
-			throw new SpaceException("¼³Ä¡ÇÒ °ø°£ÀÌ ºÎÁ·ÇÕ´Ï´Ù.");
-		if (!enoughMemory())		// ÃæºĞÇÑ ¸Ş¸ğ¸®°¡ ¾øÀ¸¸é...
-			throw new MemoryException("¸Ş¸ğ¸®°¡ ºÎÁ·ÇÕ´Ï´Ù.");
-   } // startInstall¸Ş¼­µåÀÇ ³¡
+	static void startInstall() throws SpaceException, MemoryException {
+		if (!enoughSpace()) // ì¶©ë¶„í•œ ì„¤ì¹˜ ê³µê°„ì´ ì—†ìœ¼ë©´...
+			throw new SpaceException("ì„¤ì¹˜í•  ê³µê°„ì´ ë¶€ì¡±í•©ë‹ˆë‹¤.");
+		if (!enoughMemory()) // ì¶©ë¶„í•œ ë©”ëª¨ë¦¬ê°€ ì—†ìœ¼ë©´...
+			throw new MemoryException("ë©”ëª¨ë¦¬ê°€ ë¶€ì¡±í•©ë‹ˆë‹¤.");
+	} // startInstallë©”ì„œë“œì˜ ë
 
-   static void copyFiles() { /* ÆÄÀÏµéÀ» º¹»çÇÏ´Â ÄÚµå¸¦ Àû´Â´Ù. */ }
-   static void deleteTempFiles() { /* ÀÓ½ÃÆÄÀÏµéÀ» »èÁ¦ÇÏ´Â ÄÚµå¸¦ Àû´Â´Ù.*/ }
-   
-   static boolean enoughSpace()   {
-		// ¼³Ä¡ÇÏ´Âµ¥ ÇÊ¿äÇÑ °ø°£ÀÌ ÀÖ´ÂÁö È®ÀÎÇÏ´Â ÄÚµå¸¦ Àû´Â´Ù.
+	static void copyFiles() {
+		/* íŒŒì¼ë“¤ì„ ë³µì‚¬í•˜ëŠ” ì½”ë“œë¥¼ ì ëŠ”ë‹¤. */ }
+
+	static void deleteTempFiles() {
+		/* ì„ì‹œíŒŒì¼ë“¤ì„ ì‚­ì œí•˜ëŠ” ì½”ë“œë¥¼ ì ëŠ”ë‹¤. */ }
+
+	static boolean enoughSpace() {
+		// ì„¤ì¹˜í•˜ëŠ”ë° í•„ìš”í•œ ê³µê°„ì´ ìˆëŠ”ì§€ í™•ì¸í•˜ëŠ” ì½”ë“œë¥¼ ì ëŠ”ë‹¤.
 		return false;
-   }
-   
+	}
+
 	static boolean enoughMemory() {
-		// ¼³Ä¡ÇÏ´Âµ¥ ÇÊ¿äÇÑ ¸Ş¸ğ¸®°ø°£ÀÌ ÀÖ´ÂÁö È®ÀÎÇÏ´Â ÄÚµå¸¦ Àû´Â´Ù.
+		// ì„¤ì¹˜í•˜ëŠ”ë° í•„ìš”í•œ ë©”ëª¨ë¦¬ê³µê°„ì´ ìˆëŠ”ì§€ í™•ì¸í•˜ëŠ” ì½”ë“œë¥¼ ì ëŠ”ë‹¤.
 		return true;
-   }
-} // ExceptionTestÅ¬·¡½ºÀÇ ³¡
+	}
+} // ExceptionTestí´ë˜ìŠ¤ì˜ ë
 
 class SpaceException extends Exception {
 	SpaceException(String msg) {
-	   super(msg);	
-   }
+		super(msg);
+	}
 }
 
 class MemoryException extends Exception {
 	MemoryException(String msg) {
-	   super(msg);	
-   }
+		super(msg);
+	}
 }
