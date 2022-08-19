@@ -1,10 +1,10 @@
 class Ex9_8 {
 	public static void main(String[] args) {
-		// ±æÀÌ°¡ 0ÀÎ char¹è¿­À» »ı¼ºÇÑ´Ù.
-		char[] cArr = new char[0];    // char[] cArr = {};¿Í °°´Ù.
-		String s = new String(cArr);  // String s = new String("");¿Í °°´Ù.
+		// ê¸¸ì´ê°€ 0ì¸ charë°°ì—´ì„ ìƒì„±í•œë‹¤.
+		char[] cArr = new char[0]; // char[] cArr = {};ì™€ ê°™ë‹¤.
+		String s = new String(cArr); // String s = new String("");ì™€ ê°™ë‹¤.
 
-		System.out.println("cArr.length="+cArr.length);
-		System.out.println("@@@"+s+"@@@");
+		System.out.println("cArr.length=" + cArr.length);
+		System.out.println("@@@" + s + "@@@");
 	}
 }
