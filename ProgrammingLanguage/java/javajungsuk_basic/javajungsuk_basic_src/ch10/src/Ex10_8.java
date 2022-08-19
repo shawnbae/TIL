@@ -9,17 +9,17 @@ class Ex10_8 {
 		SimpleDateFormat sdf5, sdf6, sdf7, sdf8, sdf9;
 
 		sdf1 = new SimpleDateFormat("yyyy-MM-dd");
-		sdf2 = new SimpleDateFormat("''yy³â MMM ddÀÏ E¿äÀÏ");
+		sdf2 = new SimpleDateFormat("''yyë…„ MMM ddì¼ Eìš”ì¼");
 		sdf3 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 		sdf4 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss a");
 
-		sdf5 = new SimpleDateFormat("¿À´ÃÀº ¿Ã ÇØÀÇ D¹øÂ° ³¯ÀÔ´Ï´Ù.");
-		sdf6 = new SimpleDateFormat("¿À´ÃÀº ÀÌ ´ŞÀÇ d¹øÂ° ³¯ÀÔ´Ï´Ù.");
-		sdf7 = new SimpleDateFormat("¿À´ÃÀº ¿Ã ÇØÀÇ w¹øÂ° ÁÖÀÔ´Ï´Ù.");
-		sdf8 = new SimpleDateFormat("¿À´ÃÀº ÀÌ ´ŞÀÇ W¹øÂ° ÁÖÀÔ´Ï´Ù.");
-		sdf9 = new SimpleDateFormat("¿À´ÃÀº ÀÌ ´ŞÀÇ F¹øÂ° E¿äÀÏÀÔ´Ï´Ù.");
+		sdf5 = new SimpleDateFormat("ì˜¤ëŠ˜ì€ ì˜¬ í•´ì˜ Dë²ˆì§¸ ë‚ ì…ë‹ˆë‹¤.");
+		sdf6 = new SimpleDateFormat("ì˜¤ëŠ˜ì€ ì´ ë‹¬ì˜ dë²ˆì§¸ ë‚ ì…ë‹ˆë‹¤.");
+		sdf7 = new SimpleDateFormat("ì˜¤ëŠ˜ì€ ì˜¬ í•´ì˜ wë²ˆì§¸ ì£¼ì…ë‹ˆë‹¤.");
+		sdf8 = new SimpleDateFormat("ì˜¤ëŠ˜ì€ ì´ ë‹¬ì˜ Wë²ˆì§¸ ì£¼ì…ë‹ˆë‹¤.");
+		sdf9 = new SimpleDateFormat("ì˜¤ëŠ˜ì€ ì´ ë‹¬ì˜ Fë²ˆì§¸ Eìš”ì¼ì…ë‹ˆë‹¤.");
 
-		System.out.println(sdf1.format(today));	// format(Date d)
+		System.out.println(sdf1.format(today)); // format(Date d)
 		System.out.println(sdf2.format(today));
 		System.out.println(sdf3.format(today));
 		System.out.println(sdf4.format(today));

@@ -1,17 +1,18 @@
+import java.util.*;
 import java.text.*;
 
 class practice {
     public static void main(String[] args) {
-        DecimalFormat df = new DecimalFormat("#,###.##");
-        DecimalFormat df2 = new DecimalFormat("#,###E0");
+        Date today = new Date();
 
-        try {
-            Number num = df.parse("1,234,567.89");
+        SimpleDateFormat sdf1, sdf2, sdf3, sdf4;
+        SimpleDateFormat sdf5, sdf6, sdf7, sdf8, sdf9;
 
-            double d = num.doubleValue();
+        sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+        sdf2 = new SimpleDateFormat("''yy년 MMM dd일 E요일");
+        sdf3 = new SimpleDateFormat("yyyy-MM-dd");
+        sdf4 = new SimpleDateFormat("yyyy-MM-dd");
 
-            System.out.println(df2.format(num));
-        } catch (Exception e) {
-        }
+        System.out.println(sdf2.format(today));
     }
 }
