@@ -2,34 +2,33 @@ import java.util.*;
 
 class Ex10_3 {
 	public static void main(String[] args) {
-		final int[] TIME_UNIT = {3600, 60, 1}; // Å« ´ÜÀ§¸¦ ¾Õ¿¡ ³õ´Â´Ù.
-		final String[] TIME_UNIT_NAME = {"½Ã°£ ", "ºĞ ", "ÃÊ "};
+		final int[] TIME_UNIT = { 3600, 60, 1 }; // í° ë‹¨ìœ„ë¥¼ ì•ì— ë†“ëŠ”ë‹¤.
+		final String[] TIME_UNIT_NAME = { "ì‹œê°„ ", "ë¶„ ", "ì´ˆ " };
 
 		Calendar time1 = Calendar.getInstance();
 		Calendar time2 = Calendar.getInstance();
 
-		time1.set(Calendar.HOUR_OF_DAY, 10); // time1À» 10½Ã 20ºĞ 30ÃÊ·Î ¼³Á¤
+		time1.set(Calendar.HOUR_OF_DAY, 10); // time1ì„ 10ì‹œ 20ë¶„ 30ì´ˆë¡œ ì„¤ì •
 		time1.set(Calendar.MINUTE, 20);
 		time1.set(Calendar.SECOND, 30);
 
-		time2.set(Calendar.HOUR_OF_DAY, 20); // time2À» 20½Ã 30ºĞ 10ÃÊ·Î ¼³Á¤
+		time2.set(Calendar.HOUR_OF_DAY, 20); // time2ì„ 20ì‹œ 30ë¶„ 10ì´ˆë¡œ ì„¤ì •
 		time2.set(Calendar.MINUTE, 30);
 		time2.set(Calendar.SECOND, 10);
 
-		System.out.println("time1 :"+time1.get(Calendar.HOUR_OF_DAY)+"½Ã "
-		+time1.get(Calendar.MINUTE)+"ºĞ "+time1.get(Calendar.SECOND)+"ÃÊ");
-		System.out.println("time2 :"+time2.get(Calendar.HOUR_OF_DAY)+"½Ã "
-		+time2.get(Calendar.MINUTE)+"ºĞ "+time2.get(Calendar.SECOND)+"ÃÊ");
+		System.out.println("time1 :" + time1.get(Calendar.HOUR_OF_DAY) + "ì‹œ "
+				+ time1.get(Calendar.MINUTE) + "ë¶„ " + time1.get(Calendar.SECOND) + "ì´ˆ");
+		System.out.println("time2 :" + time2.get(Calendar.HOUR_OF_DAY) + "ì‹œ "
+				+ time2.get(Calendar.MINUTE) + "ë¶„ " + time2.get(Calendar.SECOND) + "ì´ˆ");
 
-		long difference = 
-		Math.abs(time2.getTimeInMillis() - time1.getTimeInMillis())/1000;
-		System.out.println("time1°ú time2ÀÇ Â÷ÀÌ´Â "+ difference +"ÃÊ ÀÔ´Ï´Ù.");
+		long difference = Math.abs(time2.getTimeInMillis() - time1.getTimeInMillis()) / 1000;
+		System.out.println("time1ê³¼ time2ì˜ ì°¨ì´ëŠ” " + difference + "ì´ˆ ì…ë‹ˆë‹¤.");
 
 		String tmp = "";
-		for(int i=0; i < TIME_UNIT.length;i++) { 
-			  tmp += difference/TIME_UNIT[i] + TIME_UNIT_NAME[i]; 
-			  difference %= TIME_UNIT[i];
-		} 
-		System.out.println("½ÃºĞÃÊ·Î º¯È¯ÇÏ¸é " + tmp + "ÀÔ´Ï´Ù.");
+		for (int i = 0; i < TIME_UNIT.length; i++) {
+			tmp += difference / TIME_UNIT[i] + TIME_UNIT_NAME[i];
+			difference %= TIME_UNIT[i];
+		}
+		System.out.println("ì‹œë¶„ì´ˆë¡œ ë³€í™˜í•˜ë©´ " + tmp + "ì…ë‹ˆë‹¤.");
 	}
 }

@@ -2,31 +2,30 @@ import java.util.*;
 
 class Ex10_2 {
 	public static void main(String[] args) {
-		// ¿äÀÏÀº 1ºÎÅÍ ½ÃÀÛÇÏ±â ¶§¹®¿¡, DAY_OF_WEEK[0]Àº ºñ¿öµÎ¾ú´Ù.
-		final String[] DAY_OF_WEEK = {"","ÀÏ","¿ù","È­","¼ö","¸ñ","±İ","Åä"};
- 
+		// ìš”ì¼ì€ 1ë¶€í„° ì‹œì‘í•˜ê¸° ë•Œë¬¸ì—, DAY_OF_WEEK[0]ì€ ë¹„ì›Œë‘ì—ˆë‹¤.
+		final String[] DAY_OF_WEEK = { "", "ì¼", "ì›”", "í™”", "ìˆ˜", "ëª©", "ê¸ˆ", "í† " };
+
 		Calendar date1 = Calendar.getInstance();
 		Calendar date2 = Calendar.getInstance();
 
-		// monthÀÇ °æ¿ì 0ºÎÅÍ ½ÃÀÛÇÏ±â ¶§¹®¿¡ 4¿ùÀÎ °æ¿ì, 3·Î ÁöÁ¤ÇØ¾ßÇÑ´Ù.
-		// date1.set(2019, Calendar.APRIL, 29);¿Í °°ÀÌ ÇÒ ¼öµµ ÀÖ´Ù.
-		date1.set(2019, 3, 29); // 2019³â 4¿ù 29ÀÏ·Î ³¯Â¥¸¦ ¼³Á¤ÇÑ´Ù. 
-		System.out.println("date1Àº "+ toString(date1) 
-                  + DAY_OF_WEEK[date1.get(Calendar.DAY_OF_WEEK)]+"¿äÀÏÀÌ°í,");
-		System.out.println("¿À´Ã(date2)Àº " + toString(date2) 
-                 + DAY_OF_WEEK[date2.get(Calendar.DAY_OF_WEEK)]+"¿äÀÏÀÔ´Ï´Ù.");
+		// monthì˜ ê²½ìš° 0ë¶€í„° ì‹œì‘í•˜ê¸° ë•Œë¬¸ì— 4ì›”ì¸ ê²½ìš°, 3ë¡œ ì§€ì •í•´ì•¼í•œë‹¤.
+		// date1.set(2019, Calendar.APRIL, 29);ì™€ ê°™ì´ í•  ìˆ˜ë„ ìˆë‹¤.
+		date1.set(2019, 3, 29); // 2019ë…„ 4ì›” 29ì¼ë¡œ ë‚ ì§œë¥¼ ì„¤ì •í•œë‹¤.
+		System.out.println("date1ì€ " + toString(date1)
+				+ DAY_OF_WEEK[date1.get(Calendar.DAY_OF_WEEK)] + "ìš”ì¼ì´ê³ ,");
+		System.out.println("ì˜¤ëŠ˜(date2)ì€ " + toString(date2)
+				+ DAY_OF_WEEK[date2.get(Calendar.DAY_OF_WEEK)] + "ìš”ì¼ì…ë‹ˆë‹¤.");
 
-	   // µÎ ³¯Â¥°£ÀÇ Â÷ÀÌ¸¦ ¾òÀ¸·Á¸é, getTimeInMillis() ÃµºĞÀÇ ÀÏÃÊ ´ÜÀ§·Î º¯È¯ÇØ¾ßÇÑ´Ù.
-   	long difference = 
-            (date2.getTimeInMillis() - date1.getTimeInMillis())/1000;
-		System.out.println("±× ³¯(date1)ºÎÅÍ Áö±İ(date2)±îÁö "
-                                           + difference +"ÃÊ°¡ Áö³µ½À´Ï´Ù.");
-		System.out.println("ÀÏ(day)·Î °è»êÇÏ¸é "+ difference/(24*60*60) 
-                                     +"ÀÏÀÔ´Ï´Ù."); // 1ÀÏ = 24 * 60 * 60
+		// ë‘ ë‚ ì§œê°„ì˜ ì°¨ì´ë¥¼ ì–»ìœ¼ë ¤ë©´, getTimeInMillis() ì²œë¶„ì˜ ì¼ì´ˆ ë‹¨ìœ„ë¡œ ë³€í™˜í•´ì•¼í•œë‹¤.
+		long difference = (date2.getTimeInMillis() - date1.getTimeInMillis()) / 1000;
+		System.out.println("ê·¸ ë‚ (date1)ë¶€í„° ì§€ê¸ˆ(date2)ê¹Œì§€ "
+				+ difference + "ì´ˆê°€ ì§€ë‚¬ìŠµë‹ˆë‹¤.");
+		System.out.println("ì¼(day)ë¡œ ê³„ì‚°í•˜ë©´ " + difference / (24 * 60 * 60)
+				+ "ì¼ì…ë‹ˆë‹¤."); // 1ì¼ = 24 * 60 * 60
 	}
 
 	public static String toString(Calendar date) {
-		return date.get(Calendar.YEAR)+"³â "+ (date.get(Calendar.MONTH)+1) 
-                            +"¿ù " + date.get(Calendar.DATE) + "ÀÏ ";
+		return date.get(Calendar.YEAR) + "ë…„ " + (date.get(Calendar.MONTH) + 1)
+				+ "ì›” " + date.get(Calendar.DATE) + "ì¼ ";
 	}
 }
