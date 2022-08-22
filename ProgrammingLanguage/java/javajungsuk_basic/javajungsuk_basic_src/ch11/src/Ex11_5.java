@@ -9,9 +9,12 @@ class Ex11_5 {
 		list.add("4");
 		list.add("5");
 
+		// for (int i = 0; i < list.size(); i++) {
+		// System.out.println(list.get(i));
+		// }
 		Iterator it = list.iterator();
 
-		while(it.hasNext()) {
+		while (it.hasNext()) {
 			Object obj = it.next();
 			System.out.println(obj);
 		}
