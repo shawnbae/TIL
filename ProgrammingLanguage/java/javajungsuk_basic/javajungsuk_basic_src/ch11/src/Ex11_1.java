@@ -17,8 +17,7 @@ class Ex11_1 {
 		Collections.sort(list2); // Collections.sort(List l)
 		print(list1, list2);
 
-		System.out.println("list1.containsAll(list2):"
-				+ list1.containsAll(list2));
+		System.out.println("list1.containsAll(list2):" + list1.containsAll(list2));
 
 		list2.add("B");
 		list2.add("C");
