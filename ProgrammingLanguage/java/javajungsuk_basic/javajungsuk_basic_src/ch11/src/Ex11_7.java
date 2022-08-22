@@ -2,27 +2,27 @@ import java.util.*;
 
 class Ex11_7 {
 	public static void main(String[] args) {
-		String[] strArr = {"cat", "Dog", "lion", "tiger"};
+		String[] strArr = { "cat", "Dog", "lion", "tiger" };
 
-		Arrays.sort(strArr); // StringÀÇ Comparable±¸Çö¿¡ ÀÇÇÑ Á¤·Ä
+		Arrays.sort(strArr); // Stringì˜ Comparableêµ¬í˜„ì— ì˜í•œ ì •ë ¬
 		System.out.println("strArr=" + Arrays.toString(strArr));
 
-		Arrays.sort(strArr, String.CASE_INSENSITIVE_ORDER); // ´ë¼Ò¹®ÀÚ ±¸ºĞ¾ÈÇÔ
+		Arrays.sort(strArr, String.CASE_INSENSITIVE_ORDER); // ëŒ€ì†Œë¬¸ì êµ¬ë¶„ì•ˆí•¨
 		System.out.println("strArr=" + Arrays.toString(strArr));
 
-		Arrays.sort(strArr, new Descending()); // ¿ª¼ø Á¤·Ä
+		Arrays.sort(strArr, new Descending()); // ì—­ìˆœ ì •ë ¬
 		System.out.println("strArr=" + Arrays.toString(strArr));
 	}
 }
 
-class Descending implements Comparator { 
-	public int compare(Object o1, Object o2){
-		if( o1 instanceof Comparable && o2 instanceof Comparable) {
-			Comparable c1 = (Comparable)o1;
-			Comparable c2 = (Comparable)o2;
-			return c1.compareTo(c2) * -1 ; // -1À» °öÇØ¼­ ±âº» Á¤·Ä¹æ½ÄÀÇ ¿ªÀ¸·Î º¯°æÇÑ´Ù.
-						                // ¶Ç´Â c2.compareTo(c1)¿Í °°ÀÌ ¼ø¼­¸¦ ¹Ù²ãµµ µÈ´Ù.
+class Descending implements Comparator {
+	public int compare(Object o1, Object o2) {
+		if (o1 instanceof Comparable && o2 instanceof Comparable) {
+			Comparable c1 = (Comparable) o1;
+			Comparable c2 = (Comparable) o2;
+			return c1.compareTo(c2) * -1; // -1ì„ ê³±í•´ì„œ ê¸°ë³¸ ì •ë ¬ë°©ì‹ì˜ ì—­ìœ¼ë¡œ ë³€ê²½í•œë‹¤.
+											// ë˜ëŠ” c2.compareTo(c1)ì™€ ê°™ì´ ìˆœì„œë¥¼ ë°”ê¿”ë„ ëœë‹¤.
 		}
 		return -1;
-	} 
+	}
 }
