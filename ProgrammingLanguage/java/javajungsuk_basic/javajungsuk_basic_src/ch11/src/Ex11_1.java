@@ -10,15 +10,15 @@ class Ex11_1 {
 		list1.add(new Integer(1));
 		list1.add(new Integer(3));
 
-		ArrayList list2 = new ArrayList(list1.subList(1,4)); 
+		ArrayList list2 = new ArrayList(list1.subList(1, 4));
 		print(list1, list2);
 
-		Collections.sort(list1);	// list1°ú list2¸¦ Á¤·ÄÇÑ´Ù.
-		Collections.sort(list2);	// Collections.sort(List l)
+		Collections.sort(list1); // list1ê³¼ list2ë¥¼ ì •ë ¬í•œë‹¤.
+		Collections.sort(list2); // Collections.sort(List l)
 		print(list1, list2);
 
 		System.out.println("list1.containsAll(list2):"
-                                               + list1.containsAll(list2));
+				+ list1.containsAll(list2));
 
 		list2.add("B");
 		list2.add("C");
@@ -28,22 +28,22 @@ class Ex11_1 {
 		list2.set(3, "AA");
 		print(list1, list2);
 
-		// list1¿¡¼­ list2¿Í °ãÄ¡´Â ºÎºĞ¸¸ ³²±â°í ³ª¸ÓÁö´Â »èÁ¦ÇÑ´Ù.
+		// list1ì—ì„œ list2ì™€ ê²¹ì¹˜ëŠ” ë¶€ë¶„ë§Œ ë‚¨ê¸°ê³  ë‚˜ë¨¸ì§€ëŠ” ì‚­ì œí•œë‹¤.
 		System.out.println("list1.retainAll(list2):" + list1.retainAll(list2));
 
 		print(list1, list2);
 
-		//  list2¿¡¼­ list1¿¡ Æ÷ÇÔµÈ °´Ã¼µéÀ» »èÁ¦ÇÑ´Ù.
-		for(int i= list2.size()-1; i >= 0; i--) {
-			if(list1.contains(list2.get(i)))
+		// list2ì—ì„œ list1ì— í¬í•¨ëœ ê°ì²´ë“¤ì„ ì‚­ì œí•œë‹¤.
+		for (int i = list2.size() - 1; i >= 0; i--) {
+			if (list1.contains(list2.get(i)))
 				list2.remove(i);
 		}
 		print(list1, list2);
-	} // mainÀÇ ³¡
+	} // mainì˜ ë
 
 	static void print(ArrayList list1, ArrayList list2) {
-		System.out.println("list1:"+list1);
-		System.out.println("list2:"+list2);
-		System.out.println();		
+		System.out.println("list1:" + list1);
+		System.out.println("list2:" + list2);
+		System.out.println();
 	}
 } // class
