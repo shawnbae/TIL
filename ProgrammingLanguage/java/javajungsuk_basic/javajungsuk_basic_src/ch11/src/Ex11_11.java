@@ -6,8 +6,8 @@ class Ex11_11 {
 
 		set.add("abc");
 		set.add("abc");
-		set.add(new Person("David",10));
-		set.add(new Person("David",10));
+		set.add(new Person("David", 10));
+		set.add(new Person("David", 10));
 
 		System.out.println(set);
 	}
@@ -23,6 +23,6 @@ class Person {
 	}
 
 	public String toString() {
-		return name +":"+ age;
+		return name + ":" + age;
 	}
 }
