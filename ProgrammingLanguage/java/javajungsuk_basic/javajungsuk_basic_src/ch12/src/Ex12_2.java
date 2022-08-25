@@ -3,13 +3,13 @@ import java.util.*;
 class Ex12_2 {
 	public static void main(String[] args) {
 		ArrayList<Student> list = new ArrayList<Student>();
-		list.add(new Student("ÀÚ¹Ù¿Õ", 1, 1));
-		list.add(new Student("ÀÚ¹ÙÂ¯", 1, 2));
-		list.add(new Student("È«±æµ¿", 2, 1));
+		list.add(new Student("ìë°”ì™•", 1, 1));
+		list.add(new Student("ìë°”ì§±", 1, 2));
+		list.add(new Student("í™ê¸¸ë™", 2, 1));
 
 		Iterator<Student> it = list.iterator();
 		while (it.hasNext()) {
-		//  Student s = (Student)it.next(); // Áö³×¸¯½º¸¦ »ç¿ëÇÏÁö ¾ÊÀ¸¸é Çüº¯È¯ ÇÊ¿ä.
+			// Student s = (Student)it.next(); // ì§€ë„¤ë¦­ìŠ¤ë¥¼ ì‚¬ìš©í•˜ì§€ ì•Šìœ¼ë©´ í˜•ë³€í™˜ í•„ìš”.
 			Student s = it.next();
 			System.out.println(s.name);
 		}

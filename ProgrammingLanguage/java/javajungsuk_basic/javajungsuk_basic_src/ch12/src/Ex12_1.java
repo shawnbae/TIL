@@ -1,15 +1,20 @@
 import java.util.*;
 
-class Product {}
-class Tv extends Product {}
-class Audio extends Product {}
+class Product {
+}
+
+class Tv extends Product {
+}
+
+class Audio extends Product {
+}
 
 class Ex12_1 {
 	public static void main(String[] args) {
 		ArrayList<Product> productList = new ArrayList<Product>();
-		ArrayList<Tv>      tvList = new ArrayList<Tv>();
-//  	ArrayList<Product> tvList = new ArrayList<Tv>(); // ¿¡·¯.
-// 		List<Tv>           tvList = new ArrayList<Tv>(); // OK. ´ÙÇü¼º
+		ArrayList<Tv> tvList = new ArrayList<Tv>();
+		// ArrayList<Product> tvList = new ArrayList<Tv>(); // ì—ëŸ¬.
+		// List<Tv> tvList = new ArrayList<Tv>(); // OK. ë‹¤í˜•ì„±
 
 		productList.add(new Tv());
 		productList.add(new Audio());
@@ -18,7 +23,7 @@ class Ex12_1 {
 		tvList.add(new Tv());
 
 		printAll(productList);
-		// printAll(tvList); // ÄÄÆÄÀÏ ¿¡·¯°¡ ¹ß»ıÇÑ´Ù.
+		// printAll(tvList); // ì»´íŒŒì¼ ì—ëŸ¬ê°€ ë°œìƒí•œë‹¤.
 	}
 
 	public static void printAll(ArrayList<Product> list) {
