@@ -1,43 +1,49 @@
-enum Direction2 { 
-	EAST(1, ">"), SOUTH(2,"V"), WEST(3, "<"), NORTH(4,"^");
+enum Direction2 {
+	EAST(1, ">"), SOUTH(2, "V"), WEST(3, "<"), NORTH(4, "^");
 
 	private static final Direction2[] DIR_ARR = Direction2.values();
 	private final int value;
 	private final String symbol;
 
-	Direction2(int value, String symbol) { // Á¢±Ù Á¦¾îÀÚ privateÀÌ »ı·«µÊ
-		this.value  = value;
+	Direction2(int value, String symbol) { // ì ‘ê·¼ ì œì–´ì privateì´ ìƒëµë¨
+		this.value = value;
 		this.symbol = symbol;
 	}
 
-	public int getValue()     { return value;  }
-	public String getSymbol() { return symbol; }
+	public int getValue() {
+		return value;
+	}
+
+	public String getSymbol() {
+		return symbol;
+	}
 
 	public static Direction2 of(int dir) {
-        if (dir < 1 || dir > 4) 
-            throw new IllegalArgumentException("Invalid value :" + dir);
+		if (dir < 1 || dir > 4)
+			throw new IllegalArgumentException("Invalid value :" + dir);
 
-        return DIR_ARR[dir - 1];
-	}	
+		return DIR_ARR[dir - 1];
+	}
 
-	// ¹æÇâÀ» È¸Àü½ÃÅ°´Â ¸Ş¼­µå. numÀÇ °ª¸¸Å­ 90µµ¾¿ ½Ã°è¹æÇâÀ¸·Î È¸ÀüÇÑ´Ù.
+	// ë°©í–¥ì„ íšŒì „ì‹œí‚¤ëŠ” ë©”ì„œë“œ. numì˜ ê°’ë§Œí¼ 90ë„ì”© ì‹œê³„ë°©í–¥ìœ¼ë¡œ íšŒì „í•œë‹¤.
 	public Direction2 rotate(int num) {
 		num = num % 4;
 
-		if(num < 0) num +=4; // numÀÌ À½¼öÀÏ ¶§´Â ½Ã°è¹İ´ë ¹æÇâÀ¸·Î È¸Àü 
+		if (num < 0)
+			num += 4; // numì´ ìŒìˆ˜ì¼ ë•ŒëŠ” ì‹œê³„ë°˜ëŒ€ ë°©í–¥ìœ¼ë¡œ íšŒì „
 
-		return DIR_ARR[(value-1+num) % 4];
+		return DIR_ARR[(value - 1 + num) % 4];
 	}
 
 	public String toString() {
-		return name()+getSymbol();
+		return name() + getSymbol();
 	}
 } // enum Direction2
 
 class Ex12_6 {
 	public static void main(String[] args) {
-		for(Direction2 d : Direction2.values()) 
-			System.out.printf("%s=%d%n", d.name(), d.getValue()); 
+		for (Direction2 d : Direction2.values())
+			System.out.printf("%s=%d%n", d.name(), d.getValue());
 
 		Direction2 d1 = Direction2.EAST;
 		Direction2 d2 = Direction2.of(1);
