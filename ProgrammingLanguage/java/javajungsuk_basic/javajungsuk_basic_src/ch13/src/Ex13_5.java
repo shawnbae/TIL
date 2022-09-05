@@ -1,22 +1,23 @@
 import javax.swing.JOptionPane;
 
 class Ex13_5 {
-	public static void main(String[] args) throws Exception  {
+	public static void main(String[] args) throws Exception {
 		ThreadEx5_1 th1 = new ThreadEx5_1();
 		th1.start();
 
-		String input = JOptionPane.showInputDialog("¾Æ¹« °ªÀÌ³ª ÀÔ·ÂÇÏ¼¼¿ä."); 
-		System.out.println("ÀÔ·ÂÇÏ½Å °ªÀº " + input + "ÀÔ´Ï´Ù.");
+		String input = JOptionPane.showInputDialog("ì•„ë¬´ ê°’ì´ë‚˜ ìž…ë ¥í•˜ì„¸ìš”.");
+		System.out.println("ìž…ë ¥í•˜ì‹  ê°’ì€ " + input + "ìž…ë‹ˆë‹¤.");
 	}
 }
 
 class ThreadEx5_1 extends Thread {
 	public void run() {
-		for(int i=10; i > 0; i--) {
+		for (int i = 10; i > 0; i--) {
 			System.out.println(i);
 			try {
 				sleep(1000);
-			} catch(Exception e ) {}
+			} catch (Exception e) {
+			}
 		}
 	} // run()
 }

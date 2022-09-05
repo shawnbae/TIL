@@ -14,18 +14,20 @@ class Ex13_6 {
 
 class ThreadEx6_1 extends Thread {
 	public void run() {
-		for(int i=0; i < 300; i++) {
+		for (int i = 0; i < 300; i++) {
 			System.out.print("-");
-			for(int x=0; x < 10000000; x++);
+			for (int x = 0; x < 10000000; x++)
+				;
 		}
 	}
 }
 
 class ThreadEx6_2 extends Thread {
 	public void run() {
-		for(int i=0; i < 300; i++) {
+		for (int i = 0; i < 300; i++) {
 			System.out.print("|");
-			for(int x=0; x < 10000000; x++);
+			for (int x = 0; x < 10000000; x++)
+				;
 		}
 	}
 }
