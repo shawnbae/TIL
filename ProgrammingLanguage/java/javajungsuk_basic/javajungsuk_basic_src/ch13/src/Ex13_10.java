@@ -10,27 +10,29 @@ class Ex13_10 {
 
 		try {
 			Thread.sleep(2000);
-			th1.suspend();	// ¾²·¹µå th1À» Àá½Ã Áß´Ü½ÃÅ²´Ù.
+			th1.suspend(); // ì“°ë ˆë“œ th1ì„ ì ì‹œ ì¤‘ë‹¨ì‹œí‚¨ë‹¤.
 			Thread.sleep(2000);
 			th2.suspend();
 			Thread.sleep(3000);
-			th1.resume();	// ¾²·¹µå th1ÀÌ ´Ù½Ã µ¿ÀÛÇÏµµ·Ï ÇÑ´Ù.
+			th1.resume(); // ì“°ë ˆë“œ th1ì´ ë‹¤ì‹œ ë™ì‘í•˜ë„ë¡ í•œë‹¤.
 			Thread.sleep(3000);
-			th1.stop();		// ¾²·¹µå th1À» °­Á¦Á¾·á½ÃÅ²´Ù.
+			th1.stop(); // ì“°ë ˆë“œ th1ì„ ê°•ì œì¢…ë£Œì‹œí‚¨ë‹¤.
 			th2.stop();
 			Thread.sleep(2000);
 			th3.stop();
-		} catch (InterruptedException e) {}
+		} catch (InterruptedException e) {
+		}
 	} // main
 }
 
 class RunImplEx10 implements Runnable {
 	public void run() {
-		while(true) {
+		while (true) {
 			System.out.println(Thread.currentThread().getName());
 			try {
 				Thread.sleep(1000);
-			} catch(InterruptedException e) {}
+			} catch (InterruptedException e) {
+			}
 		}
 	} // run()
 }
