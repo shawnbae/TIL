@@ -9,17 +9,18 @@ class Ex13_11 {
 		startTime = System.currentTimeMillis();
 
 		try {
-			th1.join();	// main¾²·¹µå°¡ th1ÀÇ ÀÛ¾÷ÀÌ ³¡³¯ ¶§±îÁö ±â´Ù¸°´Ù.
-			th2.join();	// main¾²·¹µå°¡ th2ÀÇ ÀÛ¾÷ÀÌ ³¡³¯ ¶§±îÁö ±â´Ù¸°´Ù.
-		} catch(InterruptedException e) {}
+			th1.join(); // mainì“°ë ˆë“œê°€ th1ì˜ ì‘ì—…ì´ ëë‚  ë•Œê¹Œì§€ ê¸°ë‹¤ë¦°ë‹¤.
+			th2.join(); // mainì“°ë ˆë“œê°€ th2ì˜ ì‘ì—…ì´ ëë‚  ë•Œê¹Œì§€ ê¸°ë‹¤ë¦°ë‹¤.
+		} catch (InterruptedException e) {
+		}
 
-		System.out.print("¼Ò¿ä½Ã°£:" + (System.currentTimeMillis() - Ex13_11.startTime));
+		System.out.print("ì†Œìš”ì‹œê°„:" + (System.currentTimeMillis() - Ex13_11.startTime));
 	} // main
 }
 
 class ThreadEx11_1 extends Thread {
 	public void run() {
-		for(int i=0; i < 300; i++) {
+		for (int i = 0; i < 300; i++) {
 			System.out.print(new String("-"));
 		}
 	} // run()
@@ -27,7 +28,7 @@ class ThreadEx11_1 extends Thread {
 
 class ThreadEx11_2 extends Thread {
 	public void run() {
-		for(int i=0; i < 300; i++) {
+		for (int i = 0; i < 300; i++) {
 			System.out.print(new String("|"));
 		}
 	} // run()

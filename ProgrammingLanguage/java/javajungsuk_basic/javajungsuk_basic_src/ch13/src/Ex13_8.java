@@ -2,6 +2,7 @@ class Ex13_8 {
 	public static void main(String args[]) {
 		ThreadEx8_1 th1 = new ThreadEx8_1();
 		ThreadEx8_2 th2 = new ThreadEx8_2();
+
 		th1.start();
 		th2.start();
 
