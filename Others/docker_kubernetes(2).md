@@ -214,5 +214,11 @@ $ kubectl cluster-info # 클러스터 확인
     - EXPOSE: 포트 번호 명시
     - ENTRYPOINT: 사작 포인트 명시
 
-## 도커를 이용한 컨테이너 관리
-    - 
+## 이미지 압축파일 저장 / 불러오기
+    - 인터넷이 되지 않는 환경에서 주로 사용
+
+    - ubuntu:focal 이미지를 ubuntu_focal.tar 압축파일로 저장
+    $ docker save -o ubuntu_focal.tar ubuntu:focal
+
+    - ubuntu_focal.tar 압축 파일에서 ubuntu:focal 이미지 불러오기
+    $ docker load -i ubuntu_focal.tar
