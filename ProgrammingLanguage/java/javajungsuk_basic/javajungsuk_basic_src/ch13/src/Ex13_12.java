@@ -1,21 +1,24 @@
 class Ex13_12 {
 	public static void main(String args[]) {
 		Runnable r = new RunnableEx12();
-		new Thread(r).start(); // ThreadGroup¿¡ ÀÇÇØ ÂüÁ¶µÇ¹Ç·Î gc´ë»óÀÌ ¾Æ´Ï´Ù.
-		new Thread(r).start(); // ThreadGroup¿¡ ÀÇÇØ ÂüÁ¶µÇ¹Ç·Î gc´ë»óÀÌ ¾Æ´Ï´Ù.
+		new Thread(r).start(); // ThreadGroupì— ì˜í•´ ì°¸ì¡°ë˜ë¯€ë¡œ gcëŒ€ìƒì´ ì•„ë‹ˆë‹¤.
+		new Thread(r).start(); // ThreadGroupì— ì˜í•´ ì°¸ì¡°ë˜ë¯€ë¡œ gcëŒ€ìƒì´ ì•„ë‹ˆë‹¤.
 	}
 }
 
 class Account {
 	private int balance = 1000;
 
-	public  int getBalance() {
+	public int getBalance() {
 		return balance;
 	}
 
-	public void withdraw(int money){
-		if(balance >= money) {
-			try { Thread.sleep(1000);} catch(InterruptedException e) {}
+	public void withdraw(int money) {
+		if (balance >= money) {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+			}
 			balance -= money;
 		}
 	} // withdraw
@@ -25,11 +28,11 @@ class RunnableEx12 implements Runnable {
 	Account acc = new Account();
 
 	public void run() {
-		while(acc.getBalance() > 0) {
-			// 100, 200, 300ÁßÀÇ ÇÑ °ªÀ» ÀÓÀ¸·Î ¼±ÅÃÇØ¼­ Ãâ±İ(withdraw)
-			int money = (int)(Math.random() * 3 + 1) * 100;
+		while (acc.getBalance() > 0) {
+			// 100, 200, 300ì¤‘ì˜ í•œ ê°’ì„ ì„ìœ¼ë¡œ ì„ íƒí•´ì„œ ì¶œê¸ˆ(withdraw)
+			int money = (int) (Math.random() * 3 + 1) * 100;
 			acc.withdraw(money);
-			System.out.println("balance:"+acc.getBalance());
+			System.out.println("balance:" + acc.getBalance());
 		}
 	} // run()
 }

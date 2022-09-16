@@ -1,64 +1,78 @@
 import java.util.ArrayList;
 
 class Customer implements Runnable {
-	private Table  table;
+	private Table table;
 	private String food;
 
 	Customer(Table table, String food) {
-		this.table = table;  
-		this.food  = food;
+		this.table = table;
+		this.food = food;
 	}
 
 	public void run() {
-		while(true) {
-			try { Thread.sleep(10);} catch(InterruptedException e) {}
+		while (true) {
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+			}
 			String name = Thread.currentThread().getName();
 
-			if(eatFood())
+			if (eatFood())
 				System.out.println(name + " ate a " + food);
-			else 
+			else
 				System.out.println(name + " failed to eat. :(");
 		} // while
 	}
 
-	boolean eatFood() { return table.remove(food); }
+	boolean eatFood() {
+		return table.remove(food);
+	}
 }
 
 class Cook implements Runnable {
 	private Table table;
 
-	Cook(Table table) {	this.table = table; }
+	Cook(Table table) {
+		this.table = table;
+	}
 
 	public void run() {
-		while(true) {
-			int idx = (int)(Math.random()*table.dishNum());
+		while (true) {
+			int idx = (int) (Math.random() * table.dishNum());
 			table.add(table.dishNames[idx]);
-			try { Thread.sleep(100);} catch(InterruptedException e) {}
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+			}
 		} // while
 	}
 }
 
 class Table {
-	String[] dishNames = { "donut","donut","burger" };
+	String[] dishNames = { "donut", "donut", "burger" };
 	final int MAX_FOOD = 6;
 	private ArrayList<String> dishes = new ArrayList<>();
-	public synchronized void add(String dish) { // synchronized¸¦ Ãß°¡
-		if(dishes.size() >= MAX_FOOD)	
+
+	public synchronized void add(String dish) { // synchronizedï¿½ï¿½ ï¿½ß°ï¿½
+		if (dishes.size() >= MAX_FOOD)
 			return;
 		dishes.add(dish);
 		System.out.println("Dishes:" + dishes.toString());
 	}
 
 	public boolean remove(String dishName) {
-		synchronized(this) {	
-			while(dishes.size()==0) {
+		synchronized (this) {
+			while (dishes.size() == 0) {
 				String name = Thread.currentThread().getName();
-				System.out.println(name+" is waiting.");
-				try { Thread.sleep(500);} catch(InterruptedException e) {}	
+				System.out.println(name + " is waiting.");
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+				}
 			}
 
-			for(int i=0; i<dishes.size();i++)
-				if(dishName.equals(dishes.get(i))) {
+			for (int i = 0; i < dishes.size(); i++)
+				if (dishName.equals(dishes.get(i))) {
 					dishes.remove(i);
 					return true;
 				}
@@ -67,15 +81,17 @@ class Table {
 		return false;
 	}
 
-	public int dishNum() { return dishNames.length; }
+	public int dishNum() {
+		return dishNames.length;
+	}
 }
 
 class Ex13_14 {
 	public static void main(String[] args) throws Exception {
-		Table table = new Table(); // ¿©·¯ ¾²·¹µå°¡ °øÀ¯ÇÏ´Â °´Ã¼
+		Table table = new Table(); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½å°¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Ã¼
 
 		new Thread(new Cook(table), "COOK").start();
-		new Thread(new Customer(table, "donut"),  "CUST1").start();
+		new Thread(new Customer(table, "donut"), "CUST1").start();
 		new Thread(new Customer(table, "burger"), "CUST2").start();
 
 		Thread.sleep(5000);

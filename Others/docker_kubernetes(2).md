@@ -176,3 +176,43 @@ $ kubectl cluster-info # 클러스터 확인
       $docker logs -f [container]
     - 로그마다 타임스탬프 표시
       $docker logs -f -t [container]
+    - 로그 용량 제한하기
+      $docker run \
+      -d\
+      --log-driver=json-file \
+      --log-opt max-size=3m \
+      --log-opt max-file=5 \
+      nginx
+
+## 도커의 이미지
+    - 도커의 이미지는 Layer형태로 이루어져 있으며, 최신 업데이트 사항은 가장 위의 Layer에 저장되어 있다.
+    - docker image inspect를 활용하여 컨테이너를 들여다보면, 하단의 Layers 목록에 이미지들의 Lyaer들의 해시값을 알 수 있다.
+    $ docker image inspect nginx
+
+    - Dockerfile없이 이미지 생성하기
+    $ docker commit -a fastcampus -m "Commit" ubuntu my_ubuntu:v1
+
+    - Dockerfile이용하여 이미지 생성
+    $ docker build -t my_app:v1 -f example/MyDockerfile ./
+
+## Dockerfile 문법
+    - 주석은 #을 이용
+    - 맨 처음에는 도커 명령어를 사용한다
+
+    - 예시
+    # 공식 이미지를 기반으로 이미지 제작
+    FROM ubuntu:16.04
+    # 컨테이너가 생성될 때 명령을 수행하며, vim와 Apache 웹서버를 설치
+    RUN apt-get update && apt-get install -y vim apache2
+    # 컨테이너 내부에 파일을 복사
+    COPY index.html /var/www/html/
+    # 컨테이너가 매번 실행될 때마다 명령이 실행된다.
+    CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
+
+    - LABEL: 이미지의 메타데이터를 명시 (optional)
+    - WORKDIR: Working Directory 명시
+    - EXPOSE: 포트 번호 명시
+    - ENTRYPOINT: 사작 포인트 명시
+
+## 도커를 이용한 컨테이너 관리
+    - 
