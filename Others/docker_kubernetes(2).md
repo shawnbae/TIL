@@ -167,3 +167,12 @@ $ kubectl cluster-info # 클러스터 확인
     - 웹사이트와 같이 읽기 전용으로 볼륨을 연결해야 하는 경우 :ro 옵션 추가
     $ docker run -d --name nginx -v web-volume:/usr/share/nginx/html:ro nginx
     
+## 도커의 로그
+    - 전체 로그 확인
+      $docker logs [container]
+    - 마지막 로그 10줄 확인
+      $docker logs --tail 10 [container]
+    - 실시간 로그 스트림 확인
+      $docker logs -f [container]
+    - 로그마다 타임스탬프 표시
+      $docker logs -f -t [container]
