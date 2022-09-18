@@ -53,7 +53,7 @@ class Table {
 	final int MAX_FOOD = 6;
 	private ArrayList<String> dishes = new ArrayList<>();
 
-	public synchronized void add(String dish) { // synchronized�� �߰�
+	public synchronized void add(String dish) { // synchronized占쏙옙 占쌩곤옙
 		if (dishes.size() >= MAX_FOOD)
 			return;
 		dishes.add(dish);
@@ -88,7 +88,7 @@ class Table {
 
 class Ex13_14 {
 	public static void main(String[] args) throws Exception {
-		Table table = new Table(); // ���� �����尡 �����ϴ� ��ü
+		Table table = new Table(); // 占쏙옙占쏙옙 占쏙옙占쏙옙占썲가 占쏙옙占쏙옙占싹댐옙 占쏙옙체
 
 		new Thread(new Cook(table), "COOK").start();
 		new Thread(new Customer(table, "donut"), "CUST1").start();

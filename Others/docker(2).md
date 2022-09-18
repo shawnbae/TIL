@@ -233,3 +233,19 @@ $ kubectl cluster-info # 클러스터 확인
       - 멀티 스테이지 빌드 사용하기
     - 도커 데몬 디버깅
     - 도커 컴포즈: 명시적으로 여러 컨테이너 관리하기
+
+## 도커 데몬 디버깅
+    - 시스템 정보
+    $ docker system info
+
+    - docker 실행 시 각각의 daemon 이벤트로 로그 기록됨.
+    $ docker system events -h
+
+    - docker 볼륨 사용량
+    $ docker system df
+
+    - 불필요한 것들 (중지된 컨테이너, 이미지, 캐시 등) 제거하여 공간 확보하기
+    $ docker system prune
+
+    - 컨테이너 별 리소스 현황
+    $ docker stats
