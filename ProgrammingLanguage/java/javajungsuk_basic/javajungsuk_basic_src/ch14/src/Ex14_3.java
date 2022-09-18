@@ -2,32 +2,32 @@ import java.util.function.*;
 
 class Ex14_3 {
 	public static void main(String[] args) {
-		Function<String, Integer>	f  = (s) -> Integer.parseInt(s, 16);
-		Function<Integer, String>	g  = (i) -> Integer.toBinaryString(i);
+		Function<String, Integer> f = (s) -> Integer.parseInt(s, 16);
+		Function<Integer, String> g = (i) -> Integer.toBinaryString(i);
 
-		Function<String, String>    h  = f.andThen(g);
-		Function<Integer, Integer>  h2 = f.compose(g);
+		Function<String, String> h = f.andThen(g);
+		Function<Integer, Integer> h2 = f.compose(g);
 
-		System.out.println(h.apply("FF")); // "FF" ¡æ 255 ¡æ "11111111"
-		System.out.println(h2.apply(2));   // 2 ¡æ "10" ¡æ 16
+		System.out.println(h.apply("FF")); // "FF" â†’ 255 â†’ "11111111"
+		System.out.println(h2.apply(2)); // 2 â†’ "10" â†’ 16
 
-		Function<String, String> f2 = x -> x; // Ç×µî ÇÔ¼ö(identity function)
-		System.out.println(f2.apply("AAA"));  // AAA°¡ ±×´ë·Î Ãâ·ÂµÊ
+		Function<String, String> f2 = x -> x; // í•­ë“± í•¨ìˆ˜(identity function)
+		System.out.println(f2.apply("AAA")); // AAAê°€ ê·¸ëŒ€ë¡œ ì¶œë ¥ë¨
 
 		Predicate<Integer> p = i -> i < 100;
 		Predicate<Integer> q = i -> i < 200;
-		Predicate<Integer> r = i -> i%2 == 0;
+		Predicate<Integer> r = i -> i % 2 == 0;
 		Predicate<Integer> notP = p.negate(); // i >= 100
 
 		Predicate<Integer> all = notP.and(q.or(r));
-		System.out.println(all.test(150));       // true
+		System.out.println(all.test(150)); // true
 
 		String str1 = "abc";
 		String str2 = "abc";
-		
-		// str1°ú str2°¡ °°ÀºÁö ºñ±³ÇÑ °á°ú¸¦ ¹İÈ¯
-		Predicate<String> p2 = Predicate.isEqual(str1); 
-		boolean result = p2.test(str2);   
+
+		// str1ê³¼ str2ê°€ ê°™ì€ì§€ ë¹„êµí•œ ê²°ê³¼ë¥¼ ë°˜í™˜
+		Predicate<String> p2 = Predicate.isEqual(str1);
+		boolean result = p2.test(str2);
 		System.out.println(result);
 	}
 }
