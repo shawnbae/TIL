@@ -4,23 +4,23 @@ import java.util.stream.*;
 class Ex14_6 {
 	public static void main(String[] args) {
 		File[] fileArr = { new File("Ex1.java"), new File("Ex1.bak"),
-			new File("Ex2.java"), new File("Ex1"), new File("Ex1.txt")
+				new File("Ex2.java"), new File("Ex1"), new File("Ex1.txt")
 		};
 
 		Stream<File> fileStream = Stream.of(fileArr);
 
-		// map()À¸·Î Stream<File>À» Stream<String>À¸·Î º¯È¯
+		// map()ìœ¼ë¡œ Stream<File>ì„ Stream<String>ìœ¼ë¡œ ë³€í™˜
 		Stream<String> filenameStream = fileStream.map(File::getName);
-		filenameStream.forEach(System.out::println); // ¸ğµç ÆÄÀÏÀÇ ÀÌ¸§À» Ãâ·Â
+		filenameStream.forEach(System.out::println); // ëª¨ë“  íŒŒì¼ì˜ ì´ë¦„ì„ ì¶œë ¥
 
-		fileStream = Stream.of(fileArr);  // ½ºÆ®¸²À» ´Ù½Ã »ı¼º
+		fileStream = Stream.of(fileArr); // ìŠ¤íŠ¸ë¦¼ì„ ë‹¤ì‹œ ìƒì„±
 
-		fileStream.map(File::getName)     // Stream<File> ¡æ Stream<String>
-			  .filter(s -> s.indexOf('.')!=-1)   // È®ÀåÀÚ°¡ ¾ø´Â °ÍÀº Á¦¿Ü
-			  .map(s -> s.substring(s.indexOf('.')+1)) // È®ÀåÀÚ¸¸ ÃßÃâ
-			  .map(String::toUpperCase)     // ¸ğµÎ ´ë¹®ÀÚ·Î º¯È¯
-			  .distinct()                   //  Áßº¹ Á¦°Å
-			  .forEach(System.out::print);  // JAVABAKTXT	
+		fileStream.map(File::getName) // Stream<File> â†’ Stream<String>
+				.filter(s -> s.indexOf('.') != -1) // í™•ì¥ìê°€ ì—†ëŠ” ê²ƒì€ ì œì™¸
+				.map(s -> s.substring(s.indexOf('.') + 1)) // í™•ì¥ìë§Œ ì¶”ì¶œ
+				.map(String::toUpperCase) // ëª¨ë‘ ëŒ€ë¬¸ìë¡œ ë³€í™˜
+				.distinct() // ì¤‘ë³µ ì œê±°
+				.forEach(System.out::print); // JAVABAKTXT
 
 		System.out.println();
 	}
