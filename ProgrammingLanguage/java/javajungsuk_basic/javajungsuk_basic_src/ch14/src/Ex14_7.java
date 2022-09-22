@@ -27,6 +27,6 @@ class Ex14_7 {
 				.distinct()
 				.sorted()
 				.forEach(System.out::println);
-		System.out.println();
+		// System.out.println();
 	}
 }
