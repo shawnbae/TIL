@@ -20,7 +20,7 @@ class Ex14_6 {
 				.map(s -> s.substring(s.indexOf('.') + 1)) // 확장자만 추출
 				.map(String::toUpperCase) // 모두 대문자로 변환
 				.distinct() // 중복 제거
-				.forEach(System.out::print); // JAVABAKTXT
+				.forEach(System.out::print); // 결과JAVABAKTXT
 
 		System.out.println();
 	}
